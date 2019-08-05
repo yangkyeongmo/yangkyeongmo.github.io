@@ -1,7 +1,7 @@
 ---
 title: "PyInstaller를 사용하며 마주칠 수 있는 에러들"
 date: 2019-08-05 18:35
-categories: quest
+categories: python, pyinstaller
 ---
 목차
 ===
@@ -10,7 +10,7 @@ categories: quest
 
 
 1. PyInstaller
-==============
+======================
 
 PyInstaller?
 ------------
@@ -55,7 +55,7 @@ OS에 독립적인가?
 
 
 2. 가능한 에러들
-================
+==================
 
 아래에서는 PyInstaller를 사용하며 마주친 에러들을 설명합니다.
 
