@@ -2,6 +2,7 @@
 title: "전설로 떠나는 월가의 영웅 독후감"
 date: 2022-02-02 15:35
 categories: book-report
+tags: [finance]
 ---
 
 # 전설로 떠나는 투자의 영웅
