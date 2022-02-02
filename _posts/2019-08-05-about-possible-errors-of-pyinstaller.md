@@ -2,7 +2,7 @@
 title: "PyInstaller를 사용하며 마주칠 수 있는 에러들"
 date: 2019-08-05 18:35
 categories: dev
-tags: [python]
+tags: ["python"]
 ---
 목차
 ===
