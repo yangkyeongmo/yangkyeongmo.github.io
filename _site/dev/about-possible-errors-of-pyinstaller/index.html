@@ -1,0 +1,701 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="kr" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>PyInstaller를 사용하며 마주칠 수 있는 에러들 - 잠이 안와 만든 기술 블로그</title>
+<meta name="description" content="목차         1.Pyinstaller     2.가능한 에러들">
+
+
+  <meta name="author" content="양경모, Gyeongmo Yang (a.k.a. Nathan)">
+  
+  <meta property="article:author" content="양경모, Gyeongmo Yang (a.k.a. Nathan)">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="kr_KR">
+<meta property="og:site_name" content="잠이 안와 만든 기술 블로그">
+<meta property="og:title" content="PyInstaller를 사용하며 마주칠 수 있는 에러들">
+<meta property="og:url" content="http://localhost:4000/dev/about-possible-errors-of-pyinstaller/">
+
+
+  <meta property="og:description" content="목차         1.Pyinstaller     2.가능한 에러들">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-08-05T18:35:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/dev/about-possible-errors-of-pyinstaller/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "양경모, Gyeongmo Yang (a.k.a. Nathan)",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="잠이 안와 만든 기술 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          잠이 안와 만든 기술 블로그
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">양경모, Gyeongmo Yang (a.k.a. Nathan)</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:kyeongmo31@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://planmoji.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Planmoji</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/yangkyeongmo" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/mogyeong_yang" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/gyeongmo-yang-8875671a2/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="PyInstaller를 사용하며 마주칠 수 있는 에러들">
+    <meta itemprop="description" content="목차      1.Pyinstaller    2.가능한 에러들  ">
+    <meta itemprop="datePublished" content="2019-08-05T18:35:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">PyInstaller를 사용하며 마주칠 수 있는 에러들
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="목차">목차</h1>
+<blockquote>
+  <ul>
+    <li>1.Pyinstaller</li>
+    <li>2.가능한 에러들</li>
+  </ul>
+</blockquote>
+
+<ol>
+  <li>
+    <h1 id="pyinstaller">PyInstaller</h1>
+  </li>
+</ol>
+
+<h2 id="pyinstaller-1">PyInstaller?</h2>
+<blockquote>
+  <p>PyInstaller freezes (packages) Python applicaitions into stand-alone executables, under Windows, GNU/Linux, …</p>
+</blockquote>
+
+<p>PyInstaller는 Python 파일을 stand-alone 파일로 만들어줍니다.</p>
+
+<p>stand-alone이라고 하면, 외부 의존 없이 구동될 수 있다는 의미로, python(인터프리터)을 설치하지 않은 환경에서도 동작할 수 있습니다.</p>
+
+<p>따라서 컴퓨터를 모르는 사람에게 (실행 가능한) 파이썬 코드를 전달해줄 때 꽤 유용하게 사용할 수 있고, 그 외 사용하기 나름의 사용방법이 있습니다. 제 경우는 CLI에서 파이썬을 실행할 줄 모르시는 의뢰인에게 전달할 때 사용하거나, GUI 프로그램은 exe로 전달하는 것이 편하기 때문에 사용하고 있습니다.</p>
+
+<h2 id="어떻게-가능한가">어떻게 가능한가?</h2>
+<p>PyInstaller가 이렇게 stand-alone한 프로그램을 전달할 수 있는 것은, python 코드와 python 인터프리터를 한 exe, 또는 한 폴더 안에 복사해넣기 때문입니다.</p>
+
+<p>이를 위해서는 python utility인 Freeze를 이용하는 것으로 보입니다.</p>
+
+<p>Freeze를 이용해서 묶인 모듈을 “Frozen module”이라고 하는데, PyInstaller가 어떤 코드를 frozen module로 만들어서 폴더나 exe 안에 포함시키는 것 같습니다.</p>
+
+<p>stand-alone한 프로그램으로 만들려면 의존성 역시 해결되어야하는데, import문으로 선언된 의존성은 해결할 수 있다고 합니다.</p>
+
+<p>(동적으로 선언된 의존성이나 sys.path의 런타임 변경은 인식할 수 없다고 하니 주의하셔야겠습니다.)</p>
+
+<h2 id="복사했으면-끝">복사했으면 끝?</h2>
+<p>이제 코드, 인터프리터, 모듈 등이 모두 준비되었다면 bootloader가 실행 과정을 돕습니다.</p>
+
+<p>bootloader는 실행 파일의 시작에 불려져서, 임시 폴더를 만들고 임시 환경을 만들며 인터프리터를 복사해서 코드를 실행하게 합니다.</p>
+
+<h2 id="os에-독립적인가">OS에 독립적인가?</h2>
+<p>공식 문서에 따르면 OS에 독립적이지는 않을 수 있다고 합니다.</p>
+
+<p>이것이 python 코드 자체에 의한 것일 수도 있고(ex: 파일 시스템 차이), 현재 환경을 이용해서 exe를 만들기 때문일 수도 있겠습니다.</p>
+
+<p>우선 공식 문서에서는 환경(OS, 32/64비트 등)에 따라 다른 버전을 만들어서 배포할 것을 권장하고 있습니다.</p>
+
+<p>참고로, 현재 환경에서 사용중인 Python 인터프리터를 복사해서 사용하는 것이다 보니, Python 버전에도 신경쓰셔야 합니다.</p>
+
+<ol>
+  <li>
+    <h1 id="가능한-에러들">가능한 에러들</h1>
+  </li>
+</ol>
+
+<p>아래에서는 PyInstaller를 사용하며 마주친 에러들을 설명합니다.</p>
+
+<p>추후 추가될 수 있습니다.</p>
+
+<p>들어가기에 앞서, PyInstaller 사용 시 생성되는 .spec 파일을 살펴보고 인터넷에 관련 지식을 검색하여 사용하는 것을 추천드립니다.</p>
+
+<h2 id="one-file로-생성-시-cli에서는-실행이-되는데-exe-자체는-에러가-나옴">one-file로 생성 시 CLI에서는 실행이 되는데 exe 자체는 에러가 나옴</h2>
+
+<p>다음 코드를 os, sys 모듈 이외의 모듈이 import되기 이전에 추가해주시면 됩니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s">'frozen'</span><span class="p">):</span>
+	<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'PATH'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">_MEIPASS</span> <span class="o">+</span> <span class="s">";"</span> <span class="o">+</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'PATH'</span><span class="p">]</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p><b>hasattr(sys, ‘frozen’)</b> 은 sys 모듈에 frozen이 포함되었는지를 묻는 구문입니다.</p>
+
+<p>sys에 frozen이 포함되어있다면 현재 모듈이 frozen되었다는 것을 의미합니다.</p>
+
+<p>그 다음 줄에서는 os의 환경 변수에 sys._MEIPASS를 추가합니다.</p>
+
+<p>위에서 언급하였듯 bootloader는 임시 폴더를 생성하는데, 이 폴더의 이름이 _MEIxxxxxxx입니다(xxxxxxx는 어떤 숫자).</p>
+
+<p>sys._MEIPASS는 생성된 임시 폴더를 가리키고, 이를 환경 변수에 추가합니다.</p>
+
+<h2 id="qt5coredll이-없음">Qt5Core.dll이 없음</h2>
+
+<p>PyQt5를 사용하면서 겪은 문제이지만, 어떤 dll이 없다는 문구가 나온다면 .spec 파일의 binaries에 추가하시면 됩니다.</p>
+
+<p>다음 차례의 에러도 참고하시면 좋습니다.</p>
+
+<h2 id="여러-binary를-추가">여러 binary를 추가</h2>
+
+<p>다음과 같이 여러 binary를 추가했을 때 에러가 발생했습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">Analysis</span><span class="p">(...</span>
+		<span class="n">binaries</span><span class="p">[</span> <span class="s">'Qt5Core.dll'</span><span class="p">,</span> <span class="s">'Qt5Gui.dll'</span><span class="p">,</span> <span class="s">'Qt5Widgets.dll'</span> <span class="p">],</span>
+		<span class="p">...</span>
+		<span class="p">)</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>다음과 같이 변경했을 때 에러가 발생하지 않았습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">Analysis</span><span class="p">(...</span>
+		<span class="n">binaries</span><span class="p">[</span> <span class="p">(</span><span class="s">'Qt5Core.dll'</span><span class="p">,</span> <span class="s">'.'</span><span class="p">),</span> <span class="p">(</span><span class="s">'Qt5Gui.dll'</span><span class="p">,</span> <span class="s">'.'</span><span class="p">),</span> <span class="p">(</span><span class="s">'Qt5Widgets.dll'</span><span class="p">,</span> <span class="s">'.'</span><span class="p">)</span> <span class="p">],</span>
+		<span class="p">...</span>
+		<span class="p">)</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>binaries에 파일을 추가할 때, (‘파일 이름’, ‘상대 경로’)로 추가해야되는 듯 합니다.</p>
+
+<h2 id="numpyrandomcommon-등이-없다는-에러">numpy.random.common 등이 없다는 에러</h2>
+
+<p>hiddenimports에 추가해서 해결합니다.</p>
+
+<p>제 경우 .spec 파일의 hiddenimports를 다음과 같이 변경했을 때 에러가 나오지 않았습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">Analysys</span><span class="p">(...</span>
+		<span class="n">hiddenimports</span><span class="o">=</span><span class="p">[</span><span class="s">'numpy.random'</span><span class="p">,</span> <span class="s">'numpy.random.common'</span><span class="p">,</span> <span class="s">'numpy.random.bounded_integers'</span><span class="p">,</span> <span class="s">'numpy.random.entropy'</span><span class="p">,]</span>
+		<span class="p">...</span>
+		<span class="p">)</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#dev" class="page__taxonomy-item" rel="tag">dev</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-05T18:35:00+09:00">August 5, 2019</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=PyInstaller%EB%A5%BC+%EC%82%AC%EC%9A%A9%ED%95%98%EB%A9%B0+%EB%A7%88%EC%A3%BC%EC%B9%A0+%EC%88%98+%EC%9E%88%EB%8A%94+%EC%97%90%EB%9F%AC%EB%93%A4%20http%3A%2F%2Flocalhost%3A4000%2Fdev%2Fabout-possible-errors-of-pyinstaller%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdev%2Fabout-possible-errors-of-pyinstaller%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdev%2Fabout-possible-errors-of-pyinstaller%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/dev/hash-function-quest/" class="pagination--pager" title="암호화 해시 함수 의뢰 진행 내용: 암호화 해쉬 함수와 PyQt5
+">Previous</a>
+    
+    
+      <a href="/book/book-report/" class="pagination--pager" title="전설로 떠나는 월가의 영웅 독후감
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/book/book-report/" rel="permalink">전설로 떠나는 월가의 영웅 독후감
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">전설로 떠나는 투자의 영웅
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/dev/hash-function-quest/" rel="permalink">암호화 해시 함수 의뢰 진행 내용: 암호화 해쉬 함수와 PyQt5
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+  
+    1.암호화 해시 함수?
+    2.PyQt5의 사용 가이드
+    3.PyInstaller의 사용 방법
+    4.진행 내용
+  
+
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/test/first-post/" rel="permalink">Welcome to Jekyll!(Test)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Good day!
+def welcome(visitor=you):
+  print("Good day,", you, "!")
+
+My github link: my-github
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 양경모, Gyeongmo Yang (a.k.a. Nathan). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
