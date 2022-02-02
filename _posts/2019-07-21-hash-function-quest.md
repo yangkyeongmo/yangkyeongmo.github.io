@@ -132,13 +132,13 @@ PyQt5의 모든 bin 파일은 Python을 설치하신 폴더에서 가져오는�
 
 예시로 보여주신 그림이 다음과 같았는데, 아마 [온라인 해시 생성기 페이지][7]를 보고 요청하신게 아닌가 싶습니다.
 
-![예시 그림](hash-function-example.jpg)
+![예시 그림](/assets/hash-function-example.jpg)
 
 찾아본 결과 1.암호화 해시 함수 에서 서술한 바와 같이 많은 해시 함수가 있었고, 분명 Python에 라이브러리가 있을것 같아 찾아본 결과 hashlib에서 충분히 많은 암호화 해시 함수를 제공하는 것을 알게되었습니다. 그래서 하는 김에 한 6개 정도는 같이 해드릴 수 있겠다 싶어 진행을 했습니다.
 
 제작 결과는 다음과 같습니다.
 
-![제작 결과](HashEncriptionProgram.gif)
+![제작 결과](/assets/HashEncriptionProgram.gif)
 
 프로그램을 생각보다 간단하게 완성했는데, 전적으로 PyQt5와 hashlib의 간편함덕분이 아니었나 싶습니다.
 
