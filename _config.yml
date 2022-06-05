@@ -6,6 +6,13 @@ baseurl: "" # subpath of the site, e.g. "/blog" (leave it blank "" if you're sit
 description: > # description of the site (multiple lines allowed)
   Interested in learning, reading about techs & doing so much of VR & game.
 
+social:
+  name: Gyeongmo Yang
+  links:
+    - https://github.com/yangkyeongmo
+    - https://www.linkedin.com/in/gyeongmo-yang-8875671a2/
+locale: ko_KR
+
 permalink: /:slug.html
 
 favicon: "logo.png" # name+extension of favicon (which must be put on the root folder)
