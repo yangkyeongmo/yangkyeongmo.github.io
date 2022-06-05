@@ -4,10 +4,11 @@
 entries:
   - title: info
     entries:
-      - title: a (nearly) no-CSS, fast, minimalist Jekyll theme.
-      - title: github repo
-        url: https://github.com/riggraz/no-style-please
-      - title: "used by <a href='https://riggraz.dev'>riggraz.dev</a> and <a href='https://github.com/riggraz/no-style-please/network/dependents'>many others</a>"
+      - title: Interested in learning, reading about techs & doing so much of VR & game.
+      - title: github
+        url: https://github.com/yangkyeongmo
+      - title: linkedin
+        url: https://www.linkedin.com/in/gyeongmo-yang-8875671a2/
 
   - title: all posts
     post_list:
@@ -16,23 +17,20 @@ entries:
       show_more_text: See archive...
       show_more_url: archive.html
 
-  - title: posts by category
+  - title: book
     post_list:
-      category: example2
+      category: book
       show_more: true
       show_more_text: See more posts...
-      show_more_url: example2-archive.html
+      show_more_url: archive.html
+
+  - title: dev
+    post_list:
+      category: dev
+      show_more: true
+      show_more_text: See more posts...
+      show_more_url: archive.html
 
   - title: rss
     url: feed.xml
   
-  - title: another list
-    entries:
-      - title: with subitems
-        entries:
-          - title: with subsubitems
-          - title: example page
-            url: about
-  - title: PRO TIP
-    entries:
-      - title: to edit this menu, edit _data/menu.yml file
