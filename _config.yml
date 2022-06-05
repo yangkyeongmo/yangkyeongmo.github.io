@@ -4,14 +4,14 @@ email: kyeongmo31@gmail.com # email of site's author
 url: https://yangkyeongmo.github.io # root address of the site
 baseurl: "" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
 description: > # description of the site (multiple lines allowed)
-  Working as professional programmer since April, 2020. Currently [@Buzzvil](https://www.buzzvil.com).
+  Interested in learning, reading about techs & doing so much of VR & game.
 
 permalink: /:slug.html
 
 favicon: "logo.png" # name+extension of favicon (which must be put on the root folder)
 goat_counter: "yangkyeongmo-github-io" # put your GoatCounter name if you want to use GoatCounter analytics
 
-theme: no-style-please # if you are using GitHub Pages, change it to remote_theme: riggraz/no-style-please
+remote_theme: riggraz/no-style-please # if you are using GitHub Pages, change it to remote_theme: riggraz/no-style-please
 
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
