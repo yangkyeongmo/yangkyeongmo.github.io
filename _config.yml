@@ -12,6 +12,7 @@ social:
     - https://github.com/yangkyeongmo
     - https://www.linkedin.com/in/gyeongmo-yang-8875671a2/
 locale: ko_KR
+timezone: Asia/Seoul
 
 permalink: /:slug.html
 
