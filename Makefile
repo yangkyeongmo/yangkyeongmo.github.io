@@ -1,4 +1,5 @@
+ENV=development
 build:
-	bundle exec jekyll build
+	JEKYLL_ENV=$(ENV) bundle exec jekyll build
 serve:
-	bundle exec jekyll serve
+	JEKYLL_ENV=$(ENV) bundle exec jekyll serve

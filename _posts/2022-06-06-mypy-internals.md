@@ -262,7 +262,7 @@ expression AST 노드를 타입과 매핑하는 역할. 각 subexpression AST �
 2. if isinstance(variable, Type): 아래에서는 variable의 타입을 무조건 Type 으로 생각한다. 어떻게 하는걸까?(설명 WIP)
     - [mypy code](https://github.com/python/mypy/blob/master/mypy/checker.py#L3592)
 3. 외부 라이브러리에서 정의한 타입은 어떻게 가져다 쓰는걸까?(설명 WIP)
-    - > … The answer is that mypy comes bundled with stub files from the the typeshed project, which contains stub files for the Python builtins, the standard library, and selected third-party packages.
+    > … The answer is that mypy comes bundled with stub files from the the typeshed project, which contains stub files for the Python builtins, the standard library, and selected third-party packages.
         - [mypy wiki](https://mypy.readthedocs.io/en/stable/getting_started.html#stubs-files-and-typeshed)
 
 # Ideas
