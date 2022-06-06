@@ -1,6 +1,6 @@
 ---
 title: "Mypy internals"
-date: 2022-06-06 13-25
+date: 2022-06-06 13:25
 categories: dev
 tags: ["python"]
 ---
