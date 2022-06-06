@@ -139,7 +139,6 @@ PEG는 parsing expression grammar의 약자로, parsing expression을 사용한 
 
  Zero or more나 one or more에서도 LL grammar와 PEG의 차이를 볼수 있는데 LL(k) grammar는 유한한한 lookahead를 사용하는 반면 PEG grammar는 input 개수에 비례하는 lookahead를 사용할 수 있기 때문에 메모리 사용량이 input에 비례한다.
 
-
  다른 expression들은 조건이 만족하면 input을 소모하는 반면 and나 not expression은 semantic predicate 라고 불리는 input 을 소모하지 않는 expression이다.
  흔히 알고있는 boolean expression과 비슷하게, and 는 조건이 만족하면 pass하고 아니면 앞으로 계속 backtrack하도록 보낸다(바로 정지시키는것 아님!)
 
@@ -159,8 +158,12 @@ PEG는 parsing expression grammar의 약자로, parsing expression을 사용한 
 
 ## 현재 LL(1) parser로 해결하기 어려운 문제
 
+### Left recursion
+
  일단 left recursion이 안 됨.
  LL(1)으로 하면 left recursion 했을 때 무한정 반복되다보니 중간에 끊어주지 않으면 활용할 수 없다.
+
+### Code generator 수정 필요
 
  문법을 수정하면 parse tree의 모양이 바뀌다보니까 code generator도 수정해야한다고 한다.
  문제는 code generator가 수정하기 꽤 어렵다고 한다.
@@ -172,21 +175,31 @@ PEG는 parsing expression grammar의 약자로, parsing expression을 사용한 
 
 ## PEG로 넘어갔을 때 이점들
 
+### Left recursion
+
  left recursion 가능하다.
  이게 클래식한 PEG로는 원래 불가능한데, recursion 한계를 걸면 가능하다고 한다.
  설명이 딱히 없어서 잘 모르지만 첫 번째 match에서 left recursion이 발생했을 때, 최대 recursion에 도달하면 그냥 버리고 다음 match로 이동하는 방식이라고 했던것 같다.
  LL 에서는 ordered choice라던가 backtrack 하는게 없으니까 아마 불가능했을 것.
  이걸 구현한 이론적 베이스가 있는데 그쪽에 따르면 이론적으로 가능하다고 한다.
 
+### 성능 개선
+
  귀도가 발표할 때만 해도 C로 컴파일했을 때 속도는 거의 비슷하고 메모리는 조금 더 먹었다고 한다.
  메모리는 요새 싸니까 별 문제가 안 된다고 생각했다나봄. PEG 릴리즈 발표한 PEP에 따르면 원래 파서보다 성능이 10% 정도 된다고 하는데 실제로 그런지는 잘 모르겠다.
+
+### 더 강력한 해석
 
  메모리는 더 먹어도 LL(1) 파서보다 더 강력하게 해석할 수 있다.
  위에서 본 것처럼 PEG는 expression 기반으로 해석하고 infinite lookahead 사용하기 때문.
 
+### 더 자연스러운 문법
+
  LL 사용하는 것보다 문법이 더 자연스러워지는데, 원래 LL 사용했을 때 문법적으로 문제가 있는 부분은 약간 변경해서 사용하는 게 있었다고 한다.
  PEG 사용하면 문법적으로 해소되는 부분이 있다보니 minor tweak들을 사용하지 않아도 자연스럽게 문법을 나타낼 수 있다고 한다.
  이게 우리에게 실질적으로 도움을 주는 부분은 문법 문서를 가지고 실제 구현을 예측할 때인데, 문법 문서가 구현과 동일하다고 얘기는 하지만 사실 그렇지 않다고 한다.
+
+### Grammar action
 
  Grammar action 이라는 것을 사용해서 AST를 바로 생성할 수 있는것도 장점이다.
  이 덕분에 PEG 파서를 사용하면 CST와 번역기 프로그램을 사용하지 않아도 되는데 유지보수 측면에서 이점이 있을것이라고 함. 
