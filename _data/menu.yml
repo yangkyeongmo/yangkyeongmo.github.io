@@ -9,16 +9,16 @@ entries:
       - title: linkedin
         url: https://www.linkedin.com/in/gyeongmo-yang-8875671a2/
 
-  - title: book
+  - title: dev
     post_list:
-      category: book
+      category: dev
       show_more: true
       show_more_text: See more posts...
       show_more_url: archive.html
 
-  - title: dev
+  - title: book
     post_list:
-      category: dev
+      category: book
       show_more: true
       show_more_text: See more posts...
       show_more_url: archive.html
