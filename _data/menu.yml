@@ -30,7 +30,7 @@ entries:
       show_more_text: See archive...
       show_more_url: archive.html
   
-  - title: life dashboard
+  - title: personal dashboard
     url: dashboard.html
 
   - title: rss
