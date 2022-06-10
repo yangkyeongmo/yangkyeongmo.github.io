@@ -55,4 +55,8 @@ tags: ["html"]
 ## 실행 예시
 
 ![메인 화면](/assets/img/html-dialog/main-page.jpg)
+HTML 초기 화면.
+
 ![dialog 오픈](/assets/img/html-dialog/dialog-open.jpg)
+"Open a modal" 버튼 클릭 시 나오는 화면.
+backdrop 에 들어간 배경 색이 이 모달 뒤의 배경 색을 변경한 것을 확인할 수 있다.
