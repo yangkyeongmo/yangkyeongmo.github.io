@@ -11,6 +11,10 @@
     {%-if site.goat_counter and jekyll.environment == "production"-%}
       {%-include goat_counter.html-%}
     {%-endif-%}
+    
+    {%-if site.google_analytics and jekyll.environment == "production"-%}
+      {%-include google_analytics.html-%}
+    {%-endif-%}
 
     {% if page.custom_js %}
       {% for js_file in page.custom_js %}
