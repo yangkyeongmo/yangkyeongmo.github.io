@@ -101,10 +101,24 @@ Mypy의 semantic analysis는 만들어진 AST 노드들에 이름을 채워넣�
 이 namespace는 파일, 클래스, 함수 단위로 지정됩니다.
 이 때 글로벌 변수들은 global namespace에 따로 지정되기도 합니다.
 
+```
+SemanticAnalyzer
+    globals: SymbolTable
+    locals: List[SymbolTable]
+```
+
 ## SymbolTableNode
 
 `SymbolTable`이라는 dictionary의 값으로 실제로 들어가는건 `SymbolTableNode`입니다.
 `SymbolTableNode`는 `SymbolNode`에 정의된 범위를 추가한 것이라고 보셔도 됩니다.
+
+```
+SymbolTable
+    - SymbolTableNode
+        - SymbolNode
+        - scope(global, local, member)
+    - ...
+```
 
 ## SymbolNode
 
@@ -117,12 +131,22 @@ Mypy의 semantic analysis는 만들어진 AST 노드들에 이름을 채워넣�
 
 의미 분석의 동작은 예시를 통해 보겠습니다. 미리 알려드리자면 실제로는 순서가 조금 다를 수 있는데, 이해하기 쉽게 재구성했습니다.
 
-이 `a = b` 라는 예시 문장 자체는 `AssignmentStatement`, 그러니까 할당하는 statement에 해당합니다.
+이 `a = b` 라는 예시 문장 자체는 `AssignmentStatement`, 그러니까 할당하는 statement에 해당합니다
+
 그럼 `SemanticAnalyzer`가 `visit_assignment_statement` 에서 이 statement를 해석합니다.
 
 이 함수 안에서 `SemanticAnalyzer`가 `a`의 fullname 정보를 해석하는데요, 이 정보가 `SymbolNode`라는 새로운 객체로 감싸져서 `NameExpr`에 할당됩니다.
 이 때 만들어지는 `SymbolNode`는 구체적으로는 변수를 나타내는 `Var` 객체이겠습니다.
 이 과정에서 `NameExpr`이 전역 변수인지 지역 변수인지 같은 다른 정보도 할당됩니다.
+
+여기까지 오면 이렇게 표현할 수 있겠습니다.
+
+```
+a -> NameExpr
+    - Var(name='a', fullname='some.module.a', ...)
+b -> NameExpr
+    - Var(name='b', fullname='some.module.b', ...)
+```
 
 `SemanticAnalyzer`가 의미 분석을 해서 fullname같은 정보를 얻은건 좋은데, 효율적으로 하려면 이미 해석한 정보는 넣어둬야겠죠?
 그 정보가 `SymbolTable`에 들어갑니다. `SymbolTable`은 이름과 `SymbolNode`를 매핑한 테이블이에요.
@@ -130,21 +154,59 @@ Mypy의 semantic analysis는 만들어진 AST 노드들에 이름을 채워넣�
 
 이 SymbolTable은 하나의 namespace, 예를 들어서 클래스 범위나 함수 범위마다 하나씩 있다고 보시면 됩니다.
 
-그런데 `SymbolTable`이 `SymbolNode`를 직접 매핑하지는 않구요, `SymbolTableNode`라는 객체와 매핑됩니다.
+그런데 위에서 보았듯 `SymbolTable`이 `SymbolNode`를 직접 매핑하지는 않구요, `SymbolTableNode`라는 객체와 매핑됩니다.
 이 `SymbolTableNode`가 나타내는건 `SymbolNode`와 그것이 정의된 범위입니다.
 
 왜냐면 저장할 때 전역 정의가 된 `a`와 함수 안에서 지역 정의가 된 `a`가 있을 때 둘은 같은 모양으로 나타납니다.
 그래서 `SymbolTableNode`라는 객체가 대상이 정의된 범위도 포함하면서 `SymbolNode`를 참조하는 형태로 생성됩니다.
 
+예를 들어, 이런 코드가 있을 때
+```python
+a = 1
+def f():
+    a = 2
+```
+
+`a = 1`에서 `a`는 전역 변수이고, `a = 2`에서 `a`는 함수 `f`의 지역 변수입니다.
+이 둘은 이름이 같아서 `SymbolNode`로는 구분할 수 없습니다.
+그래서 `SymbolTableNode`라는 객체를 만들어서 `SymbolNode`와 `scope`라는 정보를 함께 저장합니다.
+`scope`는 `SymbolNode`가 정의된 범위를 나타내는 정보입니다.
+
+표현해보면 이렇습니다.
+```
+SymbolTable(globals)
+    a -> SymbolTableNode
+        - SymbolNode
+            - Var(name='a', fullname='some.module.a', ...)
+        - scope: global
+SymbolTable(locals)
+    a -> SymbolTableNode
+        - SymbolNode
+            - Var(name='a', fullname='some.module.a', ...)
+        - scope: local
+```
+
 이것을 `SymbolTable`에 할당하면 이후에 `SemanticAnalyzer`가 다른 대상을 해석할 때 변수 `a`를 참조할 수 있게 됩니다.
+
+여기까지는 이렇게 표현할 수 있겠습니다.
+
+```
+SemanticAnalyzer
+    SymbolTable
+        a -> SymbolTableNode
+            - SymbolNode
+                - Var(name='a', fullname='some.module.a', ...)
+            - scope: global
+        b -> SymbolTableNode
+            - SymbolNode
+                - Var(name='b', fullname='some.module.b', ...)
+            - scope: global
+```
 
 # Wrap up
 
-Mypy는 Python 코드의 타입 체크를 지원하는 정적 타입 검사기입니다.
-이를 위해서는 코드를 AST(Abstract Syntax Tree)로 변환하고, 이후에 AST를 분석하여 타입 체크를 수행합니다.
-이때 AST를 분석하는 과정에서는 `SemanticAnalyzer` 클래스를 중심으로 `SymbolTable`, `SymbolTableNode`, `SymbolNode` 등의 객체를 사용하여 변수, 함수, 클래스 등의 이름과 범위를 저장하고 참조합니다.
-이를 통해 타입 체크를 수행하면서 정확한 변수, 함수, 클래스 등의 의미를 파악하고, 이를 기반으로 타입 체크를 수행합니다.
-이러한 과정을 통해 Mypy는 Python 코드의 타입 체크를 보다 정확하고 안정적으로 수행할 수 있게 됩니다.
+이번 포스트에서는 mypy의 semantic analysis가 어떻게 동작하는지 살펴봤습니다.
 
-이 단계가 끝나면 타입 체크를 수행할 준비가 끝납니다.
-다음 포스트에서 이 과정을 살펴보겠습니다.
+그렇다면 이 정보를 가지고 mypy는 어떻게 타입 체크를 할까요?
+
+다음 포스트([Mypy의 동작 방식: #4 타입 체크]({% post_url 2023-07-24-mypy-4-typecheck %}))에서는 이 semantic analysis의 결과를 가지고 타입 체크를 하는 방법을 살펴보겠습니다.
