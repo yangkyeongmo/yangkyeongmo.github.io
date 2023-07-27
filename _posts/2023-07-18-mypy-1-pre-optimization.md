@@ -11,15 +11,15 @@ tags: ["python"]
 
 이 포스트는 아래 포스트들로 연결됩니다.
 
-[Mypy의 동작 방식: #1 진행 전 최적화(현재 글)](./2023-07-18-mypy-1-pre-optimization.md)
+[Mypy의 동작 방식: #1 진행 전 최적화(현재 글)]({% post_url 2023-07-18-mypy-1-pre-optimization %})
 
-[Mypy의 동작 방식: #2 파일 파싱](./2023-07-23-mypy-2-parsing.md)
+[Mypy의 동작 방식: #2 파일 파싱]({% post_url 2023-07-23-mypy-2-parsing %})
 
-[Mypy의 동작 방식: #2-side mypy는 AST가 왜 필요할까?](./2023-07-23-mypy-2-1-why-ast.md)
+[Mypy의 동작 방식: #2-side mypy는 AST가 왜 필요할까?]({% post_url 2023-07-23-mypy-2-1-why-ast %})
 
-[Mypy의 동작 방식: #3 의미 분석](./2023-07-24-mypy-3-semanal.md)
+[Mypy의 동작 방식: #3 의미 분석]({% post_url 2023-07-24-mypy-3-semanal %})
 
-[Mypy의 동작 방식: #4 타입 체크](./2023-07-24-mypy-4-typecheck.md)
+[Mypy의 동작 방식: #4 타입 체크]({% post_url 2023-07-24-mypy-4-typecheck %})
 
 # Overview
 
@@ -135,7 +135,7 @@ Fresh한 모듈은 이 cache를 그대로 가져다가 해석에 사용할 수 �
 
 실행할 모듈 순서를 결정했다면, 본격적으로 타입 체크를 시작해야합니다.
 
-mypy는 타입 체크를 어떻게 할까요? 그 과정의 시작을 다음 포스트([Mypy의 동작 방식: #2 파일 파싱](./2023-07-23-mypy-2-parsing.md))에서 알아보겠습니다.
+mypy는 타입 체크를 어떻게 할까요? 그 과정의 시작을 다음 포스트([Mypy의 동작 방식: #2 파일 파싱]{% post_url 2023-07-23-mypy-2-parsing %})에서 알아보겠습니다.
 
 
 # Appendix

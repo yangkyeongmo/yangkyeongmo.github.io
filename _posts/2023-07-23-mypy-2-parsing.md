@@ -7,23 +7,23 @@ tags: ["python"]
 
 # Introduction
 
-이 포스트에서는 [mypyind](https://github.com/yangkyeongmo/mypyind)를 작성하면서 mypy에 대해 부차적으로 공부했던 내용들을 정리했습니다.
+이 포스트에서는 대규모 파이썬 프로젝트에서 특정 함수의 호출자를 찾는 [mypyind](https://github.com/yangkyeongmo/mypyind)를 작성하면서 mypy에 대해 부차적으로 공부했던 내용들을 정리했습니다.
 
 이 포스트는 아래 포스트들로 연결됩니다.
 
-[Mypy의 동작 방식: #1 진행 전 최적화](./2023-07-18-mypy-1-pre-optimization.md)
+[Mypy의 동작 방식: #1 진행 전 최적화]({% post_url 2023-07-18-mypy-1-pre-optimization %})
 
-[Mypy의 동작 방식: #2 파일 파싱(현재 글)](./2023-07-23-mypy-2-parsing.md)
+[Mypy의 동작 방식: #2 파일 파싱(현재 글)]({% post_url 2023-07-23-mypy-2-parsing %})
 
-[Mypy의 동작 방식: #2-side mypy는 AST가 왜 필요할까?](./2023-07-23-mypy-2-1-why-ast.md)
+[Mypy의 동작 방식: #2-side mypy는 AST가 왜 필요할까?]({% post_url 2023-07-23-mypy-2-1-why-ast %})
 
-[Mypy의 동작 방식: #3 의미 분석](./2023-07-24-mypy-3-semanal.md)
+[Mypy의 동작 방식: #3 의미 분석]({% post_url 2023-07-24-mypy-3-semanal %})
 
-[Mypy의 동작 방식: #4 타입 체크](./2023-07-24-mypy-4-typecheck.md)
+[Mypy의 동작 방식: #4 타입 체크]({% post_url 2023-07-24-mypy-4-typecheck %})
 
 # Overview
 
-Mypy가 타입 체크를 하기 위해 [첫 번째 단계](./2023-07-18-mypy-1-pre-optimization.md)에서는 방문할 모듈의 순서를 결정했습니다.
+Mypy가 타입 체크를 하기 위해 [첫 번째 단계]({% post_url 2023-07-18-mypy-1-pre-optimization %})에서는 방문할 모듈의 순서를 결정했습니다.
 
 그렇다면 타입 체크를 해야할텐데, 코드를 어떻게 해석해야 타입 체크를 할 수 있을까요?
 
@@ -33,7 +33,7 @@ Mypy가 타입 체크를 하기 위해 [첫 번째 단계](./2023-07-18-mypy-1-p
 
 mypy가 코드를 해석하기 위해서는 코드가 구조화된 형태로 만들어져야 합니다. 구조화하기 위해 mypy는 코드를 AST로 변환합니다.
 
-다른 구조가 아닌 AST로 변환하는 자세한 이유는 [Mypy의 동작 방식: #2-side mypy는 AST가 왜 필요할까?](./2023-07-23-mypy-2-1-why-ast.md)에서 살펴보겠습니다.
+다른 구조가 아닌 AST로 변환하는 자세한 이유는 [Mypy의 동작 방식: #2-side mypy는 AST가 왜 필요할까?]({% post_url 2023-07-23-mypy-2-1-why-ast %})에서 살펴보겠습니다.
 
 이유를 간단하게 알아보자면 저희가 자주 사용하는 컴퓨터 언어들은 formal grammar를 바탕으로 했고, formal grammar로 만든 문장은 트리 형태로 해석할 수 있습니다. 해석한 결과를 구조적 형태만 나타내도록 바꾼 것이 AST입니다.
 
@@ -79,7 +79,7 @@ ast의 노드와 mypy가 새로 만든 노드는 의미가 크게 다르지는 �
 이번 포스트에서는 mypy가 코드를 해석하기 위해 AST를 만든다는 것을 살펴보았습니다.
 
 그렇다면 mypy는 왜 AST를 필요로 할까요?
-그 내용을 다음 포스트([Mypy의 동작 방식: #2-side mypy는 AST가 왜 필요할까?](./2023-07-23-mypy-2-1-why-ast.md))에서 살펴보겠습니다.
+그 내용을 다음 포스트([Mypy의 동작 방식: #2-side mypy는 AST가 왜 필요할까?]({% post_url 2023-07-23-mypy-2-1-why-ast %}))에서 살펴보겠습니다.
 
 이 단계에서 AST를 만드는 방법을 살펴보았는데요, 그렇다면 AST를 어떻게 사용할까요?
-그 내용을 이후 포스트([Mypy의 동작 방식: #3-side mypy는 AST를 어떻게 사용할까?](./2023-07-23-mypy-3-1-how-to-use-ast.md))에서 살펴보겠습니다.
+그 내용을 이후 포스트([Mypy의 동작 방식: #3-side mypy는 AST를 어떻게 사용할까?]({% post_url 2023-07-24-mypy-3-semanal %}))에서 살펴보겠습니다.
