@@ -63,7 +63,6 @@ Mypy의 semantic analysis 단계에서는 변수 등의 정확한 의미를 알�
 # 클래스 구조
 
 Mypy의 semantic analysis는 `SemanticAnalyzer` 클래스를 중심으로 진행됩니다.
-SemanticAnalyzer는 
 
 ## SemanticAnalyzer
 
