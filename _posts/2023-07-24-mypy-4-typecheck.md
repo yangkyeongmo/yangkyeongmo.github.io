@@ -40,7 +40,7 @@ tags: ["python"]
 각 클래스는 AST를 해석하므로 이 클래스들 또한 visitor pattern을 이용합니다.
 각 클래스는 아래와 같은 역할을 합니다.
 
-## `TypeChecker`
+## TypeChecker
 
 `TypeChecker`는 statement에 대한 체크를 하고, 그 외에 특화된 타입 체크는 다른 객체에게 위임합니다.
 파이썬에서 statement는 `a + b`와 같은 산술 연산이나 `if a: ...`와 같은 if 문 등을 의미합니다.
