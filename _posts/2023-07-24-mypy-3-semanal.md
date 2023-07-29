@@ -28,7 +28,7 @@ tags: ["python"]
 이 글에서는 Mypy의 동작 방식 중 하나인 의미 분석(Semantic Analysis)에 대해 다룹니다.
 Mypy는 Python 코드의 타입 체크를 지원하는 정적 타입 검사기입니다.
 이를 위해서는 코드를 AST(Abstract Syntax Tree)로 변환하고, 이후에 AST를 분석하여 타입 체크를 수행합니다.
-이때 AST를 분석하는 과정에서는 SemanticAnalyzer 클래스를 중심으로 SymbolTable, SymbolTableNode, SymbolNode 등의 객체를 사용하여 변수, 함수, 클래스 등의 이름과 범위를 저장하고 참조합니다.
+이때 AST를 분석하는 과정에서는 `SemanticAnalyzer` 클래스를 중심으로 `SymbolTable`, `SymbolTableNode`, `SymbolNode` 등의 객체를 사용하여 변수, 함수, 클래스 등의 이름과 범위를 저장하고 참조합니다.
 
 # 의미 분석?
 

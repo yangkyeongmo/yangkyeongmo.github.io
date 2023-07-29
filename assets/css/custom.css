@@ -1,0 +1,10 @@
+code {
+    background: #222;
+}
+
+code.language-plaintext {
+    background: none;
+    color: brown;
+    font-style: italic;
+    font-family: monospace;
+}
