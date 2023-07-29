@@ -4,7 +4,7 @@ email: kyeongmo31@gmail.com # email of site's author
 url: https://yangkyeongmo.github.io # root address of the site
 baseurl: "" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
 description: > # description of the site (multiple lines allowed)
-  Interested in learning, reading about techs & doing so much of VR & game.
+  Interested in learning, reading about techs & digging deep.
 
 social:
   name: Gyeongmo Yang

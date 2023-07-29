@@ -14,31 +14,33 @@ entries:
   - title: dev
     post_list:
       category: dev
+      limit: 5
       show_more: true
-      show_more_text: See more posts...
+      show_more_text: More...
       show_more_url: archive.html
 
   - title: book
     post_list:
       category: book
+      limit: 5
       show_more: true
-      show_more_text: See more posts...
+      show_more_text: More...
       show_more_url: archive.html
 
   - title: misc
     post_list:
       category: misc
-      show_more: false
+      limit: 5
+      show_more: true
+      show_more_text: More...
+      show_more_url: archive.html
 
   - title: all posts
     post_list:
       limit: 5
       show_more: true
-      show_more_text: See archive...
+      show_more_text: More...
       show_more_url: archive.html
-  
-  - title: personal dashboard
-    url: dashboard.html
 
   - title: rss
     url: feed.xml
