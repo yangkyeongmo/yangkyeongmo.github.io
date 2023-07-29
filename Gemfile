@@ -2,7 +2,9 @@
 
 source "https://rubygems.org"
 
-gem "kramdown-parser-gfm"
+gem "kramdown"  # markdown parser
+gem "kramdown-parser-gfm"  # github flavored markdown
+gem "rouge"  # syntax highlighting
 
 gemspec
 gem "jekyll", "~> 3.9"
