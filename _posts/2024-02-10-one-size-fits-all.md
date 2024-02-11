@@ -5,14 +5,9 @@ categories: paper
 tags: ["data"]
 ---
 
-# TL;DR
-
-- OLTP DBMS만 써서 모든 workload에 대응하는 것은 비효율적이다.
-- OLAP database는 OLTP와 usecase가 다르고 그에 따라 효율적으로 구현할 수 있는 방법도 다르다.
-
 # 요약
 
-이 논문에서는 one size fits all이라는, 2005년 시점에서 바라본 DB 시장의 현황을 나타내는 글귀를 중심으로 OLTP DBMS만 사용하거나 한 가지 제품만 사용해서 모든 workload에 대응하는 것이 왜 무의미한지 주장하고 있음.
+이 논문에서는 one size fits all이라는, 2005년 시점에서 바라본 DB 시장의 현황을 나타내는 글귀를 중심으로 OLTP DBMS만 사용하거나 한 가지 제품(인터페이스)만 사용해서 모든 workload에 대응하는 것이 왜 무의미한지 주장하고 있음.
 
 논문에서는 stream processing에 다소 무게를 더 싣고 있는데, 본인의 관심사는 왜 한 가지 DB로 모든 workload에 대응할 수 없는지에 있으니 자세한 내용이 궁금하다면 논문을 참조바람.
 
@@ -33,8 +28,8 @@ subset of promised functionality") 까는데, 그럼에도 ROI는 나왔다고 �
   - (ROI를 어떻게 측정했는지도 궁금한데, 이 부분은 다음에.)
 
 사족) 빅 데이터 툴(e.g. Spark)까지 사용하지 않아도 될 경우가 많을 수 있다는 주장들을 여럿 찾을 수 있다.
-- [Scalability! But at what COST?](https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf) 빅 데이터 도구를 사용하는 것보다 노트북에서 싱글 스레드로 돌리는게 더 빠르다는 결론 
-- [BIG DATA IS DEAD](https://motherduck.com/blog/big-data-is-dead/) "빅 데이터"라고 할 정도로 많은 데이터를 가진 기업은 잘 없다는 주장 
+- [Scalability! But at what COST?](https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf): 빅 데이터 툴을 사용하는 것 대비 노트북에서 싱글 스레드로 실행하는 것이 더 빠를 수 있는 사례
+- [BIG DATA IS DEAD](https://motherduck.com/blog/big-data-is-dead/): "빅 데이터"라고 할 정도로 많은 데이터를 가진 기업은 잘 없다는 주장 
   - "DuckDB"라는, in-memory OLAP DB를 만드는 회사의 주장이지만 설득력있다.
 
 Data warehouse라는 OLAP 유즈케이스가 등장하면서도 한 데이터베이스만 사용해서 홍보하려는 시도가 있었던 듯. 예를 들어 OLTP DBMS와 OLAP DBMS를 한 프론트엔드에 결합시켜서 한 시스템으로 판매하는 경우.
