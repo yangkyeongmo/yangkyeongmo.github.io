@@ -14,22 +14,14 @@ entries:
   - title: dev
     post_list:
       category: dev
-      limit: 10
-      show_more: true
-      show_more_text: More...
-      show_more_url: archive.html
-
-  - title: book
-    post_list:
-      category: book
       limit: 5
       show_more: true
       show_more_text: More...
       show_more_url: archive.html
 
-  - title: misc
+  - title: paper
     post_list:
-      category: misc
+      category: paper
       limit: 5
       show_more: true
       show_more_text: More...
