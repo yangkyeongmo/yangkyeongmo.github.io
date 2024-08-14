@@ -1,6 +1,6 @@
 ---
 title: "A barrier called 'Experience'"
-date: 2024-07-31 11:00
+date: 2024-08-14 10:00
 categories: misc
 tags: ["problems"]
 ---
