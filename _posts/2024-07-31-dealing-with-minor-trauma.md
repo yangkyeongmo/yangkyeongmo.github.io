@@ -1,7 +1,7 @@
 ---
 title: "Dealing with minor trauma"
 date: 2024-07-31 11:00
-categories: jorunal
+categories: misc
 tags: ["journal"]
 ---
 
