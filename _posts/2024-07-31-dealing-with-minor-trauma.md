@@ -9,7 +9,7 @@ It definitely sucks. Only hopeful thing is that it's **minor**. Here I'm talking
 
 One connection between a traumatic experience and actual medical trauma is that it lasts. After you experience it, things get really hard to get that off. Let's find some examples from what I know. Losing leg is an extreme example. If it's done, I'm sorry but there's no going back. And here's a very mild one: dealing with stubborn boss.
 
-My second workplace wasn't really a good experience in retrospect. I was one of the people who left the company when they made us voluntarily leave when they failed to do IPO. I know what you're going to say, e.g. actually I'm forced to leave, but for me it **was** voluntary. Kind of. But keeping that aside other memories weren't that good either. Especially the ones within first three months.
+These days I feel kind of bitter about my second workplace. I was one of the people who left the company when they made us voluntarily leave when they failed to do IPO. I know what you're going to say, e.g. actually I'm forced to leave, but for me it **was** voluntary. Kind of. But keeping that aside other memories weren't that good either. Especially the ones within first three months.
 
 When I was in my first workplace I wanted to go somewhere that makes a product that I use. Now I realize such thing doesn't matter very much to me, but then I somehow believed being part of maker of a product I use will automatically make me love working in there too. That might have been a good choice, but I made two mistakes here. One, I didn't use that product very much. Two, I wasn't really a fan of it.
 
