@@ -11,4 +11,4 @@ When you want to create a beautiful piece of art, no you can't. You should learn
 Do you want to engineer your computer? No, you can't. You should learn more.
 
 Internet and AI are partially helping on this problem.
-While they are extremely helpful than not having those, problem still exists.
+While they are extremely helpful than not having those, the problem persists.
