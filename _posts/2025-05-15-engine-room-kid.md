@@ -18,9 +18,3 @@ Not many things aren't at least semi-perpetual in real world and so is any indus
 Ego is one of the biggest enemy to self development. It might make you like your sacred manual work. Worse part is it might blind you from moving away. But fortunately, I think this industry has already introduced the best practice for this situation. If someone is blind, another person can be their eye. We already know some methods to have a look at what others are doing. Do periodic stand-up, have some coffee chat, and do some bi-weekly retrospective meeting. Solving their problem and relieving from their labor would be the best, but we don't usually expect others to do that in business situation. Just poking the person to tell the truth you see might change their view. Be like Kurtis if you can. Save the kid, but expect some tradeoffs. But if you can't, that fine. Just tell them they don't have to be there.
 
 Things doesn't get scary until *you*'re asked to become the engine room kid. Since the engine must keep rolling, or in other words the show must go on, someone must take the key. When that happens and no one has prepared for it, same situation goes on and on. You don't have to do that.
-
-
-
-
-
-

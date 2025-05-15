@@ -1,7 +1,7 @@
 ---
 title: "One Size Fits All-An Idea Whose Time Has Come and Gone, Michael Stonebraker et. al, 2005"
 date: 2024-02-10 11:00
-categories: paper
+categories: dev
 tags: ["data"]
 ---
 

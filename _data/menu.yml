@@ -15,17 +15,22 @@ entries:
       - title: Need some simple apps?
         url: https://apps.gmyang.dev/
 
-  - title: dev
+  - title: highlights
+    entries:
+      - title: 파이콘 한국 2023에서 발표하게 되었습니다!
+        url: /i-present-on-pycon-2023.html
+
+  - title: opinion
     post_list:
-      category: dev
+      category: opinion
       limit: 5
       show_more: true
       show_more_text: More...
       show_more_url: archive.html
 
-  - title: paper
+  - title: dev
     post_list:
-      category: paper
+      category: dev
       limit: 5
       show_more: true
       show_more_text: More...
