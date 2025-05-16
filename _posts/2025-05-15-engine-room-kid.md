@@ -5,8 +5,6 @@ categories: opinion
 tags: ["opinion"]
 ---
 
-# Engine Room Kid
-
 ![engine-room-kid.png](/assets/img/2025-05-15-engine-room-kid/engine-room-kid.png)
 
 Have you seen the movie "*Snowpiercer*"? If it's first time hearing about this movie, let me help you. "Snowpiercer" is name of a perfectly designed train. It's designed to survive an eternal winter. It's supposed to run like forever. (Sounds kind of like a dream of every engineer, right?).
