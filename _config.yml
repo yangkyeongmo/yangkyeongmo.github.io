@@ -4,7 +4,7 @@ email: kyeongmo31@gmail.com # email of site's author
 url: https://yangkyeongmo.github.io # root address of the site
 baseurl: "" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
 description: > # description of the site (multiple lines allowed)
-  Hi, I'm Gyeongmo Yang. I've worked as a software engineer since 2019.
+  Hi, I'm Gyeongmo Yang, usually called Nathan in workplaces. I've worked as a software engineer since 2019.
   Here's where my thoughts become concrete, public words.
   If you'd like to know more about me, please find me by the links below.
 
