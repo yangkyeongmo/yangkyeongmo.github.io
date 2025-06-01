@@ -17,8 +17,6 @@ MCP reduces the redundancy caused from lack of common protocol. If a developer o
 
 There were such things like MCP indeed, ChatGPT Apps for example. However using the framework was too bounded to one platform. Like such, there were some approaches. But MCP has gone viral so much since its reveal. My guess is: 1. It's open source 2. It's client-server model, which leverages well developed existing model 3. It's extremely generic. Also, there's one more reason.. it just makes sense.
 
-## Strengths
-
 Anthropic has open sourced their implementations. Traditionally giving something away free has given a unique benefit compared to closed-sourcing, fast distribution. It's a protocol anyways. If they want it to be a standard, people should be using it. Just like HTTP. Imagine there wasn't a RFC for HTTP. Who could implement it by themselves and make http server framework? So, open sourcing was a great idea. I guess they didn't have other choices though.
 
 MCP is using client-server model. I assumed this must have attributed to its success quite much because that's extremely general. So, you have an existing system? Wrap it with a server! It's that easy. This model has prevailed since the very start of IT industry. The way MCP client is viewing MCP server is just like how a server would view a database. MCP server is an interface to its data, so it's effectively a database for LLMs, or MCP clients to be specific. This explains how MCP is extremely generic too. Just think how variant server and databases there are.
