@@ -1,5 +1,5 @@
 ---
-title: "Why Django Ninja Slowed Us Down and the Simple Fix That Saved 30% Latency"
+title: "Why Django Ninja Slowed Us Down and the Simple Fix That Saved 30% of Our Search API's Response Latency"
 date: 2023-09-07 20:14:00
 categories: dev
 tags: ["performance"]
@@ -7,7 +7,7 @@ tags: ["performance"]
 
 Have you ever noticed that sometimes, when handling requests and generating responses from a search API, the CPU time seems unusually long compared to the actual Elasticsearch query? It’s a frustrating anomaly, especially when you're expecting the system to fly through the tasks. I’ve encountered this myself while dealing with response generation in Django Ninja. Even after switching from `dataclass` to `pydantic` and back to `dataclass` (yes, this has happened), the problem persisted. Given that Django Ninja uses `pydantic` for requests and responses, I suspected the culprit was something lurking within the framework itself.
 # Profiling with Py-spy
-To get a clearer picture, I turned to `py-spy` ([GitHub link](https://github.com/benfred/py-spy)), a lightweight profiler. The results were eye-opening. Below, you can see a snapshot from around 10 API calls. On the far right, we can spot the `_result_to_response` function — the segment responsible for building the response. Though it didn’t show exact latency, this process was taking almost as long as the actual `product` query.
+To get a clearer picture, I turned to `py-spy` ([GitHub link](https://github.com/benfred/py-spy)), a lightweight profiler. The results were eye-opening. Below, you can see a snapshot from around 10 API calls. On the far right, we can spot the `_result_to_response` function — the segment responsible for building the response. Though it didn’t show exact latency, this process was taking almost as long as the actual search query.
 
 ![django-ninja-performance-0.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-0.png)
 
@@ -18,7 +18,7 @@ In this snapshot:
 
 ![django-ninja-performance-1.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-1.png)
 
-The portion of the time spent calculating `encrypted_product_id` stands out. It’s not huge, but it does consume enough resources that skipping the calculation when it’s not needed (like during searches) could lead to significant optimization. However, this wasn’t the primary issue.
+The portion of the time spent calculating a derived schema field stands out. It’s not huge, but it does consume enough resources that skipping the calculation when it’s not needed (like during searches) could lead to significant optimization. However, this wasn’t the primary issue.
 
 ![django-ninja-performance-2.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-2.png)
 
@@ -36,12 +36,9 @@ except AttributeError:
 
 The critical part here is the `resolve` function. The code enters the `except` block and recalculates the `item` (#1 in the code). This happens because the `key` wasn’t found on the object, so we’re forced to search for it again. These keys include fields like:
 
-- adPurchaseIndex
-- viewCount
-- ingredients
-- rank
-- rankDelta
-- product_review_topics
+- z0
+- z1
+- z2
 
 This leads to additional latency, as Django Ninja tries to resolve fields that don't exist in the `dataclass` by using Django template’s `resolve()` method.
 
@@ -102,7 +99,7 @@ def hello(request):
     return {"data": data}
 ```
 
-By explicitly setting the missing values, we effectively bypassed the need for `resolve()` and reduced response latency by 30% across the board. You can see this reflected in the py-spy profile comparison below:
+By explicitly setting the missing values, we effectively bypassed the need for `resolve()` and reduced our search API's response latency by 30%. You can see this reflected in the py-spy profile comparison below:
 
 Here's the call stack before explicit assignment:
 ![django-ninja-performance-4.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-4.png)
@@ -113,12 +110,9 @@ And here's the call stack after explicit assignment. Call stacks are disappeared
 
 In the end, the solution was straightforward: we needed to be explicit. By providing values manually for the fields that weren’t part of the original `dataclass`, we eliminated the performance bottleneck caused by Django Ninja’s `resolve()` method.
 
-![django-ninja-performance-6.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-6.png)
-Above is a graph showing the latency changes after deploying these optimizations. On the left, you see the impact of providing default values and removing `encryptedProductId`. The middle section shows the original state, while the right side shows the improved state after explicitly setting defaults.
-
 While it’s unclear if this behavior is intended by Django Ninja, I have raised the issue with the Django Ninja maintainers. You can follow the discussion on the official [GitHub issue](https://github.com/vitalik/django-ninja/issues/886).
 # Conclusion
 
-By taking the time to profile and analyze your code, you can uncover hidden inefficiencies that might otherwise go unnoticed. In this case, a mismatch between a `dataclass` and the response schema led to a significant latency issue. However, by switching to an explicit field assignment, we reduced our API response time by 30%.
+By taking the time to profile and analyze your code, you can uncover hidden inefficiencies that might otherwise go unnoticed. In this case, a mismatch between a `dataclass` and the response schema led to a significant latency issue. However, by switching to an explicit field assignment, we reduced our search API's response latency by 30%.
 
 If you're encountering unexplained slowdowns in your Django Ninja project, I’d highly recommend checking for similar issues and applying a similar fix.

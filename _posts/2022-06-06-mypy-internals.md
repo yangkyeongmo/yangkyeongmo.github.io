@@ -65,14 +65,14 @@ mypy가 타입 체크를 하는 과정(중 일부)에 대해 코드를 확인해
 #### 예시
 
 ```
-> mypy ~/src/buzzvil/adserver/action/constants.py --verbose --cache-dir=/dev/null
+> mypy ~/src/myproject/app/constants.py --verbose --cache-dir=/dev/null
 LOG:  Found 6 SCCs; largest has 34 nodes
 LOG:  Processing SCC of size 34 (typing_extensions typing types sys subprocess posixpath pathlib os.path os mmap io importlib.metadata importlib.machinery importlib.abc importlib genericpath email.policy email.message email.header email.errors email.contentmanager email.charset email ctypes contextlib collections.abc collections codecs array abc _typeshed _collections_abc _ast builtins) as inherently stale
 LOG:  Processing SCC singleton (enum) as inherently stale
 LOG:  Processing SCC singleton (common) as inherently stale
-LOG:  Processing SCC singleton (action) as inherently stale
+LOG:  Processing SCC singleton (app) as inherently stale
 LOG:  Processing SCC singleton (common.constants) as inherently stale
-LOG:  Processing SCC singleton (action.constants) as inherently stale
+LOG:  Processing SCC singleton (app.constants) as inherently stale
 ```
 
 ### 생성된 그래프 확인하기
@@ -82,7 +82,7 @@ LOG:  Processing SCC singleton (action.constants) as inherently stale
 #### 예시
 
 ```
-> mypy action/constants.py --cache-dir=/dev/null --dump-graph
+> mypy app/constants.py --cache-dir=/dev/null --dump-graph
 [["n0", 101825, ["_ast", "typing_extensions", "types", "ast", "abc", "typing", "_typeshed", "builtins", "sys", "_weakrefset", "mmap", "array", "collections"],
      {"_ast": 5288, "typing_extensions": 2910, "types": 5356, "ast": 1155, "abc": 1155, "typing": 17947, "_typeshed": 4464, "builtins": 48266, "sys": 3524, "_weakrefset": 2181, "mmap": 1797, "array": 3023, "collections": 4759},
      {}],
@@ -92,11 +92,11 @@ LOG:  Processing SCC singleton (action.constants) as inherently stale
  ["n2", 76933, ["common.constants"],
      {"common.constants": 76933},
      {"n0": 5}],
- ["n3", 0, ["action"],
-     {"action": 0},
+ ["n3", 0, ["app"],
+     {"app": 0},
      {}],
- ["n4", 415645, ["action.constants"],
-     {"action.constants": 415645},
+ ["n4", 415645, ["app.constants"],
+     {"app.constants": 415645},
      {"n0": 5, "n2": 5}]
 ]
 ```
@@ -105,7 +105,7 @@ LOG:  Processing SCC singleton (action.constants) as inherently stale
 
 - Leaf 노드가 n0 노드이다. ast, abc, typing, sys 같은 모듈들이 순환참조를 하고있기 때문에 한 SCC 안에 들어있다.
 - 그 아래로 의존성 순서대로 모듈들이 이어진다. 각 모듈에 순환참조가 없기 때문에 SCC 안에 모듈이 하나씩만 있다.
-- Root 노드가 맨 아래의 n4 노드이다. 대상 모듈인 action.constants 가 위치해있다.
+- Root 노드가 맨 아래의 n4 노드이다. 대상 모듈인 app.constants 가 위치해있다.
 - 맨 뒤의 {"n0": 5, "n2": 5} 는 이 노드의 의존성을 의미한다. n0, n2 노드에 의존성이 있다. 숫자는 priority를 의미하는데 5는 from X import Y 같은 형태로 import된 것을 의미한다.
 - priority 는 자세히 확인하진 않았지만 SCC 내에서의 처리 순서를 결정하는데 사용하는 정보인듯 하다. 
 
@@ -128,20 +128,20 @@ scc 전체가 fresh하면 캐시에서 정보를 가져오고(=”처리”), �
 ```
 {
 	".class": "MypyFile",
-	"_fullname": "action.constants",
+	"_fullname": "app.constants",
 	"future_import_flags": [],
 	"is_partial_stub_package": false,
 	"is_stub": false,
 	"names": {
 		".class": "SymbolTable",
-			"CPL_CHECK_EXCLUDED_FB_PAGES": {
+			"SOME_CONSTANT": {
 				".class": "SymbolTableNode",
 				"kind": "Gdef",
 				"node": {
 					".class": "Var",
 					"flags": ["has_explicit_value"],
-					"fullname": "action.constants.CPL_CHECK_EXCLUDED_FB_PAGES",
-					"name": "CPL_CHECK_EXCLUDED_FB_PAGES",
+					"fullname": "app.constants.SOME_CONSTANT",
+					"name": "SOME_CONSTANT",
 					"type": {".class": "Instance", "args": ["builtins.int"], "type_ref": "builtins.list"}}},
 	...
 }
@@ -166,7 +166,7 @@ ast.PyCF_ONLY_AST를 플래그로 compile() 내장 함수에 전달하거나, �
 Python 3.10.4 (main, Apr  8 2022, 17:35:13) [GCC 9.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import ast
->>> p = ast.parse('print("hello, buzzvil!")')
+>>> p = ast.parse('print("hello, world!")')
 >>> print(ast.dump(p, indent=4))
 Module(
     body=[
@@ -174,7 +174,7 @@ Module(
             value=Call(
                 func=Name(id='print', ctx=Load()),
                 args=[
-                    Constant(value='hello, buzzvil!')],
+                    Constant(value='hello, world!')],
                 keywords=[]))],
     type_ignores=[])
 ```

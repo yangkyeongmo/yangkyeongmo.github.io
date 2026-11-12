@@ -48,4 +48,6 @@ num_times = 1,000,000:
 
 pylint 문서에서는 이렇게 얘기하고 있습니다. 여기서의 “**interpolation**”이 string을 해석하는 과정을 의미하는듯 합니다.
 
-> *You can use % formatting but leave interpolation to the logging function by passing the parameters as arguments. ([ref](https://pylint.pycqa.org/en/latest/user_guide/messages/warning/logging-format-interpolation.html))*
+> *You can use % formatting but leave interpolation to the logging function by passing the parameters as arguments. ([ref](https://pylint.pycqa.org/en/latest/user_guide/messages/warning/logging-fstring-interpolation.html))*
+
+참고로 W1202는 `.format()`을 쓰는 logging-format-interpolation이고, f-string은 W1203(logging-fstring-interpolation)이다.

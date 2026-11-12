@@ -73,4 +73,4 @@ Docker-compose 로 서비스를 띄우면 앱이름_default 네트워크가 뜬�
 3. 컨테이너도 MAC 주소와 IP 주소를 부여받고, bridge network 는 L2 device 에 해당하니까 L2 layer와 통신할 수 있게 하기 위해 MAC 주소와 IP 주소를 부여받은걸까..?
 4. MAC 주소는 L2 device에 대해 주어지는 주소라고 생각해서 bridge network 하나가 하나의 MAC 주소를 가지고 있을 거라고 예상했는데 컨테이너 각각이 다른 MAC 주소를 부여받았다. 왜일까?
 5. DNS resolution 은 NS record를 가져와서 DNS server와 통신해 가져오는 것이라고 알고 있었다. 여기서는 NS record는 필요없이 DNS server의 기능도 도커 네트워크가 해주는것 같다. 그럼 컨테이너 → DNS resolution → 다른 컨테이너 를 할 수 있겠다.
-6. 컨테이너가 다른 컨테이너의 이름으로 요청을 보내면 브릿지 네트워크가 DNS resolution을 수행해 IP 주소를 알아내고, IP 주소가 Layer 3(Transport)로 전달될텐데.. 여기서 어디로 보낼지를 판단하는걸까? 아니면 Layer 2까지 내려보내서 어디로 보낼지 판단하는걸까? 도커 네트워크의 CIDR이 localhost가 아닌 것으로 지정되어있던데, 그 IP 주소를 보고 다시 로컬로 돌아와서 도커 네트워크로 보내야한다는 것을 어떻게 아는걸까?
+6. 컨테이너가 다른 컨테이너의 이름으로 요청을 보내면 브릿지 네트워크가 DNS resolution을 수행해 IP 주소를 알아내고, IP 주소가 Layer 3(Network, IP)로 전달될텐데.. 여기서 어디로 보낼지를 판단하는걸까? 아니면 Layer 2까지 내려보내서 어디로 보낼지 판단하는걸까? 도커 네트워크의 CIDR이 localhost가 아닌 것으로 지정되어있던데, 그 IP 주소를 보고 다시 로컬로 돌아와서 도커 네트워크로 보내야한다는 것을 어떻게 아는걸까?

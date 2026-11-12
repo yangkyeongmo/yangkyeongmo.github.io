@@ -39,7 +39,7 @@ mypy가 코드를 해석하기 위해서는 코드가 구조화된 형태로 만
 
 이유를 간단하게 알아보자면 저희가 자주 사용하는 컴퓨터 언어들은 formal grammar를 바탕으로 했고, formal grammar로 만든 문장은 트리 형태로 해석할 수 있습니다. 해석한 결과를 구조적 형태만 나타내도록 바꾼 것이 AST입니다.
 
-Python은 버전 3.10 부터 PEG parser를 사용합니다. 그 이전에는 LL(1) parser를 사용했습니다. [참조](https://peps.python.org/pep-0617/) 이 포스트에서는 이 parser들을 자세히 설명하지 않겠지만, 둘 모두 context free grammar(CFG)와 비슷하거나 그에 기반합니다. 때문에 Python 코드 역시 AST로 만들어 해석할 수 있습니다.
+Python은 3.9부터 PEG parser가 기본이 되었고, 기존 LL(1) parser는 3.10에서 제거되었습니다. [참조](https://peps.python.org/pep-0617/) 이 포스트에서는 이 parser들을 자세히 설명하지 않겠지만, 둘 모두 context free grammar(CFG)와 비슷하거나 그에 기반합니다. 때문에 Python 코드 역시 AST로 만들어 해석할 수 있습니다.
 
 Python에서는 [ast 라이브러리](https://docs.python.org/3/library/ast.html)를 통해 코드를 ast로 만들어볼 수 있게 해줍니다. 
 
@@ -74,7 +74,7 @@ visit_XXX의 XXX가 ast 라이브러리에서의 타입을 의미하고, 리턴�
 
 ast의 노드와 mypy가 새로 만든 노드는 의미가 크게 다르지는 않은데, mypy가 새로 만든 객체에는 이후에 해석하기 쉽도록 부가적인 정보가 들어갑니다.
 
-예를 들어 [ast의 Call에는 함수 이름, arg, kwargs만 나타나는데 비해](https://docs.python.org/3/library/ast.html#ast.Call) mypy는 이 호출이 어디서 호출되었는지도 필요하기 때문에 callee, 즉 함수를 호출한 대상도 저장합니다. 
+예를 들어 [ast의 Call에는 함수 이름, arg, kwargs만 나타나는데 비해](https://docs.python.org/3/library/ast.html#ast.Call) mypy는 호출되는 식도 필요하기 때문에 callee, 즉 호출되는 대상(호출되는 함수)도 저장합니다. 
 
 # Wrap up
 

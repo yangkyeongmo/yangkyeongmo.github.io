@@ -10,19 +10,19 @@ tags: ["python"]
 - Parser grammar를 해석할 수 있다.
 
  Python 3.9 에서 PEG 파서를 도입했다는 언급을 찾을 수 있음. ([https://www.python.org/dev/peps/pep-0617/](https://www.python.org/dev/peps/pep-0617/))
- 흥미로운건 같은 문서의 Performance and validation 부분에서는 기존 파서의 10% 이내의 메모리 사용량과 속도를 달성했다는 언급이다. ([https://www.python.org/dev/peps/pep-0617/#toc-entry-29](https://www.python.org/dev/peps/pep-0617/#toc-entry-29))
+ 흥미로운건 같은 문서의 Performance and validation 부분에서는 새 파서의 속도와 메모리 사용량이 기존 파서 대비 10% 이내의 차이로 근접했다는 언급이다. ([https://www.python.org/dev/peps/pep-0617/#toc-entry-29](https://www.python.org/dev/peps/pep-0617/#toc-entry-29))
 
 > We have tuned the performance of the new parser to come within 10% of the current parser both in speed and memory consumption.
  While the PEG/packrat parsing algorithm inherently consumes more memory than the current LL(1) parser, we have an advantage because we don't construct an intermediate CST.
 
  이 부분에서 언급하는 PEG/packrat 파싱 알고리즘은 무엇이고, 기존 파싱 알고리즘은 어땠길래 이런 차이가 발생한 것일까?
- 사실 파이썬측에서 주장하는 성능 개선은 PEG 파서로 바꿨기 때문이 아니라 CST가 제거된 것에서 발생했다는 것 같지만, LL 파서와 PEG 파서의 차이를 알아보면 이 문서를 더 자세히 이해할 수 있을것 같다.
+ PEP는 PEG 알고리즘 자체의 성능 향상을 주장한 것이 아니라, 새 파서가 속도와 메모리 모두 기존 파서의 10% 이내로 근접했고 CST를 만들지 않는 점이 이점이라고 설명한다. LL 파서와 PEG 파서의 차이를 알아보면 이 문서를 더 자세히 이해할 수 있을것 같다.
  앞으로 Python 3.10 이상에서 나올 문법적인 부분을 이해할 수 있는건 덤.
 
 # LL(1) parser
 
  LL(1) parser는 LL(k) parser 중 k=1인 것이다.
- LL(k) parser는 LL parser 중 하나인데, 여기서 LL은 Left-to-right, Left most derivative를 의미한다. LL(k) parser는 k개의 lookahead를 들고있는 parser를 의미한다. LL(1) parser는 하나의 lookahead만 들고있는데, input 중 첫 번째 값만 보고 파싱을 한다는 것을 의미한다. LL parser는 context-free language에 대한 top-down parser 중 하나이다.
+ LL(k) parser는 LL parser 중 하나인데, 여기서 LL은 Left-to-right, Leftmost derivation을 의미한다. LL(k) parser는 k개의 lookahead를 들고있는 parser를 의미한다. LL(1) parser는 하나의 lookahead만 들고있는데, input 중 첫 번째 값만 보고 파싱을 한다는 것을 의미한다. LL parser는 context-free language에 대한 top-down parser 중 하나이다.
 
 - 왜 "중 하나"라고 했냐면 LR, LALR 등 여러 파서가 존재한다.
 
@@ -73,7 +73,7 @@ A -> aBC -> abdC -> abdce
  시작 심볼이 stack에 있는 상태에서, 파서는 두 가지 행동을 취할 수 있다.
 
 1. Stack의 제일 위에 있는 값에 대해 규칙을 적용한 결과 X가 non-terminal일 때. 그 결과를 다시 stack에 차례대로 넣고 다시 제일 위 값을 뽑는다.
-2. X가 terminal 혹은 empty string 일 때. Input buffer의 앞에서부터 k개 토큰이 X와 일치하면 일치하는 토큰을 input stream에서 제거하고 stack에서도 제거한다. 다르다면 input을 거부한다.
+2. X가 terminal 혹은 empty string 일 때. Input buffer의 다음 토큰(1개)이 X와 일치하면 그 토큰을 input stream에서 제거하고 stack에서도 제거한다. 다르다면 input을 거부한다. (k개 lookahead는 non-terminal에 어떤 규칙을 적용할지 고를 때 쓰인다.)
 
  진행하다가 stack에서 뽑은 값이 EOI이면 파싱을 중지하고 성공처리한다.
 
@@ -107,7 +107,7 @@ C   |   -   |   -   |   -   |   3   |   3   |
 
  LL(1) 파서는 parsing table을 구현하기 위해 FIRST와 FOLLOW 함수를 사용한다.
  개념적으로만 이해하려면 FIRST만 알고있으면 되는데, FIRST는 A를 해석했을 때 최종적으로 얻을 수 있는 output의 첫 번째 token이다.
- 예를 들어 A → Bd, B → Ce, C → df 라는 규칙이 있다고 했을 때, A는 최종적으로 dfef 라는 글자가 되므로 FIRST(A) = d이다. 
+ 예를 들어 A → Bd, B → Ce, C → df 라는 규칙이 있다고 했을 때, A는 최종적으로 dfed 라는 글자가 되므로 FIRST(A) = d이다. 
 
 # PEG parser
 
@@ -178,15 +178,13 @@ PEG는 parsing expression grammar의 약자로, parsing expression을 사용한 
 ### Left recursion
 
  left recursion 가능하다.
- 이게 클래식한 PEG로는 원래 불가능한데, recursion 한계를 걸면 가능하다고 한다.
- 설명이 딱히 없어서 잘 모르지만 첫 번째 match에서 left recursion이 발생했을 때, 최대 recursion에 도달하면 그냥 버리고 다음 match로 이동하는 방식이라고 했던것 같다.
+ 이게 클래식한 PEG로는 원래 불가능하다. CPython은 Medeiros et al. / Warth et al.의 방식처럼, 실패에서 시작해 seed를 반복적으로 키워가며(iterative growing) left recursion을 처리한다.
  LL 에서는 ordered choice라던가 backtrack 하는게 없으니까 아마 불가능했을 것.
- 이걸 구현한 이론적 베이스가 있는데 그쪽에 따르면 이론적으로 가능하다고 한다.
 
 ### 성능 개선
 
  귀도가 발표할 때만 해도 C로 컴파일했을 때 속도는 거의 비슷하고 메모리는 조금 더 먹었다고 한다.
- 메모리는 요새 싸니까 별 문제가 안 된다고 생각했다나봄. PEG 릴리즈 발표한 PEP에 따르면 원래 파서보다 성능이 10% 정도 된다고 하는데 실제로 그런지는 잘 모르겠다.
+ 메모리는 요새 싸니까 별 문제가 안 된다고 생각했다나봄. PEG 릴리즈 발표한 PEP에 따르면 새 파서는 속도와 메모리 모두 기존 파서 대비 10% 이내로 근접했다고 한다. ([PEP 617](https://peps.python.org/pep-0617/))
 
 ### 더 강력한 해석
 

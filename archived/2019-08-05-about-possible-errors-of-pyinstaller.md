@@ -28,9 +28,9 @@ stand-alone이라고 하면, 외부 의존 없이 구동될 수 있다는 의미
 ----------------
 PyInstaller가 이렇게 stand-alone한 프로그램을 전달할 수 있는 것은, python 코드와 python 인터프리터를 한 exe, 또는 한 폴더 안에 복사해넣기 때문입니다.
 
-이를 위해서는 python utility인 Freeze를 이용하는 것으로 보입니다.
+PyInstaller는 표준 라이브러리의 Freeze 유틸리티를 쓰지 않고, 자체 의존성 분석과 C bootloader로 실행 파일을 만듭니다.
 
-Freeze를 이용해서 묶인 모듈을 "Frozen module"이라고 하는데, PyInstaller가 어떤 코드를 frozen module로 만들어서 폴더나 exe 안에 포함시키는 것 같습니다.
+묶인 모듈을 "Frozen module"이라고 부르기도 하는데, PyInstaller가 분석한 코드를 폴더나 exe 안에 포함시키는 것입니다.
 
 stand-alone한 프로그램으로 만들려면 의존성 역시 해결되어야하는데, import문으로 선언된 의존성은 해결할 수 있다고 합니다.
 

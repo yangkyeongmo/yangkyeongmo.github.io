@@ -43,7 +43,7 @@ tags: ["python"]
 ## TypeChecker
 
 `TypeChecker`는 statement에 대한 체크를 하고, 그 외에 특화된 타입 체크는 다른 객체에게 위임합니다.
-파이썬에서 statement는 `a + b`와 같은 산술 연산이나 `if a: ...`와 같은 if 문 등을 의미합니다.
+파이썬에서 statement는 `if a: ...`와 같은 if 문 등을 의미합니다. (`a + b`와 같은 산술 연산은 expression입니다.)
 Statement 안의 구성은 expression이나 statement이 될 수 있습니다.
 
 `TypeChecker`는 타입 체크를 도와줄 아래의 객체들을 가지고 있습니다.
@@ -60,7 +60,7 @@ TypeChecker
 ### ExpressionChecker
 
 `ExpressionChecker`는 이름 그대로 expression에 대한 타입 체크를 담당합니다.
-파이썬에서 expression은 `a()`와 같은 함수 호출이나 `1`과 같은 리터럴, `a`와 같은 변수 등을 의미합니다.
+파이썬에서 expression은 `a + b`와 같은 산술 연산, `a()`와 같은 함수 호출이나 `1`과 같은 리터럴, `a`와 같은 변수 등을 의미합니다.
 `TypeChecker`가 statement를 해석할 때, statement 안에 expression이 나오면 이 객체를 호출합니다.
 
 ### ConditionalTypeBinder
@@ -190,10 +190,10 @@ TypeChecker
 이 과정에서 b의 타입을 확인하고 할당합니다.
 
 이제 좌항과 우항의 타입이 무엇인지를 알아내었습니다.
-`SubtypeVisitor`를 통해 좌항이 우항의 subtype인지, 그래서 타입이 적절한지 확인합니다.
+할당문 `a: int = b`에서는 우항 타입이 좌항 타입의 subtype인지를 확인합니다. 즉 b의 타입이 a의 타입에 할당 가능한지를 `SubtypeVisitor`로 검사합니다.
 
 이번에는 `SubtypeVisitor`가 각 타입 객체를 받습니다.
-좌항의 타입은 변수 a에 할당했던 Instance 객체이고, 우항의 타입은 변수 b에 할당된 타입일텐데 이 타입은 Instance 객체일 확률이 높겠습니다.
+확인할 대상은 우항(b)의 타입이고, 허용되는 타입은 좌항(a)의 타입입니다.
 
 일단 우항도 int 타입이라고 가정해보겠습니다.
 그러면 타입을 이렇게 표현할 수 있겠습니다.
@@ -204,13 +204,13 @@ b: Instance
     base: int
 ```
 
-변수 a의 타입이 Instance 타입이므로 `SubtypeVisitor`의 `visit_Instance` 함수에서 subtype 체크를 합니다.
+변수 b의 타입이 Instance 타입이므로 `SubtypeVisitor`의 `visit_Instance` 함수에서 subtype 체크를 합니다.
 
-`visit_Instance`를 한 단계 디테일하게 보자면 여기서는 좌항의 base 타입들이 우항의 타입과 fullname이 일치하는 것이 있는지 확인합니다.
+`visit_Instance`를 한 단계 디테일하게 보자면 여기서는 우항의 base 타입들이 좌항의 타입과 fullname이 일치하는 것이 있는지 확인합니다.
 
 이 때 타입이 정확히 동일한지가 아니라 fullname이 일치하는 것이 있는지 확인합니다.
-이렇게 되면 좌항이 int가 아니고 object 타입이어도 True입니다.
-이렇게 되면 좌항이 우항의 subtype이라고 판단합니다.
+우항이 int이고 좌항이 object이어도, int의 base에 object가 있으므로 True입니다.
+이렇게 되면 우항이 좌항의 subtype이라고 판단합니다.
 
 그렇다면 `TypeChecker`가 여기서는 true를 전달받을텐데요, 이렇게 되면 아무런 일도 일어나지 않습니다.
 
@@ -222,8 +222,17 @@ b: Instance
     base: object
 ```
 
-이 경우에도 true를 반환받습니다.
-이 경우에는 좌항이 int이고 int의 base 타입이 object이므로 우항과 fullname이 일치합니다.
+이 경우에는 false를 반환받습니다. object는 int의 subtype이 아니므로 `a: int = b`는 타입 에러입니다.
+
+반대로 좌항이 object이고 우항이 int이면 어떨까요?
+```
+a: Instance
+    base: object
+b: Instance
+    base: int
+```
+
+이 경우에는 true를 반환받습니다. int의 base 타입이 object이므로 좌항과 fullname이 일치하고, `a: object = b`는 허용됩니다.
 
 그럼 우항이 str일때는 어떨까요?
 ```
@@ -233,7 +242,7 @@ b: Instance
     base: str
 ```
 
-이 때는 좌항의 int도 int의 base 타입인 object도 str의 subtype이 아니므로 false를 반환받습니다.
+이 때는 우항의 str이 좌항의 int의 subtype이 아니므로 false를 반환받습니다.
 
 false를 전달받았다면, 이 때는 mypy에서 알럿이 발생합니다.
 
