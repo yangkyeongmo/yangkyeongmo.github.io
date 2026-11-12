@@ -1,7 +1,7 @@
 title: A crow's nest # name of the site
 author: Gyeongmo Yang # name of site's author
 email: kyeongmo31@gmail.com # email of site's author
-url: https://yangkyeongmo.github.io # root address of the site
+url: https://blog.yanggyeongmo.com # root address of the site
 baseurl: "" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
 description: > # description of the site (multiple lines allowed)
   Hi, I'm Gyeongmo Yang, usually called Nathan in workplaces. I've worked as a software engineer since 2019.
@@ -13,7 +13,7 @@ social:
   links:
     - https://github.com/yangkyeongmo
     - https://www.linkedin.com/in/gyeongmo-yang-8875671a2/
-locale: ko_KR
+locale: en_US
 timezone: Asia/Seoul
 
 permalink: /:slug.html
@@ -34,8 +34,34 @@ sass:
   style: :compressed
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# If the remote theme still enables jekyll-feed, keep it off our English feed.xml.
+feed:
+  path: feed-unfiltered.xml
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      lang: en
+      locale: en_US
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - no-style-please.gemspec
+  - LICENSE.txt
+  - README.md
 
 markdown: kramdown
 highlighter: rouge

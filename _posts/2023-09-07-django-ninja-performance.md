@@ -3,6 +3,9 @@ title: "Why Django Ninja Slowed Us Down and the Simple Fix That Saved 30% of Our
 date: 2023-09-07 20:14:00
 categories: dev
 tags: ["performance"]
+lang: en
+locale: en_US
+ref: django-ninja-performance
 ---
 
 Have you ever noticed that sometimes, when handling requests and generating responses from a search API, the CPU time seems unusually long compared to the actual Elasticsearch query? It’s a frustrating anomaly, especially when you're expecting the system to fly through the tasks. I’ve encountered this myself while dealing with response generation in Django Ninja. Even after switching from `dataclass` to `pydantic` and back to `dataclass` (yes, this has happened), the problem persisted. Given that Django Ninja uses `pydantic` for requests and responses, I suspected the culprit was something lurking within the framework itself.

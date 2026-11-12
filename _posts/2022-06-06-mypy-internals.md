@@ -3,6 +3,9 @@ title: "Mypy internals"
 date: 2022-06-06 13:25
 categories: dev
 tags: ["python"]
+lang: ko
+locale: ko_KR
+ref: mypy-internals
 ---
 
 mypy가 타입 체크를 하는 과정(중 일부)에 대해 코드를 확인해 정리한 내용입니다.

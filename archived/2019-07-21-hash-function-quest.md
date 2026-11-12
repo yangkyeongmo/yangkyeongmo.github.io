@@ -3,6 +3,10 @@ title: "암호화 해시 함수 의뢰 진행 내용: 암호화 해쉬 함수와
 date: 2019-07-21 12:13
 categories: dev
 tags: ["quest"]
+layout: post
+lang: ko
+locale: ko_KR
+ref: hash-function-quest
 ---
 목차
 ===

@@ -4,6 +4,9 @@ date: 2023-11-30 16:45
 categories: dev
 tags: ["django", "python"]
 published: false
+lang: ko
+locale: ko_KR
+ref: django-prefetch-related
 ---
 
 Django의 prefetch_related는 N+1 문제를 해결하기 위한 select_related와 유사한 방법이다. prefetch_related는 select_related와는 다르게 쿼리에서 테이블들을 조회하지 않고 각 테이블을 따로 가져온다.

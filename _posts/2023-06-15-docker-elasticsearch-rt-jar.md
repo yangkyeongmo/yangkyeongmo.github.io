@@ -4,6 +4,9 @@ date: 2023-06-15 15:00
 categories: dev
 tags: ["docker", "elasticsearch"]
 published: false
+lang: ko
+locale: ko_KR
+ref: docker-elasticsearch-rt-jar
 ---
 
 ```

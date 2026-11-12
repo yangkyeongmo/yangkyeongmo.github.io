@@ -3,6 +3,9 @@ title: "Django test 병렬 실행해 테스트 실행 시간 단축하기"
 date: 2023-08-10 11:00
 categories: dev
 tags: ["python", "django"]
+lang: ko
+locale: ko_KR
+ref: django-test-parallel
 ---
 
 # 소개

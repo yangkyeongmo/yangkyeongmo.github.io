@@ -3,6 +3,9 @@ title: "우분투 파티션 재조정 후 home 날릴뻔한 경험"
 date: 2023-04-29 11:00
 categories: dev
 tags: ["dev", "ops", "ubuntu"]
+lang: ko
+locale: ko_KR
+ref: ubuntu-partition
 ---
 
 root 파티션의 공간이 부족해서 home 파티션을 백업한 뒤 지우고 root 파티션의 공간을 늘리려고 했습니다.

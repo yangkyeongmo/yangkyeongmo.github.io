@@ -3,6 +3,9 @@ title: "Logging에서의 fstring 성능 문제와 pylint w1203"
 date: 2023-08-10 11:00
 categories: dev
 tags: ["python"]
+lang: ko
+locale: ko_KR
+ref: logging-fstring-w1202
 ---
 
 # W1203?

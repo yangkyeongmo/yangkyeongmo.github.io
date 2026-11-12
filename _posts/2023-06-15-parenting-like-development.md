@@ -4,6 +4,9 @@ date: 2023-06-15 15:00
 categories: dev
 tags: ["engineering"]
 published: false
+lang: ko
+locale: ko_KR
+ref: parenting-like-development
 ---
 
 서비스에 애정을 쏟는다는 것은 무엇일까. 내 코드를 내 아이처럼 대한다는 것 아닐까? 육아하듯 개발하면 많은 부분이 비유적으로 설명된다.

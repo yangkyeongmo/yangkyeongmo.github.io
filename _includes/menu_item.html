@@ -1,26 +1,46 @@
+{%- assign lang = include.lang | default: page.lang | default: "en" -%}
 <ul>
-  {%-for item in include.collection-%}
-    <li>
-    {%- if item.url -%}
-      <a href="{{ item.url }}">{{ item.title }}</a>
+  {%- for item in include.collection -%}
+    {%- assign item_title = item.title -%}
+    {%- assign item_url = item.url -%}
+    {%- if lang == "ko" -%}
+      {%- if item.title.ko -%}{%- assign item_title = item.title.ko -%}{%- endif -%}
+      {%- if item.url.ko -%}{%- assign item_url = item.url.ko -%}{%- endif -%}
     {%- else -%}
-      {{ item.title }}
+      {%- if item.title.en -%}{%- assign item_title = item.title.en -%}{%- endif -%}
+      {%- if item.url.en -%}{%- assign item_url = item.url.en -%}{%- endif -%}
+    {%- endif -%}
+    <li>
+    {%- if item_url -%}
+      <a href="{{ item_url }}">{{ item_title }}</a>
+    {%- else -%}
+      {{ item_title }}
     {%- endif -%}
     </li>
 
-    {%-if item.post_list-%}
+    {%- if item.post_list -%}
+      {%- assign more_text = item.post_list.show_more_text -%}
+      {%- assign more_url = item.post_list.show_more_url -%}
+      {%- if lang == "ko" -%}
+        {%- if item.post_list.show_more_text.ko -%}{%- assign more_text = item.post_list.show_more_text.ko -%}{%- endif -%}
+        {%- if item.post_list.show_more_url.ko -%}{%- assign more_url = item.post_list.show_more_url.ko -%}{%- endif -%}
+      {%- else -%}
+        {%- if item.post_list.show_more_text.en -%}{%- assign more_text = item.post_list.show_more_text.en -%}{%- endif -%}
+        {%- if item.post_list.show_more_url.en -%}{%- assign more_url = item.post_list.show_more_url.en -%}{%- endif -%}
+      {%- endif -%}
       {%
         include post_list.html
+          lang=lang
           category=item.post_list.category
           limit=item.post_list.limit
           show_more=item.post_list.show_more
-          show_more_text=item.post_list.show_more_text
-          show_more_url=item.post_list.show_more_url
+          show_more_text=more_text
+          show_more_url=more_url
      -%}
-    {%-endif-%}
+    {%- endif -%}
 
-    {%-if item.entries-%}
-      {%-include menu_item.html collection=item.entries-%}
-    {%-endif-%}
-  {%-endfor-%}
+    {%- if item.entries -%}
+      {%- include menu_item.html collection=item.entries lang=lang -%}
+    {%- endif -%}
+  {%- endfor -%}
 </ul>

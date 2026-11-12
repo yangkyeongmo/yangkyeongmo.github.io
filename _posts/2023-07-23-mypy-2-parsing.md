@@ -3,6 +3,9 @@ title: "Mypy의 동작 방식: #2 파일 파싱"
 date: 2023-07-23 15:00
 categories: dev
 tags: ["python"]
+lang: ko
+locale: ko_KR
+ref: mypy-2-parsing
 ---
 
 # Introduction

@@ -1,0 +1,18 @@
+en:
+  description: >-
+    Hi, I'm Gyeongmo Yang, usually called Nathan in workplaces. I've worked as a software engineer since 2019.
+    Here's where my thoughts become concrete, public words.
+    If you'd like to know more about me, please find me by the links below.
+  more: More...
+  home_path: /
+  archive_path: /archive.html
+  feed_path: /feed.xml
+ko:
+  description: >-
+    안녕하세요, 양경모입니다. 직장에서는 보통 Nathan이라고 부릅니다. 2019년부터 소프트웨어 엔지니어로 일하고 있습니다.
+    이곳은 제 생각이 구체적인 공개된 글로 자리 잡는 곳입니다.
+    저에 대해 더 알고 싶으시다면 아래 링크로 찾아 주세요.
+  more: 더 보기...
+  home_path: /ko/
+  archive_path: /ko/archive.html
+  feed_path: /feed-ko.xml

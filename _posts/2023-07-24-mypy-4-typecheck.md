@@ -3,6 +3,9 @@ title: "Mypy의 동작 방식: #4 타입 체크"
 date: 2023-07-24 15:00
 categories: dev
 tags: ["python"]
+lang: ko
+locale: ko_KR
+ref: mypy-4-typecheck
 ---
 
 # Introduction

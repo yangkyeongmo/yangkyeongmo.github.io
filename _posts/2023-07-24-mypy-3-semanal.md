@@ -3,6 +3,9 @@ title: "Mypy의 동작 방식: #3 의미 분석"
 date: 2023-07-24 15:00
 categories: dev
 tags: ["python"]
+lang: ko
+locale: ko_KR
+ref: mypy-3-semanal
 ---
 
 # Introduction

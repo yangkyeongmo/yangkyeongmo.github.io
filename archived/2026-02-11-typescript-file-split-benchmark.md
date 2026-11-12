@@ -3,6 +3,11 @@ title: "Typescript 파일을 여러 개로 쪼개었더니 벤치마크가 낮�
 date: 2026-02-11 15:00
 categories: dev
 tags: ["performance"]
+lang: ko
+locale: ko_KR
+ref: typescript-file-split-benchmark
+layout: post
+permalink: /typescript-file-split-benchmark.html
 ---
 
 CSS 파서에서 스크립트를 여러 파일로 쪼개었더니 성능이 낮아지는 현상..??

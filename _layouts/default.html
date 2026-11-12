@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: "en" }}">
   {%- include head.html -%}
-  <body a="{{ site.theme_config.appearance | default: "auto" }}">
+  <body a="{{ site.theme_config.appearance | default: "auto" }}"{% if page.layout == "home" %} data-home="{{ page.lang | default: "en" }}"{% endif %}>
     <main class="page-content" aria-label="Content">
       <div class="w">
         {{ content }}
@@ -17,5 +17,6 @@
         <script type="text/javascript" src="{{ site.baseurl }}/assets/js/{{ js_file }}.js"></script>
       {% endfor %}
     {% endif %}
+    <script type="text/javascript" src="{{ "/assets/js/lang-preference.js" | relative_url }}"></script>
   </body>
 </html>

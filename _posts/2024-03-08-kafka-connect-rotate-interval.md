@@ -4,6 +4,9 @@ date: 2024-03-08 00:49
 categories: dev
 tags: ["kafka", "kafka-connect"]
 published: false
+lang: ko
+locale: ko_KR
+ref: kafka-connect-rotate-interval
 ---
 
 S3 sink connector의 세팅 중 하나인 `rotate.interval.ms`와 `rotate.schedule.interval.ms` 를 비교.

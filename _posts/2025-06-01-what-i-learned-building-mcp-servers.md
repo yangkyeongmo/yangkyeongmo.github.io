@@ -3,6 +3,9 @@ title: "What I learned building MCP servers"
 date: 2025-06-01 22:16
 categories: dev
 tags: ["mcp"]
+lang: en
+locale: en_US
+ref: what-i-learned-building-mcp-servers
 ---
 
 # MCP

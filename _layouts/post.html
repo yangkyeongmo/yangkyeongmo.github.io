@@ -2,7 +2,10 @@
 layout: default
 ---
 
-{%-include back_link.html-%}
+<div class="post-nav">
+  {%- include back_link.html -%}
+  {%- include lang_toggle.html -%}
+</div>
 
 <article>
   <p class="post-meta">
@@ -10,6 +13,8 @@ layout: default
   </p>
   
   <h1>{{ page.title }}</h1>
+
+  {%- include machine_translated_notice.html -%}
 
   {{ content }}
 </article>

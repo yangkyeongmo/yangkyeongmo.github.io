@@ -3,6 +3,9 @@ title: "Engine Room Kid"
 date: 2025-05-16 01:44:00 +0900
 categories: opinion
 tags: ["opinion"]
+lang: en
+locale: en_US
+ref: engine-room-kid
 ---
 
 ![engine-room-kid.png](/assets/img/2025-05-15-engine-room-kid/engine-room-kid.png)
