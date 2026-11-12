@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: parenting-like-development
 permalink: /en/parenting-like-development.html
+machine_translated: true
+original_url: /parenting-like-development.html
 ---
 
 What does it mean to pour affection into a service. Isn't it treating my code like my child? If you develop the way you raise a child, a lot of it maps over as metaphor.

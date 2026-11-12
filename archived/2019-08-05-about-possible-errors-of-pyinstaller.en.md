@@ -8,7 +8,10 @@ lang: en
 locale: en_US
 ref: about-possible-errors-of-pyinstaller
 permalink: /en/about-possible-errors-of-pyinstaller.html
+machine_translated: true
+original_url: /archived/2019-08-05-about-possible-errors-of-pyinstaller.html
 ---
+
 Contents
 ===
 > * 1.Pyinstaller

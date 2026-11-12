@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: mypy-2-parsing
 permalink: /en/mypy-2-parsing.html
+machine_translated: true
+original_url: /mypy-2-parsing.html
 ---
 
 # Introduction

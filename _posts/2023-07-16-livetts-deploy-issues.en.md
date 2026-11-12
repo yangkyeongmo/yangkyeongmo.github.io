@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: livetts-deploy-issues
 permalink: /en/livetts-deploy-issues.html
+machine_translated: true
+original_url: /livetts-deploy-issues.html
 ---
 
 After that a problem comes up where only I can reach it by domain name. Access worked, so I thought everything was ready and asked for a site test, and they said they couldn't reach the domain. Turns out it was a domain-related issue.

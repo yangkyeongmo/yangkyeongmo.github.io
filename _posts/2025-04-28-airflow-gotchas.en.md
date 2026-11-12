@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: airflow-gotchas
 permalink: /en/airflow-gotchas.html
+machine_translated: true
+original_url: /airflow-gotchas.html
 ---
 
 ## When the task schedule is faster than the DAG schedule

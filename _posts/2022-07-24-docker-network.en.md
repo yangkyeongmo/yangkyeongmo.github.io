@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: docker-network
 permalink: /en/docker-network.html
+machine_translated: true
+original_url: /docker-network.html
 ---
 
 I referred to https://docs.docker.com/network/.

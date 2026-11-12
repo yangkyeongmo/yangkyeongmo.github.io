@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: elasticsearch-connection-refuse
 permalink: /en/elasticsearch-connection-refuse.html
+machine_translated: true
+original_url: /elasticsearch-connection-refuse.html
 ---
 
 ## Situation

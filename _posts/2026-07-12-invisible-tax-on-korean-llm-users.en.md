@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: invisible-tax-on-korean-llm-users
 permalink: /en/invisible-tax-on-korean-llm-users.html
+machine_translated: true
+original_url: /invisible-tax-on-korean-llm-users.html
 ---
 
 It seems like the performance and cost gaps between languages in LLMs still haven't been overcome. LLMs are being developed by English-speaking users, so it's hard to expect non-English-speaking users to be taken care of across the whole training process. In the past, GPT-4.5's performance on multilingual MMLU (0-shot) was 89.6% for English and 86.0% for Korean, they say. Lower than English, but higher than GPT-4o's Korean score (82.9%).[^1] I checked whether it's improved recently, and the gap is still there.

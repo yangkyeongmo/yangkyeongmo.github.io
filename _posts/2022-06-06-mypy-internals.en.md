@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: mypy-internals
 permalink: /en/mypy-internals.html
+machine_translated: true
+original_url: /mypy-internals.html
 ---
 
 This is content I organized by looking at the code about (part of) the process by which mypy type-checks.

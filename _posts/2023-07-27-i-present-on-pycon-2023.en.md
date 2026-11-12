@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: i-present-on-pycon-2023
 permalink: /en/i-present-on-pycon-2023.html
+machine_translated: true
+original_url: /i-present-on-pycon-2023.html
 ---
 
 # Good news

@@ -7,6 +7,8 @@ lang: ko
 locale: ko_KR
 ref: writing-a-blog-post-with-llm
 permalink: /ko/writing-a-blog-post-with-llm.html
+machine_translated: true
+original_url: /writing-a-blog-post-with-llm.html
 ---
 
 (노트에는 여기에 이미지가 있었음.)

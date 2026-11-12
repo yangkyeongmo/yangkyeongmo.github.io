@@ -1,0 +1,32 @@
+{%- if page.machine_translated -%}
+  {%- assign original_href = page.original_url -%}
+  {%- unless original_href -%}
+    {%- assign orig_lang = "ko" -%}
+    {%- if page.lang == "ko" -%}
+      {%- assign orig_lang = "en" -%}
+    {%- endif -%}
+    {%- if page.ref -%}
+      {%- assign alt_posts = site.posts | where: "ref", page.ref -%}
+      {%- for p in alt_posts -%}
+        {%- if p.lang == orig_lang -%}
+          {%- assign original_href = p.url -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- unless original_href -%}
+        {%- assign alt_pages = site.pages | where: "ref", page.ref -%}
+        {%- for p in alt_pages -%}
+          {%- if p.lang == orig_lang -%}
+            {%- assign original_href = p.url -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endunless -%}
+  <p class="machine-translated">
+    {%- if page.lang == "ko" -%}
+      이 글은 {% if original_href %}<a href="{{ original_href | relative_url }}">영어 원문</a>{% else %}영어 원문{% endif %}을 기계 번역한 글입니다.
+    {%- else -%}
+      This post was machine-translated from the {% if original_href %}<a href="{{ original_href | relative_url }}">Korean original</a>{% else %}Korean original{% endif %}.
+    {%- endif -%}
+  </p>
+{%- endif -%}

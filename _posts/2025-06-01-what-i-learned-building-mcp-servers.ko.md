@@ -7,6 +7,8 @@ lang: ko
 locale: ko_KR
 ref: what-i-learned-building-mcp-servers
 permalink: /ko/what-i-learned-building-mcp-servers.html
+machine_translated: true
+original_url: /what-i-learned-building-mcp-servers.html
 ---
 
 # MCP

@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: mypy-1-pre-optimization
 permalink: /en/mypy-1-pre-optimization.html
+machine_translated: true
+original_url: /mypy-1-pre-optimization.html
 ---
 
 # Introduction

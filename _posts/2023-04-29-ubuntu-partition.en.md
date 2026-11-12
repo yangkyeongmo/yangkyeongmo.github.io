@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: ubuntu-partition
 permalink: /en/ubuntu-partition.html
+machine_translated: true
+original_url: /ubuntu-partition.html
 ---
 
 The root partition was running out of space, so I backed up the home partition, deleted it, and tried to grow the root partition.

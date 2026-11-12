@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: ubuntu-dual-boot
 permalink: /en/ubuntu-dual-boot.html
+machine_translated: true
+original_url: /ubuntu-dual-boot.html
 ---
 
 # Making a boot USB

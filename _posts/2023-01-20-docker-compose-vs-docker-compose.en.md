@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: docker-compose-vs-docker-compose
 permalink: /en/docker-compose-vs-docker-compose.html
+machine_translated: true
+original_url: /docker-compose-vs-docker-compose.html
 ---
 
 # Overview

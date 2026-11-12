@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: ubuntu-troubleshooting-2
 permalink: /en/ubuntu-troubleshooting-2.html
+machine_translated: true
+original_url: /ubuntu-troubleshooting-2.html
 ---
 
 ## NVIDIA driver and resolution

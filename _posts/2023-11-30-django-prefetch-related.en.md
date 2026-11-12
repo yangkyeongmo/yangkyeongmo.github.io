@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: django-prefetch-related
 permalink: /en/django-prefetch-related.html
+machine_translated: true
+original_url: /django-prefetch-related.html
 ---
 
 Django's prefetch_related is a method similar to select_related for solving the N+1 problem. Unlike select_related, prefetch_related doesn't look up the tables in the query; it fetches each table separately.

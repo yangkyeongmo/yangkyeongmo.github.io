@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: mypy-4-typecheck
 permalink: /en/mypy-4-typecheck.html
+machine_translated: true
+original_url: /mypy-4-typecheck.html
 ---
 
 # Introduction

@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: mypy-3-semanal
 permalink: /en/mypy-3-semanal.html
+machine_translated: true
+original_url: /mypy-3-semanal.html
 ---
 
 # Introduction

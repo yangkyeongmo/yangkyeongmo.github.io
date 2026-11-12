@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: logging-fstring-w1202
 permalink: /en/logging-fstring-w1202.html
+machine_translated: true
+original_url: /logging-fstring-w1202.html
 ---
 
 # W1203?

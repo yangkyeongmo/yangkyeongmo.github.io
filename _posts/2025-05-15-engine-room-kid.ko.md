@@ -7,6 +7,8 @@ lang: ko
 locale: ko_KR
 ref: engine-room-kid
 permalink: /ko/engine-room-kid.html
+machine_translated: true
+original_url: /engine-room-kid.html
 ---
 
 ![engine-room-kid.png](/assets/img/2025-05-15-engine-room-kid/engine-room-kid.png)

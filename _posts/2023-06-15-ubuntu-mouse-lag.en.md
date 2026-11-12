@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: ubuntu-mouse-lag
 permalink: /en/ubuntu-mouse-lag.html
+machine_translated: true
+original_url: /ubuntu-mouse-lag.html
 ---
 
 # Symptom

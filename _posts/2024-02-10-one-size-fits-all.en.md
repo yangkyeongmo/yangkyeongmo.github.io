@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: one-size-fits-all
 permalink: /en/one-size-fits-all.html
+machine_translated: true
+original_url: /one-size-fits-all.html
 ---
 
 # Summary

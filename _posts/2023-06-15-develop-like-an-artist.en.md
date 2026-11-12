@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: develop-like-an-artist
 permalink: /en/develop-like-an-artist.html
+machine_translated: true
+original_url: /develop-like-an-artist.html
 ---
 
 The Edward Hopper exhibition left several lessons or thoughts, so it stuck with me. I was struck that he kept drawing studies throughout his life and explored many subjects. In pursuing painting as a way to express the inner self, and perfection in that method, he kept practicing and exploring new methods to reach the goal. I also felt a sense of kinship in that his personal temperament, like mine, was extremely introverted.

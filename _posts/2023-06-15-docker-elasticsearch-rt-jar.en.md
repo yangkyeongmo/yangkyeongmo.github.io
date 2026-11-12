@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: docker-elasticsearch-rt-jar
 permalink: /en/docker-elasticsearch-rt-jar.html
+machine_translated: true
+original_url: /docker-elasticsearch-rt-jar.html
 ---
 
 ```

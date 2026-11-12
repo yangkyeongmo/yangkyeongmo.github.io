@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: https-setup
 permalink: /en/https-setup.html
+machine_translated: true
+original_url: /https-setup.html
 ---
 
 There's also a way to make and use an SSL certificate yourself[^1], so I might look it up later if I get interested.

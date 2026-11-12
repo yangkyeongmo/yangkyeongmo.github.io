@@ -8,7 +8,10 @@ lang: en
 locale: en_US
 ref: hash-function-quest
 permalink: /en/hash-function-quest.html
+machine_translated: true
+original_url: /archived/2019-07-21-hash-function-quest.html
 ---
+
 Contents
 ===
 > * 1.Cryptographic hash functions?

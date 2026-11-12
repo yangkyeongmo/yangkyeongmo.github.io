@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: typescript-file-split-benchmark
 permalink: /en/typescript-file-split-benchmark.html
+machine_translated: true
+original_url: /typescript-file-split-benchmark.html
 ---
 
 A phenomenon where performance dropped after splitting the scripts into multiple files in a CSS parser..??

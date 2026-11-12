@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: peg-parser
 permalink: /en/peg-parser.html
+machine_translated: true
+original_url: /peg-parser.html
 ---
 
 # Objective

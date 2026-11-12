@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: trap-signals
 permalink: /en/trap-signals.html
+machine_translated: true
+original_url: /trap-signals.html
 ---
 
 A node server like the one below doesn't stop even if you type Ctrl+C.

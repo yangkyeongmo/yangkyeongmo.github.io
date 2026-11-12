@@ -7,6 +7,8 @@ lang: en
 locale: en_US
 ref: html-dialog
 permalink: /en/html-dialog.html
+machine_translated: true
+original_url: /html-dialog.html
 ---
 
 After seeing [an article shared](https://tomquinonero.com/blog/native-html-modals-with-the-dialog-tag?utm_source=hada) on [GeekNews](https://news.hada.io/new), I wondered whether using the dialog tag might mean I don't have to implement modals myself when developing going forward, so I made a simple example and tested it.

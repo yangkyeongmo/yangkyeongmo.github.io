@@ -7,6 +7,8 @@ lang: ko
 locale: ko_KR
 ref: python-s-encode-faster-than-ord
 permalink: /ko/python-s-encode-faster-than-ord.html
+machine_translated: true
+original_url: /python-s-encode-faster-than-ord.html
 ---
 
 ```

@@ -8,6 +8,8 @@ lang: en
 locale: en_US
 ref: kafka-connect-rotate-interval
 permalink: /en/kafka-connect-rotate-interval.html
+machine_translated: true
+original_url: /kafka-connect-rotate-interval.html
 ---
 
 Comparing `rotate.interval.ms` and `rotate.schedule.interval.ms`, two of the S3 sink connector settings.

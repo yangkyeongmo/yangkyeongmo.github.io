@@ -7,6 +7,8 @@ lang: ko
 locale: ko_KR
 ref: python-sys-path
 permalink: /ko/python-sys-path.html
+machine_translated: true
+original_url: /python-sys-path.html
 ---
 
 # When this becomes problem
