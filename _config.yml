@@ -22,7 +22,8 @@ favicon: "logo.png" # name+extension of favicon (which must be put on the root f
 goat_counter: "yangkyeongmo-github-io" # put your GoatCounter name if you want to use GoatCounter analytics
 google_analytics: "G-6SEZYF2VSS"
 
-remote_theme: riggraz/no-style-please # if you are using GitHub Pages, change it to remote_theme: riggraz/no-style-please
+# Styles and layouts are local (GitHub Pages classic). Do not re-enable
+# remote_theme or the upstream invert-filter CSS will come back.
 
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
@@ -38,9 +39,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
 
-# If the remote theme still enables jekyll-feed, keep it off our English feed.xml.
+# Keep jekyll-feed off feed.xml / feed-ko.xml (those are language-filtered).
 feed:
   path: feed-unfiltered.xml
+
+logo: /assets/img/og-default.png
 
 defaults:
   - scope:
@@ -48,6 +51,7 @@ defaults:
     values:
       lang: en
       locale: en_US
+      image: /assets/img/og-default.png
   - scope:
       path: ""
       type: posts
@@ -65,3 +69,6 @@ exclude:
 
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  auto_ids: true
+  auto_id_stripping: true

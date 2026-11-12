@@ -1,0 +1,39 @@
+{%- assign heading_count = 0 -%}
+{%- capture toc_items -%}
+{%- assign bits = content | split: "<h" -%}
+{%- for raw in bits offset: 1 -%}
+  {%- assign level = raw | slice: 0, 1 -%}
+  {%- if level == "1" or level == "2" -%}
+    {%- if raw contains 'id="' -%}
+      {%- assign hid = raw | split: 'id="' | last | split: '"' | first -%}
+      {%- if hid != "toc-title" and hid != "" -%}
+        {%- assign before_close = raw | split: "</h" | first -%}
+        {%- assign gt_parts = before_close | split: ">" -%}
+        {%- assign inner_html = "" -%}
+        {%- for part in gt_parts offset: 1 -%}
+          {%- if inner_html != "" -%}{%- assign inner_html = inner_html | append: ">" -%}{%- endif -%}
+          {%- assign inner_html = inner_html | append: part -%}
+        {%- endfor -%}
+        {%- assign inner = inner_html | strip_html | strip -%}
+        {%- if inner != "" -%}
+          {%- assign heading_count = heading_count | plus: 1 -%}
+          <li><a href="#{{ hid }}">{{ inner }}</a></li>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+
+{%- assign toc_shown = false -%}
+{%- if heading_count >= 3 -%}
+  {%- assign toc_shown = true -%}
+  {%- assign lang = page.lang | default: "en" -%}
+  {%- assign i18n = site.data.i18n[lang] -%}
+<nav class="toc" aria-labelledby="toc-title">
+  <h2 id="toc-title">{{ i18n.toc }}</h2>
+  <ol>
+    {{ toc_items }}
+  </ol>
+</nav>
+{%- endif -%}

@@ -7,6 +7,26 @@ en:
   home_path: /
   archive_path: /archive.html
   feed_path: /feed.xml
+  archive: Archive
+  about: About
+  nav_label: Primary
+  footer_label: Footer
+  content_label: Content
+  skip_to_content: Skip to main content
+  prev: Previous
+  next: Next
+  toc: On this page
+  pager_label: More posts
+  lang_label: Language
+  back_to_top: Back to top
+  footnotes: Footnotes
+  permalink: Permalink
+  published: Published
+  updated: Updated
+  not_found: Page not found
+  not_found_body: That address is not on this site. It may have moved, or the link may be mistyped.
+  back_to_posts: Back to the post list
+  date_format: "%-d %B %Y"
 ko:
   description: >-
     안녕하세요, 양경모입니다. 직장에서는 보통 Nathan이라고 부릅니다. 2019년부터 소프트웨어 엔지니어로 일하고 있습니다.
@@ -16,3 +36,23 @@ ko:
   home_path: /ko/
   archive_path: /ko/archive.html
   feed_path: /feed-ko.xml
+  archive: 글 목록
+  about: 소개
+  nav_label: 주요
+  footer_label: 바닥글
+  content_label: 본문
+  skip_to_content: 본문으로 건너뛰기
+  prev: 이전
+  next: 다음
+  toc: 이 글의 목차
+  pager_label: 다른 글
+  lang_label: 언어
+  back_to_top: 맨 위로
+  footnotes: 각주
+  permalink: 고유 링크
+  published: 게시
+  updated: 수정
+  not_found: 페이지를 찾을 수 없습니다
+  not_found_body: 주소가 바뀌었거나, 입력한 주소가 잘못됐을 수 있습니다.
+  back_to_posts: 글 목록으로
+  date_format: "%Y년 %-m월 %-d일"

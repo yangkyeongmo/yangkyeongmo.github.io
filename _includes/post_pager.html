@@ -1,0 +1,35 @@
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign i18n = site.data.i18n[lang] -%}
+{%- assign lang_posts = site.posts | where: "lang", lang -%}
+{%- assign older_post = nil -%}
+{%- assign newer_post = nil -%}
+{%- assign found = false -%}
+{%- assign previous_in_list = nil -%}
+{%- for post in lang_posts -%}
+  {%- if found -%}
+    {%- assign older_post = post -%}
+    {%- break -%}
+  {%- endif -%}
+  {%- if post.url == page.url -%}
+    {%- assign found = true -%}
+    {%- assign newer_post = previous_in_list -%}
+  {%- endif -%}
+  {%- assign previous_in_list = post -%}
+{%- endfor -%}
+
+{%- if older_post or newer_post -%}
+<nav class="post-pager" aria-label="{{ i18n.pager_label }}">
+  {%- if older_post -%}
+  <a class="post-pager-prev" href="{{ older_post.url | relative_url }}">
+    <span class="post-pager-label">{{ i18n.prev }}</span>
+    <span class="post-pager-title">{{ older_post.title }}</span>
+  </a>
+  {%- endif -%}
+  {%- if newer_post -%}
+  <a class="post-pager-next" href="{{ newer_post.url | relative_url }}">
+    <span class="post-pager-label">{{ i18n.next }}</span>
+    <span class="post-pager-title">{{ newer_post.title }}</span>
+  </a>
+  {%- endif -%}
+</nav>
+{%- endif -%}

@@ -1,0 +1,24 @@
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign i18n = site.data.i18n[lang] -%}
+{%- if lang == "ko" -%}
+  {%- assign home_path = "/ko/" -%}
+{%- else -%}
+  {%- assign home_path = "/" -%}
+{%- endif -%}
+<header class="site-header">
+  <a class="site-title" href="{{ home_path | relative_url }}"{% if page.layout == "home" %} aria-current="page"{% endif %}>{{ site.title }}</a>
+  <div class="site-header-end">
+    <nav class="site-nav" aria-label="{{ i18n.nav_label }}">
+      <ul>
+        <li>
+          {%- if page.layout == "archive" -%}
+            <span aria-current="page">{{ i18n.archive }}</span>
+          {%- else -%}
+            <a href="{{ i18n.archive_path | relative_url }}">{{ i18n.archive }}</a>
+          {%- endif -%}
+        </li>
+      </ul>
+    </nav>
+    {%- include lang_toggle.html -%}
+  </div>
+</header>

@@ -8,7 +8,7 @@ locale: en_US
 ref: engine-room-kid
 ---
 
-![engine-room-kid.png](/assets/img/2025-05-15-engine-room-kid/engine-room-kid.png)
+![engine-room-kid.png](/assets/img/2025-05-15-engine-room-kid/engine-room-kid.png){: width="853" height="480" loading="eager" decoding="async"}
 
 Have you seen the movie "*Snowpiercer*"? If it's first time hearing about this movie, let me help you. "Snowpiercer" is name of a perfectly designed train. It's designed to survive an eternal winter. It's supposed to run like forever. (Sounds kind of like a dream of every engineer, right?).
 
@@ -28,7 +28,7 @@ However, it shouldn't be taken as glory.
 
 # Curtis
 
-![Curtis](/assets/img/2025-05-15-engine-room-kid/kurtis.png)
+![Curtis](/assets/img/2025-05-15-engine-room-kid/kurtis.png){: width="1200" height="630" loading="lazy" decoding="async"}
 
 Not many things aren't at least semi-perpetual in real world and so is any industry. The engine room kid will eventually grow, gets bigger, his limbs and his torso grow, then his body won't fit into the confined box anymore. Soon the kid is not fit to the work.  Or the work itself might be changed due to newly introduced problems, so that the kid is not fit to the work anymore. In either way, the kid isn't an useful tool anymore.
 

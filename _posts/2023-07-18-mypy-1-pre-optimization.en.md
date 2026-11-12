@@ -53,7 +53,7 @@ mypy uses Strongly Connected Components to resolve circular references.
 
 ## Strongly Connected Component
 
-![Strongly Connected Component](/assets/img/2023-07-18-mypy-1-pre-optimization/scc.png)
+![Strongly Connected Component](/assets/img/2023-07-18-mypy-1-pre-optimization/scc.png){: width="440" height="208" loading="eager" decoding="async"}
 
 A Strongly Connected Component, or SCC, is a grouping of nodes in a directed graph that have a circular relationship.
 Specifically, if you can come back from a node to itself again, it can become a constituent of an SCC.

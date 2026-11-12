@@ -42,7 +42,7 @@ wikipedia.org/wiki/Data_structure) – often some kind of [parse tree](https:/
  That's the semantic meaning, and in the Python implementation it means the program that creates a parse tree between the token generator and the code generator.
  When the token generator looks at the input string and tokenizes it, the parser takes those tokens and creates an AST. The code generator takes the AST and makes bytecode.
 
-![Image](/assets/img/bcb439be-e82b-468c-bcac-5e1e2cdb2e6f.png)
+![Image](/assets/img/bcb439be-e82b-468c-bcac-5e1e2cdb2e6f.png){: width="796" height="392" loading="eager" decoding="async"}
 
 ## top-down parser
 

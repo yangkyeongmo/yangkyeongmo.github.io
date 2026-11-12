@@ -1,0 +1,14 @@
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign i18n = site.data.i18n[lang] -%}
+{%- assign updated = page.last_modified_at | default: page.updated -%}
+<p class="meta">
+  {%- if updated -%}
+    {{ i18n.published }}
+    <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: i18n.date_format }}</time>
+    ·
+    {{ i18n.updated }}
+    <time datetime="{{ updated | date: "%Y-%m-%d" }}">{{ updated | date: i18n.date_format }}</time>
+  {%- else -%}
+    <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: i18n.date_format }}</time>
+  {%- endif -%}
+</p>

@@ -11,7 +11,7 @@ machine_translated: true
 original_url: /engine-room-kid.html
 ---
 
-![engine-room-kid.png](/assets/img/2025-05-15-engine-room-kid/engine-room-kid.png)
+![engine-room-kid.png](/assets/img/2025-05-15-engine-room-kid/engine-room-kid.png){: width="853" height="480" loading="eager" decoding="async"}
 
 영화 "*설국열차*"를 보신 적 있나요? 처음 듣는 영화라면, 제가 좀 도와드릴게요. "설국열차"는 완벽하게 설계된 기차의 이름입니다. 영원한 겨울을 견디도록 설계되어 있습니다. 영원히 달리도록 되어 있죠. (모든 엔지니어의 꿈 같기도 하죠?).
 
@@ -31,7 +31,7 @@ original_url: /engine-room-kid.html
 
 # Curtis
 
-![Curtis](/assets/img/2025-05-15-engine-room-kid/kurtis.png)
+![Curtis](/assets/img/2025-05-15-engine-room-kid/kurtis.png){: width="1200" height="630" loading="lazy" decoding="async"}
 
 현실 세계에서 최소한 반영구적이지 않은 것은 많지 않고, 어떤 산업이든 마찬가지입니다. 엔진룸 키드는 결국 자라고, 커지고, 팔다리와 몸통이 자라서, 그 좁은 상자에 몸이 더 이상 들어가지 않게 됩니다. 곧 그 아이는 그 일에 맞지 않습니다.  아니면 새로 생긴 문제 때문에 일 자체가 바뀌어서, 아이가 더 이상 그 일에 맞지 않을 수도 있습니다. 어느 쪽이든, 그 아이는 더 이상 유용한 도구가 아닙니다.
 

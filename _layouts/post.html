@@ -1,20 +1,24 @@
 ---
 layout: default
 ---
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign i18n = site.data.i18n[lang] -%}
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {%- include post_date.html -%}
+    {%- include machine_translated_notice.html -%}
+  </header>
 
-<div class="post-nav">
-  {%- include back_link.html -%}
-  {%- include lang_toggle.html -%}
-</div>
+  {%- include toc.html -%}
 
-<article>
-  <p class="post-meta">
-    <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
-  </p>
-  
-  <h1>{{ page.title }}</h1>
+  <div class="post-content">
+    {{ content }}
+  </div>
 
-  {%- include machine_translated_notice.html -%}
-
-  {{ content }}
+  {%- if toc_shown -%}
+  <p class="back-to-top"><a href="#main">{{ i18n.back_to_top }}</a></p>
+  {%- endif -%}
 </article>
+
+{%- include post_pager.html -%}

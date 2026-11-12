@@ -60,9 +60,9 @@ I've seen a lot of cases of implementing modals by hand; it was probably for cus
 
 ## Run example
 
-![메인 화면](/assets/img/html-dialog/main-page.jpg)
+![메인 화면](/assets/img/html-dialog/main-page.jpg){: width="1430" height="783" loading="eager" decoding="async"}
 Initial HTML screen.
 
-![dialog 오픈](/assets/img/html-dialog/dialog-open.jpg)
+![dialog 오픈](/assets/img/html-dialog/dialog-open.jpg){: width="1432" height="791" loading="lazy" decoding="async"}
 The screen that appears when you click the "Open a modal" button.
 You can see that the background color on the backdrop changed the background color behind this modal.
