@@ -3,7 +3,6 @@ title: "whisper-cpp"
 date: 2023-06-15 15:00
 categories: dev
 tags: []
-published: false
 ---
 
 `Whisper.cpp` is a high-performant cpp port of openai's whisper. The project suggests it can transcribe an audio sample in realtime, so I tried that.

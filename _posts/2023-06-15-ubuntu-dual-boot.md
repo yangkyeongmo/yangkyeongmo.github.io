@@ -3,7 +3,6 @@ title: "우분투 듀얼부팅"
 date: 2023-06-15 15:00
 categories: dev
 tags: ["dev", "ops", "ubuntu"]
-published: false
 ---
 
 # 부팅 usb 만들기

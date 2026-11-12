@@ -3,7 +3,6 @@ title: "Python s.encode is faster than checking ord by character"
 date: 2023-09-17 15:00
 categories: dev
 tags: ["python", "performance"]
-published: false
 ---
 
 ```

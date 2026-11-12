@@ -1,9 +1,8 @@
 ---
 title: "Writing a blog post with LLM"
-date: 2026-01-14 15:00
+date: 2025-12-09 15:00
 categories: dev
 tags: []
-published: false
 ---
 
 (The note had an image here.)

@@ -3,7 +3,6 @@ title: "Python sys-path"
 date: 2023-09-17 15:00
 categories: dev
 tags: ["python"]
-published: false
 ---
 
 # When this becomes problem
