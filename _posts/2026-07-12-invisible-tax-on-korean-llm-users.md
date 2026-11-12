@@ -4,6 +4,9 @@ date: 2026-07-12 15:00
 categories: dev
 tags: ["llm"]
 published: false
+lang: ko
+locale: ko_KR
+ref: invisible-tax-on-korean-llm-users
 ---
 
 LLM의 언어 간 성능, 비용 차이가 아직 극복되지 않은 것 같다. 아무래도 영어권 사용자에 의해 LLM이 개발되고 있다 보니 훈련 전체 과정에서 비영어권 사용자를 배려할 것을 기대하기는 어렵다. 과거에도 GPT-4.5의 성능이 다국어 MMLU(0-shot) 기준으로 영어는 89.6%일 때 한국어는 86.0%였다고 한다. 영어보다는 낮지만, GPT-4o의 한국어 점수(82.9%)보다는 높은 수치이다.[^1] 최근에 개선되었는지 확인해 보았더니 여전히 차이는 존재한다.

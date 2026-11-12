@@ -3,6 +3,9 @@ title: "HTML dialog tag"
 date: 2022-06-10 13:36
 categories: dev
 tags: ["html"]
+lang: ko
+locale: ko_KR
+ref: html-dialog
 ---
 
 [긱뉴스](https://news.hada.io/new)에서 [공유된 아티클](https://tomquinonero.com/blog/native-html-modals-with-the-dialog-tag?utm_source=hada)을 보고 dialog 태그를 사용하면 앞으로 개발할 때 모달을 직접 구현하지 않아도 되지 않을까 하여 간단한 예시를 만들어 테스트해봤습니다.

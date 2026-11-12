@@ -4,6 +4,9 @@ date: 2025-04-28 13:59
 categories: dev
 tags: ["airflow"]
 published: false
+lang: ko
+locale: ko_KR
+ref: airflow-gotchas
 ---
 
 ## DAG 스케줄보다 task 스케줄이 더 빠른 경우
@@ -83,7 +86,7 @@ def transform(order_data_dict: dict):
 
 ## Jinja template
 
-Airflow는 jinja template을 사용해서 매크로를 실행함. `{{ ds }}` 등. Jinja template은 runtime에 렌더링된다. 구체적으로는 operator의 `pre_execute` 실행 전에 실행된다.[^3]
+Airflow는 jinja template을 사용해서 매크로를 실행함. `{% raw %}{{ ds }}{% endraw %}` 등. Jinja template은 runtime에 렌더링된다. 구체적으로는 operator의 `pre_execute` 실행 전에 실행된다.[^3]
 
 각 템플릿 필드는 한 번만 렌더링된다. 아마 pre_execute의 실행은 한 번만 있기 때문. 이 때문에 callable 내에서 템플릿 렌더링을 하려면 수동으로 재호출해야한다.
 
@@ -119,7 +122,7 @@ class MyDataReader:
 t = PythonOperator(
     task_id="transform_data",
     python_callable=transform_data,
-    op_args=[MyDataReader("/tmp/{{ ds }}/my_file")],
+    op_args=[MyDataReader("/tmp/{% raw %}{{ ds }}{% endraw %}/my_file")],
     dag=dag,
 )
 ```

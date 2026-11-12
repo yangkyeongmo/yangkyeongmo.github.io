@@ -4,6 +4,9 @@ date: 2023-10-22 17:02
 categories: dev
 tags: ["ubuntu"]
 published: false
+lang: ko
+locale: ko_KR
+ref: ubuntu-troubleshooting-2
 ---
 
 ## NVIDIA 드라이버와 해상도

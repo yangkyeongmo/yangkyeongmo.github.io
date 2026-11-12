@@ -12,7 +12,33 @@
   </title>
 
   {%-seo title=false-%}
-  {%-feed_meta-%}
+
+  {%- assign feed_href = "/feed.xml" -%}
+  {%- if page.lang == "ko" -%}
+    {%- assign feed_href = "/feed-ko.xml" -%}
+  {%- endif -%}
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ feed_href | relative_url }}" />
+
+  {%- if page.ref -%}
+    {%- assign alt_posts = site.posts | where: "ref", page.ref -%}
+    {%- assign alt_pages = site.pages | where: "ref", page.ref -%}
+    {%- for p in alt_posts -%}
+      <link rel="alternate" hreflang="{{ p.lang }}" href="{{ p.url | absolute_url }}" />
+      {%- if p.lang == "en" -%}
+        <link rel="alternate" hreflang="x-default" href="{{ p.url | absolute_url }}" />
+      {%- endif -%}
+    {%- endfor -%}
+    {%- for p in alt_pages -%}
+      <link rel="alternate" hreflang="{{ p.lang }}" href="{{ p.url | absolute_url }}" />
+      {%- if p.lang == "en" -%}
+        <link rel="alternate" hreflang="x-default" href="{{ p.url | absolute_url }}" />
+      {%- endif -%}
+    {%- endfor -%}
+  {%- elsif page.layout == "home" -%}
+    <link rel="alternate" hreflang="en" href="{{ "/" | absolute_url }}" />
+    <link rel="alternate" hreflang="ko" href="{{ "/ko/" | absolute_url }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ "/" | absolute_url }}" />
+  {%- endif -%}
 
   {%-if site.google_analytics and jekyll.environment == "production"-%}
     {%-include google_analytics.html-%}

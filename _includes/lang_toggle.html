@@ -1,0 +1,45 @@
+{%- assign current_lang = page.lang | default: "en" -%}
+{%- assign en_url = nil -%}
+{%- assign ko_url = nil -%}
+
+{%- if page.ref -%}
+  {%- assign alt_posts = site.posts | where: "ref", page.ref -%}
+  {%- assign alt_pages = site.pages | where: "ref", page.ref -%}
+  {%- for p in alt_posts -%}
+    {%- if p.lang == "en" -%}{%- assign en_url = p.url -%}{%- endif -%}
+    {%- if p.lang == "ko" -%}{%- assign ko_url = p.url -%}{%- endif -%}
+  {%- endfor -%}
+  {%- for p in alt_pages -%}
+    {%- if p.lang == "en" -%}{%- assign en_url = p.url -%}{%- endif -%}
+    {%- if p.lang == "ko" -%}{%- assign ko_url = p.url -%}{%- endif -%}
+  {%- endfor -%}
+{%- elsif page.translation_url -%}
+  {%- if current_lang == "en" -%}
+    {%- assign en_url = page.url -%}
+    {%- assign ko_url = page.translation_url -%}
+  {%- else -%}
+    {%- assign ko_url = page.url -%}
+    {%- assign en_url = page.translation_url -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign en_url = "/" -%}
+  {%- assign ko_url = "/ko/" -%}
+{%- endif -%}
+
+<nav class="lang-toggle" aria-label="Language">
+  {%- if current_lang == "en" -%}
+    <span aria-current="page">EN</span>
+  {%- elsif en_url -%}
+    <a href="{{ en_url | relative_url }}" hreflang="en" lang="en" data-set-lang="en">EN</a>
+  {%- else -%}
+    <span>EN</span>
+  {%- endif -%}
+  <span aria-hidden="true"> | </span>
+  {%- if current_lang == "ko" -%}
+    <span aria-current="page">한국어</span>
+  {%- elsif ko_url -%}
+    <a href="{{ ko_url | relative_url }}" hreflang="ko" lang="ko" data-set-lang="ko">한국어</a>
+  {%- else -%}
+    <span>한국어</span>
+  {%- endif -%}
+</nav>

@@ -2,12 +2,17 @@
 layout: default
 ---
 <header>
-  <h1>{{ site.title }}</h1>
-  {%-if site.theme_config.show_description-%}
-    <p>{{ site.description }}</p>
-  {%-endif-%}
+  <div class="home-header">
+    <h1>{{ site.title }}</h1>
+    {%- include lang_toggle.html -%}
+  </div>
+  {%- assign lang = page.lang | default: "en" -%}
+  {%- assign i18n = site.data.i18n[lang] -%}
+  {%- if site.theme_config.show_description -%}
+    <p>{{ i18n.description }}</p>
+  {%- endif -%}
 </header>
 
-{%-include menu_item.html collection=site.data.menu.entries-%}
+{%- include menu_item.html collection=site.data.menu.entries lang=lang -%}
 
 {{ content }}

@@ -1,1 +1,7 @@
-<a href="{{ "/" | relative_url }}">{{ site.theme_config.back_home_text }}</a>
+{%- assign lang = page.lang | default: "en" -%}
+{%- if lang == "ko" -%}
+  {%- assign home_path = "/ko/" -%}
+{%- else -%}
+  {%- assign home_path = "/" -%}
+{%- endif -%}
+<a href="{{ home_path | relative_url }}">{{ site.theme_config.back_home_text }}</a>

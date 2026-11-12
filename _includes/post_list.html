@@ -1,14 +1,15 @@
-{%-if include.category-%}
-  {%-assign posts = site.categories[include.category]-%}  
-{%-else-%}
-  {%-assign posts = site.posts-%}
-{%-endif-%}
+{%- assign lang = include.lang | default: page.lang | default: "en" -%}
+{%- if include.category -%}
+  {%- assign posts = site.categories[include.category] | where: "lang", lang -%}
+{%- else -%}
+  {%- assign posts = site.posts | where: "lang", lang -%}
+{%- endif -%}
 
-{%-if include.limit and posts.size > include.limit-%}
-  {%-assign limit_exceeded = true-%}
-{%-else-%}
-  {%-assign limit_exceeded = false-%}
-{%-endif-%}
+{%- if include.limit and posts.size > include.limit -%}
+  {%- assign limit_exceeded = true -%}
+{%- else -%}
+  {%- assign limit_exceeded = false -%}
+{%- endif -%}
 
 {%- if posts.size > 0 -%}
   <ul>

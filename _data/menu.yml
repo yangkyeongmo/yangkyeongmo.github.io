@@ -1,44 +1,77 @@
 # For documentation on this file, see:
 # https://github.com/riggraz/no-style-please#customize-the-menu
+#
+# title/url may be a string or a {en, ko} map. Post lists are filtered by page.lang.
 
 entries:
-  - title: info
+  - title:
+      en: info
+      ko: info
     entries:
-      - title: github
+      - title:
+          en: github
+          ko: github
         url: https://github.com/yangkyeongmo
-      - title: linkedin
+      - title:
+          en: linkedin
+          ko: linkedin
         url: https://www.linkedin.com/in/gyeongmo-yang-8875671a2/
-      - title: Need some simple apps?
-        url: https://apps.yanggyeongmo.com
 
-  - title: highlights
+  - title:
+      en: highlights
+      ko: highlights
     entries:
-      - title: 파이콘 한국 2023에서 발표하게 되었습니다!
-        url: /i-present-on-pycon-2023.html
+      - title:
+          en: I'll be presenting at PyCon Korea 2023!
+          ko: 파이콘 한국 2023에서 발표하게 되었습니다!
+        url:
+          en: /en/i-present-on-pycon-2023.html
+          ko: /i-present-on-pycon-2023.html
 
-  - title: opinion
+  - title:
+      en: opinion
+      ko: opinion
     post_list:
       category: opinion
       limit: 5
       show_more: true
-      show_more_text: More...
-      show_more_url: archive.html
+      show_more_text:
+        en: More...
+        ko: 더 보기...
+      show_more_url:
+        en: /archive.html
+        ko: /ko/archive.html
 
-  - title: dev
+  - title:
+      en: dev
+      ko: dev
     post_list:
       category: dev
       limit: 5
       show_more: true
-      show_more_text: More...
-      show_more_url: archive.html
+      show_more_text:
+        en: More...
+        ko: 더 보기...
+      show_more_url:
+        en: /archive.html
+        ko: /ko/archive.html
 
-  - title: all posts
+  - title:
+      en: all posts
+      ko: 모든 글
     post_list:
       limit: 5
       show_more: true
-      show_more_text: More...
-      show_more_url: archive.html
+      show_more_text:
+        en: More...
+        ko: 더 보기...
+      show_more_url:
+        en: /archive.html
+        ko: /ko/archive.html
 
-  - title: rss
-    url: feed.xml
-  
+  - title:
+      en: rss
+      ko: rss
+    url:
+      en: /feed.xml
+      ko: /feed-ko.xml

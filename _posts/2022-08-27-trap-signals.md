@@ -4,6 +4,9 @@ date: 2022-08-27 21:48
 categories: dev
 tags: ["bash", "docker", "signal"]
 published: false
+lang: ko
+locale: ko_KR
+ref: trap-signals
 ---
 
 아래와 같은 node 서버는 Ctrl+C 를 입력해도 정지되지 않는다.

@@ -4,6 +4,9 @@ date: 2023-07-16 17:56
 categories: dev
 tags: ["livetts", "dns", "nginx"]
 published: false
+lang: ko
+locale: ko_KR
+ref: livetts-deploy-issues
 ---
 
 이후에는 나만 도메인 이름으로 접근이 잘 되는 문제가 생깁니다. 접속이 잘 되어 모든 준비가 끝났다고 생각하고 사이트 테스트를 요청했는데, 도메인에 접속이 안 된다고 합니다. 알고보니 도메인과 관련된 이슈였습니다.

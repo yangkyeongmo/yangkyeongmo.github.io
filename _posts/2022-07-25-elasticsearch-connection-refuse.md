@@ -3,6 +3,9 @@ title: "Elasticsearch ConnectionRefuse 에러 해결하기"
 date: 2022-07-25 21:01
 categories: dev
 tags: ["elasticsearch"]
+lang: ko
+locale: ko_KR
+ref: elasticsearch-connection-refuse
 ---
 
 ## Situation

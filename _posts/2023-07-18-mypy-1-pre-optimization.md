@@ -3,6 +3,9 @@ title: "Mypy의 동작 방식: #1 진행 전 최적화"
 date: 2023-07-18 23:00
 categories: dev
 tags: ["python"]
+lang: ko
+locale: ko_KR
+ref: mypy-1-pre-optimization
 ---
 
 # Introduction

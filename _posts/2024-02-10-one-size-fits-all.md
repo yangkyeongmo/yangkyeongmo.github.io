@@ -3,6 +3,9 @@ title: "One Size Fits All-An Idea Whose Time Has Come and Gone, Michael Stonebra
 date: 2024-02-10 11:00
 categories: dev
 tags: ["data"]
+lang: ko
+locale: ko_KR
+ref: one-size-fits-all
 ---
 
 # 요약

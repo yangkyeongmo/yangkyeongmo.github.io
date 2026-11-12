@@ -3,6 +3,9 @@ title: "Python3 의 PEG 파서"
 date: 2021-10-30 20:35
 categories: dev
 tags: ["python"]
+lang: ko
+locale: ko_KR
+ref: peg-parser
 ---
 
 # Objective

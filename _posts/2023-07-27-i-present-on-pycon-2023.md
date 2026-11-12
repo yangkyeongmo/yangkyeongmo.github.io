@@ -3,6 +3,9 @@ title: "파이콘 한국 2023에서 발표하게 되었습니다!"
 date: 2023-07-27 23:00
 categories: dev
 tags: ["python"]
+lang: ko
+locale: ko_KR
+ref: i-present-on-pycon-2023
 ---
 
 # 기쁜 소식

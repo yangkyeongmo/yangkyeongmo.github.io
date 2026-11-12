@@ -3,6 +3,9 @@ title: "HTTPS 활성화하기"
 date: 2023-03-30 15:00
 categories: dev
 tags: []
+lang: ko
+locale: ko_KR
+ref: https-setup
 ---
 
 SSL certificate을 직접 만들어 사용하는 방법[^1]도 있으니 나중에 흥미가 생기면 참고해보려고 합니다.

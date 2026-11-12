@@ -3,6 +3,9 @@ title: "Docker Network 정리"
 date: 2022-07-24 21:09
 categories: dev
 tags: []
+lang: ko
+locale: ko_KR
+ref: docker-network
 ---
 
 https://docs.docker.com/network/를 참조했음.
