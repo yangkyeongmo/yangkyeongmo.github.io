@@ -49,7 +49,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ['', '/~~~/python/3.11.1/lib/python311.zip', '/~~~/python/3.11.1/lib/python3.11', '/~~~/python/3.11.1/lib/python3.11/lib-dynload', '/~~~/lib/python3.11/site-packages']
 ```
 
-If we call `sys.path` inside a code, then directory of the code is included in `sys.path`, allowing it to call modules near it.
+If we run a script and inspect `sys.path` in that process, the directory of the entry-point script — not of every file — is included as `sys.path[0]`, allowing that script to import modules near it.
 
 ```
 ['/~~~/tmp/src', '/~~~/.asdf/installs/python/3.11.1/lib/python311.zip', '/~~~/.asdf/installs/python/3.11.1/lib/python3.11', '/~~~/.asdf/installs/python/3.11.1/lib/python3.11/lib-dynload', '/~~~/.cache/pypoetry/virtualenvs/tmp-~~~-py3.11/lib/python3.11/site-packages']

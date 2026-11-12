@@ -53,7 +53,6 @@ These files will be updated when the certificate renews.
 
 NEXT STEPS:
 - This certificate will not be renewed automatically. Autorenewal of --manual certificates requires the use of an authentication hook script (--manual-auth-hook) but one was not provided. To renew this certificate, repeat this same certbot command before the certificate's expiry date.
-We were unable to subscribe you the EFF mailing list because your e-mail address appears to be invalid. You can try again later by visiting https://act.eff.org.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 If you like Certbot, please consider supporting our work by:
@@ -71,7 +70,7 @@ ssl_certificate_key    /etc/letsencrypt/live/planmoji.com/privkey.pem;
 ```
 
 (노트에는 여기에 HTTPS가 동작하는 화면 이미지가 있었음.)
-성공! 아직 HTTP -> HTTPs redirect가 안 되어있으나 HTTPS 자체는 잘 동작합니다.
+성공! 당시 발급된 인증서의 만료일은 2023-06-27이었다. 아직 HTTP -> HTTPs redirect가 안 되어있으나 HTTPS 자체는 잘 동작합니다.
 
 [^1]: Boucheron, Brian and Jeanelle Horcasitas. "How To Create a Self-Signed SSL Certificate for Nginx in Ubuntu 20.04." DigitalOcean, 23 Sept. 2021, www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1.
 [^2]: "About Let's Encrypt - Let's Encrypt." 29 Mar. 2023, letsencrypt.org/about.

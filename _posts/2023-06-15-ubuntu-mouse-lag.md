@@ -12,7 +12,7 @@ published: false
 
 # 해결 시도
 
-## `/etc/environment` 수정 (해결)
+## `/etc/environment` 수정 (워크어라운드)
 
 “ubuntu 22.04 mouse lag” 이라고 검색했는데 생각보다 많은 응답이 나왔다.
 
@@ -23,13 +23,13 @@ MUTTER_DEBUG_ENABLE_ATOMIC_KMS=0
 MUTTER_DEBUG_FORCE_KMS_MODE=simple
 ```
 
-바로 해결됐다!
+이 두 값은 Mutter의 디버그 플래그라서 장기적인 정식 수정이라고 보기는 어렵다. 다만 내 머신에서는 이 워크어라운드를 넣고 재시작하니 렉이 바로 사라졌다.
 
 # 왜?
 
 [원인에 대한 이론을 제시한 코멘트](https://bugs.launchpad.net/ubuntu/+source/gnome-shell/+bug/1982560/comments/23)가 있는데, 대략 “triple buffering patch” 가 원인일 수 있다는 것이다.
 
-하지만 처음에는 그것을 원인으로 잡았는데 [아닐 수도 있다는 분석](https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441#note_1568056)이 아주 최근(1주 전)에 있었다. 다만 트리플 버퍼링이 켜졌을 때 발생하는 건 맞다는듯. 지금 해결된건 그래서 그런것 같다. triple buffering 이 켜졌을 때 현재 업데이트가 다음 프레임에 합쳐지는 현상이 있다고 한다. 겉보기로는 업데이트가 아직 안 된 상태로 남아있는 프레임이 있을 때 바로 다음 프레임에 같이 합쳐서 업데이트 요청을 보내는 것 같다. 그래서 렉걸리는 듯한 현상이 나타나는 것이고.
+하지만 처음에는 그것을 원인으로 잡았는데, 같은 시기에 [아닐 수도 있다는 분석](https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441#note_1568056)이 그 MR에 달려 있었다. 다만 트리플 버퍼링이 켜졌을 때 발생하는 건 맞다는듯. 내 머신에서 워크어라운드가 통한 것과 관련이 있을지도 모르겠지만, 확실하지는 않다. triple buffering 이 켜졌을 때 현재 업데이트가 다음 프레임에 합쳐지는 현상이 있다고 한다. 겉보기로는 업데이트가 아직 안 된 상태로 남아있는 프레임이 있을 때 바로 다음 프레임에 같이 합쳐서 업데이트 요청을 보내는 것 같다. 그래서 렉걸리는 듯한 현상이 나타나는 것이고.
 
 위 공부한 내용에 따르면 트리플 버퍼링은 모니터에 보여줄 화면을 더 빠르게 계산하기 위해 연산용 버퍼를 두 개 쓰고 보여주기용 버퍼를 하나 쓰는 방식이다. 기본적으로는 더블 버퍼링, 연산용 버퍼를 하나만 쓰는 방식을 택하는데 성능 향상을 위해서 트리플 버퍼링을 택하려고 했나보다.
 
@@ -51,4 +51,4 @@ in `meta_onscreen_native_finish_frame`. It returns without a result, which is th
 
 Maybe a new frame result enum is required, or maybe nothing needs fixing at all. Needs more analysis...
 
-즉 triple buffer 개발하면서 나온 버그..?인것 같다. 아직 머지도 안 된 PR인것 같은데 이게 원인이 될 수가 있나? 이해가 잘 안 됨.
+즉 triple buffer 개발하면서 나온 버그..?인것 같다. 작성 당시 이 분석이 달린 MR(!1441)은 아직 머지되지 않은 상태였다. (이 MR은 2025년 2월에 GNOME 48로 머지되었다.) 이게 내 증상의 원인이 될 수가 있는지는 여전히 잘 모르겠다.

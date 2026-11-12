@@ -20,7 +20,7 @@ In [7]: timeit(s)
 7.98 ns ± 0.0542 ns per loop (mean ± std. dev. of 7 runs, 100,000,000 loops each)
 ```
 
-Code above runs at about 8ns, which is 73 times faster than code below.
+timeit reported 7.98 ns for the code above and 590 ns for the code below — about 73 times faster, if those numbers are right. 8ns looks suspiciously fast for an encode plus try/except of a 7-character literal, though; it may be measuring an optimized or constant-folded path. These numbers need to be remeasured, for example with a function that takes a variable string or with `python -m timeit`, before treating the 73x as settled.
 
 ```
 In [8]: timeit(all(ord(c) < 128 for c in 'abcdefg'))
@@ -89,7 +89,7 @@ Disassembly of <code object <genexpr> at 0x7f89e0d7d330, file "<ipython-input-10
 Let's ignore first two blocks since it's just calling a function. Only one notable part is that it's trying to retrieve a generator expression in 14.
 Last block is where iteration happens. Given loaded constant 'abcdefg', this block will iterate(8: `FOR_ITER`), and return None if it's exhausted(56: `LOAD_CONST`, 58: `RETURN_VALUE`).
 During the iteration, item on the top of the stack is stored to variable `c`, then calls `ord`(12: `LOAD_GLOBAL`), compare with `128`(40: `LOAD_CONST`, 42: `COMPARE_OP`).
-Let's roughly say that each line takes about a few microseconds. Since this iteration would take more than 12\*6 executions, we could say it would at least take 72 microseconds from our assumption.
+I first assumed each bytecode line would take a few microseconds, which would put this loop at 72 microseconds or more. That doesn't hold: the measured timeit is 590 nanoseconds, about 120 times smaller than that estimate. A microsecond-per-line assumption is the wrong scale here.
 
 ```
 In [13]: dis.dis(by_encode)

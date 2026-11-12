@@ -28,7 +28,7 @@ You have something in your mind. You've got some grasp of what you could do.. ju
 
 (The note had a diagram here.)
 
-Naive approach is to write sentence by sentence and be inspired by it when writing the next sentence. According to previous data, however, we need 15 minutes to write a whole 3000 word essay. This doesn't seem too long unless you already know exactly what you want to write. Not only we need a full 15 minutes, it also takes our precious energy that we could've put into thinking instead of typing.
+Naive approach is to write sentence by sentence and be inspired by it when writing the next sentence. According to previous data, however, at the stenographer speed of 200 wpm we need 15 minutes to write a whole 3000 word essay. At a more typical typing speed the same length would take much longer. This doesn't seem too long unless you already know exactly what you want to write. Not only we need a full 15 minutes, it also takes our precious energy that we could've put into thinking instead of typing.
 
 (The note had a diagram here.)
 
@@ -37,5 +37,7 @@ Wait, but aren't there people who write as their profession? There must be best 
 When we try to write something, there must be some themes, assertions, reasons, conclusions and all other sorts of concepts that could fall into some logics. Like all other concepts those would convey a structure. If we understand about a structure, then filling the gap is easy. Iteratively, we could treat the structures as logical items, then the items would also convey a structure, and so on and so on.. then we would finally be at the very beginning. We start from there, draw whole picture iteratively, while keeping our eye on the finish line.
 
 Writing is lossy compression about what we already have in our mind. LLM's one of the best feature is summarization, which is lossy compression.
+
+(This cuts off here; I haven't finished the rest yet.)
 
 [^1]: https://gist.github.com/squarism/6ed09eb0150936fdda12d4b563d8c2a8

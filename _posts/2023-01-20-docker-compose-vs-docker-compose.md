@@ -50,6 +50,8 @@ docker compose v1(python) 에서 `docker-compose` 를 사용했고 docker compos
 
 ### 더 빠른 신규 기능 제공
 
+위에서 구분했듯 compose file 스펙과 compose CLI 버전은 다르다. V2 GA 블로그는 아래를 새 기능으로 적고 있지만, GPU 예약이나 profile은 compose file 스펙 쪽 기능이고, v2 CLI만의 이점이라고 보기는 어렵다.
+
 -   GPU 인스턴스 사용하도록 세팅 가능: 서버 측에서는 많이 사용할지 모르겠지만 docker compose 로 딥러닝 훈련 구성할 때 사용할 수 있을듯
 -   profile: 특정 컨테이너가 현재 세팅된 profile 에 따라 실행 여부 결정됨.
     -   여러 서버를 같은 compose file 로 관리할 수도 있게 되는듯?
@@ -76,13 +78,13 @@ cross platform 지원을 위해 binary 만들 때 python은 native 한 기능이
 
 신규 기능 중 하나. 원래는 docker compose file 이 있어야만 docker compose 커맨드를 실행할 수 있었는데, compose file 과 같은 위치에 있지 않아도 docker compose 를 프로젝트 명 지정으로 사용할 수 있음.
 
-## 언제 V1이 fully unsupported?
+## 언제 V1 지원이 끝나나?
 
 (노트에는 여기에 도커 컴포즈 로드맵 이미지가 있었음.)
 
 도커 컴포즈의 로드맵.
 
-**2023년 4월부터** v2 에서 opt-out 할 수 없다고 한다. 즉 `docker compose` 를 사용하지 않도록 하는건 불가한데 `docker compose` 자체는 사용 가능할테니 `docker-compose` 를 유저가 `docker compose` 로 alias 하는것 자체는 가능함. 쉽게 말하면 이때부터 `docker compose` 만 써라!
+새 Docker Desktop에서는 **2023년 4월부터** v2 에서 opt-out 할 수 없다고 한다. 즉 새 버전에서는 `docker compose` 를 사용하지 않도록 하는건 불가한데, `docker-compose` 를 유저가 `docker compose` 로 alias 하는것 자체는 가능함. V1 지원 자체는 2023년 6월까지다. 쉽게 말하면 새 Desktop에서는 4월부터 `docker compose` 만 쓰게 되고, V1 지원은 6월에 끝난다.
 
 ## 궁금증
 
