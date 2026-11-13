@@ -1,5 +1,5 @@
 ---
-title: "엔진룸 키드"
+title: "Engine Room Kid"
 date: 2025-05-16 01:44:00 +0900
 categories: opinion
 tags: ["opinion"]
