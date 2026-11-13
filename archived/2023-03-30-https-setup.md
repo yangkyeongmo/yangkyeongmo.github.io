@@ -1,20 +1,18 @@
 ---
-title: "Enabling HTTPS"
+title: "HTTPS 활성화하기"
 date: 2023-03-30 15:00
 categories: dev
 tags: []
-lang: en
-locale: en_US
+layout: post
+lang: ko
+locale: ko_KR
 ref: https-setup
-permalink: /en/https-setup.html
-machine_translated: true
-original_url: /https-setup.html
 ---
 
-There's also a way to make and use an SSL certificate yourself[^1], so I might look it up later if I get interested.
-Here I use certbot. certbot is a client for Let's Encrypt[^2], a free, open-source CA run by a nonprofit called ISRG.
+SSL certificate을 직접 만들어 사용하는 방법[^1]도 있으니 나중에 흥미가 생기면 참고해보려고 합니다.
+여기서는 certbot을 활용합니다. certbot은 ISRG라는 비영리재단이 운영하는 무료, 오픈소스  CA인 Let's Encrypt[^2]의 클라이언트입니다. 
 
-I tried to do it with the content below, but on lightsail something was different and the setup didn't go well.
+아래 내용으로 해보려고 했는데, lightsail에서는 뭔가 다른지 세팅이 잘 안 되더라구요.
 
 ```bash
 sudo add-apt-repository ppa:certbot/certbot
@@ -26,7 +24,7 @@ $ sudo snap install --classic certbot
 certbot 2.4.0 from Certbot Project (certbot-eff✓) installed
 ```
 
-Turns out there seems to be a separate way to do it on Lightsail[^3]. That said, the content below is what I found out through phind.
+알고보니 Lightsail에서 하는 방법이 따로 있는것 같습니다[^3]. 다만 아래 내용은 phind를 통해서 알아낸 내용입니다.
 
 ```bash
 $ sudo certbot certonly --manual --preferred-challenges dns -d planmoji.com -d *.planmoji.com
@@ -66,7 +64,7 @@ If you like Certbot, please consider supporting our work by:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
 
-If the manual setup succeeds, you get a message like the above. After that I set ssl_certificate and ssl_certificate_key on nginx.
+수동 설정에 성공하면 위처럼 메시지가 나옵니다. 그 뒤에 nginx에 ssl_certificate와 ssl_certificate_key를 설정해줬습니다.
 ```conf
 listen 443 ssl default_server;
 listen [::]:443 ssl default_server;
@@ -74,8 +72,8 @@ ssl_certificate /etc/letsencrypt/live/planmoji.com/fullchain.pem;
 ssl_certificate_key    /etc/letsencrypt/live/planmoji.com/privkey.pem;
 ```
 
-(The note had a screenshot of HTTPS working here.)
-Success! The expiration date of the certificate issued at the time was 2023-06-27. HTTP -> HTTPS redirect still isn't in place, but HTTPS itself works fine.
+(노트에는 여기에 HTTPS가 동작하는 화면 이미지가 있었음.)
+성공! 당시 발급된 인증서의 만료일은 2023-06-27이었다. 아직 HTTP -> HTTPs redirect가 안 되어있으나 HTTPS 자체는 잘 동작합니다.
 
 [^1]: Boucheron, Brian and Jeanelle Horcasitas. "How To Create a Self-Signed SSL Certificate for Nginx in Ubuntu 20.04." DigitalOcean, 23 Sept. 2021, www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-20-04-1.
 [^2]: "About Let's Encrypt - Let's Encrypt." 29 Mar. 2023, letsencrypt.org/about.

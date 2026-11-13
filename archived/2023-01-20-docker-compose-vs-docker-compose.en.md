@@ -3,12 +3,13 @@ title: "docker-compose vs docker compose"
 date: 2023-01-20 15:00
 categories: dev
 tags: []
+layout: post
 lang: en
 locale: en_US
 ref: docker-compose-vs-docker-compose
 permalink: /en/docker-compose-vs-docker-compose.html
 machine_translated: true
-original_url: /docker-compose-vs-docker-compose.html
+original_url: /archived/2023-01-20-docker-compose-vs-docker-compose.html
 ---
 
 # Overview

@@ -3,6 +3,7 @@ title: "Docker Network 정리"
 date: 2022-07-24 21:09
 categories: dev
 tags: []
+layout: post
 lang: ko
 locale: ko_KR
 ref: docker-network

@@ -3,12 +3,13 @@ title: "Docker Network notes"
 date: 2022-07-24 21:09
 categories: dev
 tags: []
+layout: post
 lang: en
 locale: en_US
 ref: docker-network
 permalink: /en/docker-network.html
 machine_translated: true
-original_url: /docker-network.html
+original_url: /archived/2022-07-24-docker-network.html
 ---
 
 I referred to https://docs.docker.com/network/.

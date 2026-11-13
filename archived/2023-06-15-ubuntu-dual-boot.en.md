@@ -1,56 +1,60 @@
 ---
-title: "우분투 듀얼부팅"
+title: "Ubuntu Dual Boot"
 date: 2023-06-15 15:00
 categories: dev
 tags: ["dev", "ops", "ubuntu"]
-lang: ko
-locale: ko_KR
+layout: post
+lang: en
+locale: en_US
 ref: ubuntu-dual-boot
+permalink: /en/ubuntu-dual-boot.html
+machine_translated: true
+original_url: /archived/2023-06-15-ubuntu-dual-boot.html
 ---
 
-# 부팅 usb 만들기
+# Making a boot USB
 
-1.  우분투 부팅 iso를 받는다. [https://releases.ubuntu.com/](https://releases.ubuntu.com/) 에서 확인가능.
-2.  rufus를 사용한다. 대체로 이 프로그램을 많이 사용하는듯.
+1.  Get the Ubuntu boot iso. You can check it at [https://releases.ubuntu.com/](https://releases.ubuntu.com/).
+2.  Use rufus. Seems like a lot of people use this program.
 
 [Rufus](https://rufus.ie/ko/)
 
-1.  필요하다면 파티션 구성을 GPT로 바꾼다.
-    1.  파티션 구성이 뭐지?
-    2.  GPT가 뭐지?
-    3.  파티션 구성
+1.  If needed, change the partition layout to GPT.
+    1.  What's a partition layout?
+    2.  What's GPT?
+    3.  Partition layout
 
-# 어느 디스크에 넣을까?
+# Which disk should I put it on?
 
-가능한 옵션들
+Possible options
 
-1.  1TB짜리 디스크에 윈도우를 넣어놓고 512GB 짜리에 우분투를 넣는다
-    1.  OS 클론 필요(진입장벽 있는 느낌)
-    2.  🤔같은 OS의 부팅과 디스크를 분리하는게 좋을까, 혹은 같은 디스크에 넣어도 큰 이상은 없을까?
-2.  기존대로 하고, 1TB짜리 디스크를 윈도우와 우분투가 공유한다
-    1.  미리 해둘건 없음
+1.  Put Windows on the 1TB disk and Ubuntu on the 512GB one
+    1.  Need to clone the OS (feels like there's a barrier to entry)
+    2.  🤔Would it be better to separate the same OS's boot and disk, or would putting them on the same disk be mostly fine?
+2.  Keep it as is, and have Windows and Ubuntu share the 1TB disk
+    1.  Nothing to do in advance
 
-디스크 하나가 망가져도 둘 중 하나를 살리려면 1번이다. OS를 디스크별로 나누면 한쪽 디스크가 망가져도 다른 OS는 남는다. 2번은 1TB를 윈도우와 우분투가 공유하는 것이라, 그 디스크가 망가지면 둘 다 잃는다. 다만 2번은 미리 해둘 게 없어서, 일단 2번을 채택했다.
+If you want to save one of them even if one disk dies, it's option 1. If you split the OS by disk, even if one disk dies the other OS remains. Option 2 is Windows and Ubuntu sharing the 1TB, so if that disk dies you lose both. But option 2 has nothing to do in advance, so I went with option 2 for now.
 
-## 진행 과정 로그
+## Progress log
 
-(노트에는 여기에 기존 디스크 볼륨 상태 이미지가 있었음.)
+(In the notes there was an image of the existing disk volume state here.)
 
-기존 상태. 디스크 0의 볼륨이 두 파트로 나눠져있다.
+Existing state. Disk 0's volumes are split into two parts.
 
-위 사진처럼 디스크0(1TB)가 볼륨이 두 파트로 나뉘어있는 상태. 두 개를 합쳐보려고 했으나 볼륨 축소 시 두 볼륨의 사이에 새로운 파티션이 생기는 형태로 진행되었다.
+Like the photo above, disk 0 (1TB) has its volumes split into two parts. I tried to merge the two, but when shrinking the volume it proceeded in a form where a new partition appeared between the two volumes.
 
--   HDD는 연속성이 중요할것 같은데, SSD도 중요할까? SSD는 메모리처럼 동작하니까 블록 단위로만 잘 합쳐져있으면 괜찮을것 같은데.
+-   Continuity seems important for HDDs, but is it important for SSDs too? SSDs work like memory so as long as they're well merged at the block level it might be fine.
 
-(노트에는 여기에 디스크 조각모음 화면 이미지가 있었음.)
+(In the notes there was an image of the disk defragmentation screen here.)
 
-디스크 조각모음 화면. D 드라이브를 최적화 할 수 없는 상태.
+Disk defragmentation screen. D drive is in a state where it cannot be optimized.
 
-볼륨 축소하려고 했을 때 이미 존재하는 파일의 위치때문에 볼륨을 나눠서 축소해야한다는 듯한 문구가 발생해, 혹시 드라이브 조각모음을 하면 해결되나 싶어 창을 열어봤다. 결과는 이상하게도 “최적화를 사용할 수 없음” 이라는 문구가 발생.
+When I tried to shrink the volume, a message came up that seemed to say I had to split and shrink the volume because of the location of already existing files, so I opened the window wondering if maybe doing drive defragmentation would fix it. The result, weirdly, was a message saying "optimization cannot be used".
 
-[https://answers.microsoft.com/ko-kr/windows/forum/all/윈도우/8e75497a-7950-4ab7-84c1-191f5677b17e](https://answers.microsoft.com/ko-kr/windows/forum/all/%EC%9C%88%EB%8F%84%EC%9A%B0/8e75497a-7950-4ab7-84c1-191f5677b17e) MS 문의가 비슷한게 있어서 `chkdsk /r` 을 C드라이브, D드라이브에 대해 진행했다. 아래는 실행 로그.
+[https://answers.microsoft.com/ko-kr/windows/forum/all/윈도우/8e75497a-7950-4ab7-84c1-191f5677b17e](https://answers.microsoft.com/ko-kr/windows/forum/all/%EC%9C%88%EB%8F%84%EC%9A%B0/8e75497a-7950-4ab7-84c1-191f5677b17e) There was a similar MS inquiry so I ran `chkdsk /r` on the C drive and D drive. Below is the run log.
 
--   실행 로그
+-   Run log
     
     ```powershell
     PS C:\\WINDOWS\\system32> chkdsk /r
@@ -131,21 +135,21 @@ ref: ubuntu-dual-boot
     ```
     
 
-그러나 여전히 최적화가 발동 불가한 상태로 되어있고 디스크 관리 창에서 두 볼륨이 나뉘어진 상태, 즉 기존과 동일한 상태이다. 즉, “디스크 조각모음이 안 되어있기 때문”이라는 가설 기각.
+But optimization is still in a state where it cannot be triggered, and in the disk management window the two volumes are split, i.e. the same state as before. In other words, the hypothesis that "it's because disk defragmentation hasn't been done" is rejected.
 
-재시작해도 동일함.
+Same even after restarting.
 
-(노트에는 여기에 포맷 후 볼륨이 나뉜 상태 이미지가 있었음.)
+(In the notes there was an image of the volumes in a split state after formatting here.)
 
-포맷한 이후 깔끔하게 나뉘는 모습.
+After formatting, the look of it splitting cleanly.
 
-남아있는 데이터가 많지 않아서 디스크 포맷을 진행한 후 볼륨을 새로 만들었다. 깔끔하게 나뉘어짐.
+There wasn't much remaining data so I formatted the disk and created the volumes again. Split cleanly.
 
-이후 나뉘어진 파티션에다가 잘 넣어놓았다.
+After that I put it nicely onto the split partitions.
 
-## 주의할 점
+## Things to watch out for
 
-처음에는 root(`/`)를 10~20GB, swap을 RAM의 두 배로 잡으면 된다고 생각했다.
-- 업데이트: 50GB 정도가 나을 것 같다고 적었는데, 그 뒤로 50GB도 부족했다. ([우분투 파티션 재조정 후 home 날릴뻔한 경험]({% post_url 2023-04-29-ubuntu-partition %}))
+At first I thought it would be fine to take root (`/`) at 10~20GB, and swap at twice the RAM.
+- Update: I wrote that around 50GB would be better, but after that even 50GB wasn't enough. ([That time I almost wiped home after resizing Ubuntu partitions](/en/ubuntu-partition.html))
 
-듀얼부팅 할거면 GRUB을 디스크의 EFI 파티션(UEFI인 경우; 레거시 BIOS면 디스크 MBR)에 설치해야 부팅 시 GRUB이 나온다. 이 EFI 파티션은 윈도우 부트 매니저가 들어 있는 ESP와 같은 곳인 경우가 많다.
+If you're going to dual boot you have to install GRUB on the disk's EFI partition (if it's UEFI; if it's legacy BIOS, the disk MBR) for GRUB to come up at boot. This EFI partition is often the same place as the ESP that has the Windows boot manager.

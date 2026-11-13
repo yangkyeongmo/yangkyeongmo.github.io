@@ -3,6 +3,7 @@ title: "docker-compose vs docker compose"
 date: 2023-01-20 15:00
 categories: dev
 tags: []
+layout: post
 lang: ko
 locale: ko_KR
 ref: docker-compose-vs-docker-compose

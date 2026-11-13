@@ -3,6 +3,7 @@ title: "whisper-cpp"
 date: 2023-06-15 15:00
 categories: dev
 tags: []
+layout: post
 lang: en
 locale: en_US
 ref: whisper-cpp

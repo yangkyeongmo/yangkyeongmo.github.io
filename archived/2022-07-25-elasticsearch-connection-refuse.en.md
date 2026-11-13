@@ -3,12 +3,13 @@ title: "Fixing an Elasticsearch ConnectionRefuse error"
 date: 2022-07-25 21:01
 categories: dev
 tags: ["elasticsearch"]
+layout: post
 lang: en
 locale: en_US
 ref: elasticsearch-connection-refuse
 permalink: /en/elasticsearch-connection-refuse.html
 machine_translated: true
-original_url: /elasticsearch-connection-refuse.html
+original_url: /archived/2022-07-25-elasticsearch-connection-refuse.html
 ---
 
 ## Situation

@@ -3,12 +3,13 @@ title: "f-string performance in logging and pylint w1203"
 date: 2023-08-10 11:00
 categories: dev
 tags: ["python"]
+layout: post
 lang: en
 locale: en_US
 ref: logging-fstring-w1202
 permalink: /en/logging-fstring-w1202.html
 machine_translated: true
-original_url: /logging-fstring-w1202.html
+original_url: /archived/2023-08-08-logging-fstring-w1202.html
 ---
 
 # W1203?

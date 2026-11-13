@@ -3,6 +3,7 @@ title: "우분투 마우스 렉"
 date: 2023-06-15 15:00
 categories: dev
 tags: ["dev", "ops", "ubuntu"]
+layout: post
 lang: ko
 locale: ko_KR
 ref: ubuntu-mouse-lag

@@ -3,12 +3,13 @@ title: "Speeding up tests by running Django tests in parallel"
 date: 2023-08-10 11:00
 categories: dev
 tags: ["python", "django"]
+layout: post
 lang: en
 locale: en_US
 ref: django-test-parallel
 permalink: /en/django-test-parallel.html
 machine_translated: true
-original_url: /django-test-parallel.html
+original_url: /archived/2023-08-10-django-test-parallel.html
 ---
 
 # Intro

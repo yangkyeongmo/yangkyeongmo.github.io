@@ -3,21 +3,19 @@ title: "HTML dialog tag"
 date: 2022-06-10 13:36
 categories: dev
 tags: ["html"]
-lang: en
-locale: en_US
+layout: post
+lang: ko
+locale: ko_KR
 ref: html-dialog
-permalink: /en/html-dialog.html
-machine_translated: true
-original_url: /html-dialog.html
 ---
 
-After seeing [an article shared](https://tomquinonero.com/blog/native-html-modals-with-the-dialog-tag?utm_source=hada) on [GeekNews](https://news.hada.io/new), I wondered whether using the dialog tag might mean I don't have to implement modals myself when developing going forward, so I made a simple example and tested it.
+[긱뉴스](https://news.hada.io/new)에서 [공유된 아티클](https://tomquinonero.com/blog/native-html-modals-with-the-dialog-tag?utm_source=hada)을 보고 dialog 태그를 사용하면 앞으로 개발할 때 모달을 직접 구현하지 않아도 되지 않을까 하여 간단한 예시를 만들어 테스트해봤습니다.
 
-I've seen a lot of cases of implementing modals by hand; it was probably for customization, but it seems convenient when you want a simple implementation.
+모달 구현 시 직접 구현하는 경우를 많이 본것 같은데 아마 커스터마이징 목적이었을것 같습니다만 간단하게 구현할때는 편리할것 같습니다.
 
-# Example
+# 예시
 
-## Code
+## 코드
 
 ```html
 <html>
@@ -58,11 +56,11 @@ I've seen a lot of cases of implementing modals by hand; it was probably for cus
 </html>
 ```
 
-## Run example
+## 실행 예시
 
 ![메인 화면](/assets/img/html-dialog/main-page.jpg){: width="1430" height="783" loading="eager" decoding="async"}
-Initial HTML screen.
+HTML 초기 화면.
 
 ![dialog 오픈](/assets/img/html-dialog/dialog-open.jpg){: width="1432" height="791" loading="lazy" decoding="async"}
-The screen that appears when you click the "Open a modal" button.
-You can see that the background color on the backdrop changed the background color behind this modal.
+"Open a modal" 버튼 클릭 시 나오는 화면.
+backdrop 에 들어간 배경 색이 이 모달 뒤의 배경 색을 변경한 것을 확인할 수 있다.

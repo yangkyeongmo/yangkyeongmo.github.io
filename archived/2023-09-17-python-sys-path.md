@@ -3,6 +3,7 @@ title: "Python sys-path"
 date: 2023-09-17 15:00
 categories: dev
 tags: ["python"]
+layout: post
 lang: en
 locale: en_US
 ref: python-sys-path

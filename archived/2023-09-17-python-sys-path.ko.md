@@ -3,12 +3,13 @@ title: "Python sys-path"
 date: 2023-09-17 15:00
 categories: dev
 tags: ["python"]
+layout: post
 lang: ko
 locale: ko_KR
 ref: python-sys-path
 permalink: /ko/python-sys-path.html
 machine_translated: true
-original_url: /python-sys-path.html
+original_url: /archived/2023-09-17-python-sys-path.html
 ---
 
 # When this becomes problem

@@ -3,12 +3,13 @@ title: "whisper-cpp"
 date: 2023-06-15 15:00
 categories: dev
 tags: []
+layout: post
 lang: ko
 locale: ko_KR
 ref: whisper-cpp
 permalink: /ko/whisper-cpp.html
 machine_translated: true
-original_url: /whisper-cpp.html
+original_url: /archived/2023-06-15-whisper-cpp.html
 ---
 
 `Whisper.cpp`는 openai의 whisper를 고성능으로 포팅한 cpp 포트입니다. 프로젝트가 오디오 샘플을 실시간으로 받아 적을 수 있다고 해서, 그걸 시도해 봤습니다.

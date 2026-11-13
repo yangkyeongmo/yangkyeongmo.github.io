@@ -3,12 +3,13 @@ title: "Ubuntu mouse lag"
 date: 2023-06-15 15:00
 categories: dev
 tags: ["dev", "ops", "ubuntu"]
+layout: post
 lang: en
 locale: en_US
 ref: ubuntu-mouse-lag
 permalink: /en/ubuntu-mouse-lag.html
 machine_translated: true
-original_url: /ubuntu-mouse-lag.html
+original_url: /archived/2023-06-15-ubuntu-mouse-lag.html
 ---
 
 # Symptom
