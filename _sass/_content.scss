@@ -28,7 +28,7 @@
 }
 
 .machine-translated a {
-  color: var(--accent);
+  color: var(--text);
   text-decoration: underline;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .toc a {
-  color: var(--accent);
+  color: var(--text);
   text-decoration: underline;
   text-underline-offset: 0.18em;
   text-decoration-thickness: 0.07em;
@@ -160,7 +160,7 @@ h3[id],
 
 article a,
 .post-content a {
-  color: var(--accent);
+  color: var(--text);
   text-decoration: underline;
   text-underline-offset: 0.18em;
   text-decoration-thickness: 0.07em;
@@ -169,14 +169,27 @@ article a,
 
 article a:visited,
 .post-content a:visited {
-  color: var(--accent-visited);
+  color: var(--text);
+}
+
+.post-content strong,
+.post-content b {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.post-content mark {
+  color: var(--accent);
+  background-color: var(--mark-bg);
+  padding: 0.05em 0.15em;
+  border-radius: var(--radius-sm);
 }
 
 blockquote {
   margin-inline: 0;
   padding-inline-start: 2em;
   padding-inline-end: 0;
-  border-inline-start: 2px solid var(--accent);
+  border-inline-start: 2px solid var(--rule);
   font-size: 0.95em;
   line-height: 1.5;
   color: var(--text);

@@ -34,13 +34,7 @@ entries:
     post_list:
       category: opinion
       limit: 5
-      show_more: true
-      show_more_text:
-        en: More...
-        ko: 더 보기...
-      show_more_url:
-        en: /archive.html
-        ko: /ko/archive.html
+      show_more: false
 
   - title:
       en: dev
@@ -48,26 +42,7 @@ entries:
     post_list:
       category: dev
       limit: 5
-      show_more: true
-      show_more_text:
-        en: More...
-        ko: 더 보기...
-      show_more_url:
-        en: /archive.html
-        ko: /ko/archive.html
-
-  - title:
-      en: all posts
-      ko: 모든 글
-    post_list:
-      limit: 5
-      show_more: true
-      show_more_text:
-        en: More...
-        ko: 더 보기...
-      show_more_url:
-        en: /archive.html
-        ko: /ko/archive.html
+      show_more: false
 
   - title:
       en: rss

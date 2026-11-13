@@ -87,17 +87,20 @@ h4,
 }
 
 a {
-  color: var(--accent);
+  color: var(--text);
   text-underline-offset: 0.18em;
   text-decoration-thickness: 0.07em;
   text-decoration-color: currentColor;
-  transition: color var(--duration) var(--ease),
-              text-decoration-color var(--duration) var(--ease),
+  transition: text-decoration-color var(--duration) var(--ease),
               text-decoration-thickness var(--duration) var(--ease);
 }
 
+a:visited {
+  color: var(--text);
+}
+
 a:hover {
-  color: var(--accent-hover);
+  color: var(--text);
   text-decoration-thickness: 0.1em;
 }
 

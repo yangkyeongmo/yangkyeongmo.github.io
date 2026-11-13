@@ -5,9 +5,7 @@ en:
     If you'd like to know more about me, please find me by the links below.
   more: More...
   home_path: /
-  archive_path: /archive.html
   feed_path: /feed.xml
-  archive: Archive
   about: About
   nav_label: Primary
   footer_label: Footer
@@ -34,9 +32,7 @@ ko:
     저에 대해 더 알고 싶으시다면 아래 링크로 찾아 주세요.
   more: 더 보기...
   home_path: /ko/
-  archive_path: /ko/archive.html
   feed_path: /feed-ko.xml
-  archive: 글 목록
   about: 소개
   nav_label: 주요
   footer_label: 바닥글

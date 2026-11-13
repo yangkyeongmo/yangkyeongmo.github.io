@@ -6,6 +6,12 @@
   {%- assign posts = site.posts | where: "lang", lang -%}
 {%- endif -%}
 
+{%- if include.limit -%}
+  {%- assign loop_limit = include.limit -%}
+{%- else -%}
+  {%- assign loop_limit = posts.size -%}
+{%- endif -%}
+
 {%- if include.limit and posts.size > include.limit -%}
   {%- assign limit_exceeded = true -%}
 {%- else -%}
@@ -15,7 +21,7 @@
 {%- if posts.size > 0 -%}
   {%- if include.group_by_year -%}
     {%- assign current_year = "" -%}
-    {%- for post in posts limit: include.limit -%}
+    {%- for post in posts limit: loop_limit -%}
       {%- assign y = post.date | date: "%Y" -%}
       {%- if y != current_year -%}
         {%- unless current_year == "" -%}
@@ -35,7 +41,7 @@
     {%- endif -%}
   {%- else -%}
     <ul class="post-list">
-      {%- for post in posts limit: include.limit -%}
+      {%- for post in posts limit: loop_limit -%}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           <time class="meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: i18n.date_format }}</time>

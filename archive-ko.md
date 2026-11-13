@@ -1,8 +1,7 @@
 ---
-layout: archive
-title: 글 목록
+layout: redirect
 lang: ko
-locale: ko_KR
 permalink: /ko/archive.html
-translation_url: /archive.html
+redirect_to: /ko/
+sitemap: false
 ---
