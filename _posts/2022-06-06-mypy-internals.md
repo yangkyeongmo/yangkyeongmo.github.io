@@ -3,6 +3,7 @@ title: "Mypy internals"
 date: 2022-06-06 13:25
 categories: dev
 tags: ["python"]
+published: false
 lang: ko
 locale: ko_KR
 ref: mypy-internals

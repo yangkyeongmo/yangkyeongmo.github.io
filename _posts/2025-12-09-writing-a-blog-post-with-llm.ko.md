@@ -3,6 +3,7 @@ title: "LLM으로 블로그 글 쓰기"
 date: 2025-12-09 15:00
 categories: dev
 tags: []
+published: false
 lang: ko
 locale: ko_KR
 ref: writing-a-blog-post-with-llm
