@@ -8,7 +8,7 @@ locale: en_US
 ref: django-ninja-performance
 ---
 
-Have you ever noticed that sometimes, when handling requests and generating responses from a search API, the CPU time seems unusually long compared to the actual Elasticsearch query? It’s a frustrating anomaly, especially when you're expecting the system to fly through the tasks. I’ve encountered this myself while dealing with response generation in Django Ninja. Even after switching from `dataclass` to `pydantic` and back to `dataclass` (yes, this has happened), the problem persisted. Given that Django Ninja uses `pydantic` for requests and responses, I suspected the culprit was something lurking within the framework itself.
+Have you ever noticed that sometimes, when handling requests and generating responses from a search API, the CPU time seems unusually long compared to the actual Elasticsearch query? I’ve encountered this myself while dealing with response generation in Django Ninja. Even after switching from `dataclass` to `pydantic` and back to `dataclass`, the problem persisted. Given that Django Ninja uses `pydantic` for requests and responses, I suspected the culprit was something lurking within the framework itself.
 # Profiling with Py-spy
 To get a clearer picture, I turned to `py-spy` ([GitHub link](https://github.com/benfred/py-spy)), a lightweight profiler. The results were eye-opening. Below, you can see a snapshot from around 10 API calls. On the far right, we can spot the `_result_to_response` function — the segment responsible for building the response. Though it didn’t show exact latency, this process was taking almost as long as the actual search query.
 

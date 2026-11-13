@@ -23,7 +23,6 @@ original_url: /peg-parser.html
 
  What is the PEG/packrat parsing algorithm mentioned in this part, and what was the existing parsing algorithm like that this kind of difference showed up?
  The PEP isn't claiming a performance improvement of the PEG algorithm itself; it explains that the new parser came within 10% of the existing parser in both speed and memory, and that not constructing a CST is an advantage. If I look into the difference between LL parsers and PEG parsers, I think I'll be able to understand this document in more detail.
- Being able to understand the grammatical parts that will come in Python 3.10 and later is a bonus.
 
 # LL(1) parser
 

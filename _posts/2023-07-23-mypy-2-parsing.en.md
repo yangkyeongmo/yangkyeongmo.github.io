@@ -35,7 +35,7 @@ For mypy to do type checking, in [the first stage](/en/mypy-1-pre-optimization.h
 
 Then it would need to do type checking, so how should it interpret the code to be able to type-check?
 
-If you know compiler design you already guessed, but before type checking it turns the code into an AST (Abstract Syntax Tree).
+Before type checking it turns the code into an AST (Abstract Syntax Tree).
 
 # It uses the ast library to make an AST
 

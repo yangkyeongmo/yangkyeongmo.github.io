@@ -11,7 +11,7 @@ machine_translated: true
 original_url: /django-ninja-performance.html
 ---
 
-검색 API에서 요청을 처리하고 응답을 만들 때, 실제 Elasticsearch 쿼리에 비해 CPU 시간이 유난히 길어 보일 때가 있다는 걸 알아챈 적 있나요? 시스템이 일을 빠르게 해치울 거라고 기대할 때는 특히 답답한 이상입니다. Django Ninja에서 응답을 만들 때 저도 이걸 겪었습니다. `dataclass`에서 `pydantic`으로 바꿨다가 다시 `dataclass`로 돌아와도(네, 이런 일이 있었습니다) 문제는 남았습니다. Django Ninja가 요청과 응답에 `pydantic`을 쓰니, 범인은 프레임워크 안에 숨어 있는 무언가일 거라고 의심했습니다.
+검색 API에서 요청을 처리하고 응답을 만들 때, 실제 Elasticsearch 쿼리에 비해 CPU 시간이 유난히 길어 보일 때가 있다는 걸 알아챈 적 있나요? Django Ninja에서 응답을 만들 때 저도 이걸 겪었습니다. `dataclass`에서 `pydantic`으로 바꿨다가 다시 `dataclass`로 돌아와도 문제는 남았습니다. Django Ninja가 요청과 응답에 `pydantic`을 쓰니, 범인은 프레임워크 안에 숨어 있는 무언가일 거라고 의심했습니다.
 # Profiling with Py-spy
 더 분명하게 보려고, 가벼운 프로파일러인 `py-spy`([GitHub 링크](https://github.com/benfred/py-spy))를 썼습니다. 결과가 눈을 뜨게 했습니다. 아래는 API 호출 10번 정도의 스냅샷입니다. 맨 오른쪽에 응답을 만드는 구간인 `_result_to_response` 함수가 보입니다. 정확한 지연은 안 나왔지만, 이 과정이 실제 검색 쿼리만큼이나 오래 걸리고 있었습니다.
 

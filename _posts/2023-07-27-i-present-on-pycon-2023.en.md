@@ -19,7 +19,7 @@ I'll be presenting at PyCon Korea 2023!
 
 I'd actually been thinking about submitting to PyCon in 2022 while I was still at Buzzvil, but I missed the timing and ended up presenting in 2023.
 
-I submitted under the (somewhat long) title "Recursively checking function callers by riding on mypy".
+I submitted under the title "Recursively checking function callers by riding on mypy".
 
 I'll present on [mypyind](https://github.com/yangkyeongmo/mypyind), which I made as part of a project at Buzzvil.
 I want to briefly look at how mypy works while walking through the process of making this script together.

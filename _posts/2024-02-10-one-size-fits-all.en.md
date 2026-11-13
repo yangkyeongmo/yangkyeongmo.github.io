@@ -31,12 +31,6 @@ There was a trend of trying what's called a [Data warehouse](https://aws.amazon.
 
 Here the author knocks most usage as overspec ("dramatically over budget", "ended up delivering only a
 subset of promised functionality"), but still says ROI came out.
-  - (I'm also curious how they measured ROI; that part later.)
-
-Aside) You can find several claims that there may be many cases where you don't even need to use big data tools (e.g. Spark).
-- [Scalability! But at what COST?](https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf): cases where running single-threaded on a laptop can be faster than using big data tools
-- [BIG DATA IS DEAD](https://motherduck.com/blog/big-data-is-dead/): the claim that there aren't many companies with enough data to call it "big data"
-  - This post is MotherDuck's. DuckDB is an in-process OLAP database, and it's not a pure in-memory DB. The claim is persuasive.
 
 Even as the OLAP use case called Data warehouse appeared, there seem to have been attempts to advertise using only one database. For example combining an OLTP DBMS and an OLAP DBMS into one frontend and selling it as one system.
 But OLTP and OLAP have different use cases and different characteristics, so a feature needed on one side often isn't needed on the other, which is inefficient.

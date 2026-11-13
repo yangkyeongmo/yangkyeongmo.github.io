@@ -116,7 +116,7 @@ To check the current type definition you check the very last paper, and if you t
 
 `PatternChecker` checks types for patterns, as the name says.
 Pattern here means the patterns that appear inside a match statement.
-Honestly I don't use match itself often so I didn't look deeply, but when a match statement comes out this object is called.
+When a match statement comes out this object is called.
 
 ### SubtypeVisitor
 

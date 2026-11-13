@@ -113,7 +113,7 @@ Frame 2: a: SubB
 
 `PatternChecker`는 이름 그대로 패턴에 대한 타입을 체크합니다.
 여기서 패턴이라는건 match statement 안에 나오는 패턴을 의미합니다.
-사실 저는 match 자체를 자주 쓰지 않아서 깊게 보지 않았습니다만, match statement가 나오면 이 객체가 호출됩니다.
+match statement가 나오면 이 객체가 호출됩니다.
 
 ### SubtypeVisitor
 

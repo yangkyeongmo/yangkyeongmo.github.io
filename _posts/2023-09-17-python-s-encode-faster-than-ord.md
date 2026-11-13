@@ -29,7 +29,7 @@ In [8]: timeit(all(ord(c) < 128 for c in 'abcdefg'))
 590 ns ± 3.65 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 ```
 
-Is this obvious? For me, this is confusing because both encoding a string and iterating over a string seems similar. My best guess is that encoding a character would be like mapping to existing map, and iterating would be a sequence of arithmetic operations. But should it differ that much? That's why I decided to dig in.
+For me, this is confusing because both encoding a string and iterating over a string seems similar. My best guess is that encoding a character would be like mapping to existing map, and iterating would be a sequence of arithmetic operations. But should it differ that much? That's why I decided to dig in.
 
 Let's decompose the codes using `dis`.
 
@@ -141,5 +141,5 @@ ExceptionTable:
 
 For here, we could ignore first two blocks since they point to function declaration, try statement and execution.
 The third block is where encoding is happening. You could see that `s.encode('ascii')` is done with just a few lines.
-What makes me ponder is that how much time calling `encode` would take. Since each call to method might vary greatly, our assumptions might be only true for simple executions like arithmetic comparisons or popping stack. I wouldn't go further, but it seems most builtin functions are implemented in C code, which would be much faster than iterating on python.
+What makes me ponder is that how much time calling `encode` would take. Since each call to method might vary greatly, our assumptions might be only true for simple executions like arithmetic comparisons or popping stack. It seems most builtin functions are implemented in C code, which would be much faster than iterating on python.
 There's room for consideration because we didn't discuss about try-except-else block. I've been familiarized about the knowledge that we should avoid using try-except block because it's negative to performance compared to normal function execution, but here it doesn't seem like too much burden.

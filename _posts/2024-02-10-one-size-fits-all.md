@@ -28,12 +28,6 @@ OLTP database만으로 대응할 수 없는 유즈케이스가 대표적으로 �
 
 이 때 저자가 대부분의 사용 사례는 오버스펙이었다고("dramatically over budget", "ended up delivering only a
 subset of promised functionality") 까는데, 그럼에도 ROI는 나왔다고 함.
-  - (ROI를 어떻게 측정했는지도 궁금한데, 이 부분은 다음에.)
-
-사족) 빅 데이터 툴(e.g. Spark)까지 사용하지 않아도 될 경우가 많을 수 있다는 주장들을 여럿 찾을 수 있다.
-- [Scalability! But at what COST?](https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf): 빅 데이터 툴을 사용하는 것 대비 노트북에서 싱글 스레드로 실행하는 것이 더 빠를 수 있는 사례
-- [BIG DATA IS DEAD](https://motherduck.com/blog/big-data-is-dead/): "빅 데이터"라고 할 정도로 많은 데이터를 가진 기업은 잘 없다는 주장 
-  - 이 글은 MotherDuck의 포스트다. DuckDB는 in-process OLAP 데이터베이스이며, 순수 in-memory DB는 아니다. 주장은 설득력있다.
 
 Data warehouse라는 OLAP 유즈케이스가 등장하면서도 한 데이터베이스만 사용해서 홍보하려는 시도가 있었던 듯. 예를 들어 OLTP DBMS와 OLAP DBMS를 한 프론트엔드에 결합시켜서 한 시스템으로 판매하는 경우.
 하지만 OLTP와 OLAP은 유즈케이스가 다르고 특성도 달라서 한 쪽에서 필요한 기능이 다른 쪽에서는 필요하지 않은 경우가 많아 비효율적이다.
