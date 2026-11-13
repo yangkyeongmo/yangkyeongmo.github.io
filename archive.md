@@ -1,8 +1,6 @@
 ---
-layout: archive
-title: Archive
-lang: en
-locale: en_US
+layout: redirect
 permalink: /archive.html
-translation_url: /ko/archive.html
+redirect_to: /
+sitemap: false
 ---
