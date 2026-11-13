@@ -29,7 +29,6 @@ In the existing partition structure there was no space at all between root and h
 Because I had previously placed the home partition right after the root partition, there was no space to expand the root partition.
 
 I could have considered formatting, but I was using it for work and had already done various settings, so I didn't want to invest time in recovery work.
-(I also needed time to play games.)
 
 There was about 100GB of free space on the home partition.
 After cleaning up a bit more I was able to free another 50GB.
@@ -37,10 +36,7 @@ If I shrank this, it looked like I could allocate more space to the root partiti
 So I decided to delete the home partition and then adjust its position in order to allocate more space to the root partition.
 
 # Rising action
-There's a saying, "Two is one and one is none".
-It means always count one as none and prepare for the case of failure.
-For data, that would be always making a backup.
-Remembering this saying, before formatting the home partition I copied all user data under home to a separate hard disk.
+Before formatting the home partition I copied all user data under home to a separate hard disk.
 
 ```bash
 sudo cp -r /home/* /mnt/hdd0/Home_bk/
@@ -65,10 +61,6 @@ Failed to start reboot.target: Transaction is destructive.
 See system logs and 'systemctl status reboot.target' for details.
 ```
 
-I got curious what on earth the phrase "Transaction is destructive" means.
-Why would there be a destructive element when rebooting?
-This question made the confusion even bigger.
-
 When I checked the status of "reboot.target" as the suggested command said, I could confirm that "reboot.target" was disabled and in a dead state.
 
 ```bash
@@ -78,8 +70,6 @@ $ systemctl status reboot.target
    Active: inactive (dead)
      Docs: man:systemd.special(7)
 ```
-
-After that, in a despairing mood I meaninglessly repeated the same process several times but didn't get much out of it.
 
 Fortunately I looked it up on the internet and got a hint that boot problems can occur if the contents registered in fstab are missing.
 Thinking about it, if I had formatted the home partition and completely removed it, it occurred to me that it might not boot.
@@ -95,7 +85,7 @@ I commented out that location in fstab and rebooted. This time it booted fine!
 
 > Takeaway: If the contents in /etc/fstab cannot be loaded, it doesn't boot.
 
-However, as if telling me to slow down a bit, this time login didn't work.
+However, this time login didn't work.
 On the login screen the users that originally existed were displaying fine.
 Probably because the root partition is well preserved, and user information is registered on the root partition, I think.
 
@@ -115,26 +105,11 @@ But then, what do you know, **the backed-up data was not visible.**
 
 # Climax
 
-To briefly explain, the backed-up data, even if the size might not be that large (total ~200GB), has various setting values in it.
-From simple things like zsh or asdf settings to installed apps, and VPN settings used at the company would also be in the home directory.
-Fortunately the project files are stored on a separate hard drive and synced with git, so that's not a problem.
-
-But the biggest problem is the time spent setting things up again.
-No matter how important the data is you can get it back, but that process is truly exhausting.
-There are still several days of holiday left and I didn't want to blow this nice holiday on "tidying up settings I didn't have to do but touched anyway and now have to do again".
-
-I'm not usually someone who panics much.
-Even when I panic I consciously think "in this situation I guess I should panic a bit to be human" and fall into a somewhat intentional panic state.
-This time was different.
-
-My hands were actually shaking and dismay rose up from the core.
-Thinking about it now, I think it was more so because the two hours until just now of staying up late struggling to grow the partition size a bit seemed to have gone to waste.
-
 I checked the command history, but I couldn't confirm whether I'd deleted it by mistake.
 I checked what was in the location I'd created, and the newly created users were in there.
 I thought maybe I'd misconfigured something and the newly created users had gone that way.
 
-For some reason I listed up the root directory.
+I listed up the root directory.
 ```bash
 sudo ls -al /
 ```
@@ -143,7 +118,6 @@ But then, what do you know, the /home I'd created earlier was still a symbolic l
 This was very strange.
 
 I deleted the symbolic link and rebooted.. and the original data was still alive!
-The thought that I hadn't done anything wrong came to me and in that moment a deep relief set in.
 
 What I learned afterward is that in Linux, if you mount another disk B at the location where disk A's data physically is, only B's data becomes visible.
 
@@ -163,7 +137,7 @@ When I actually checked the ownership of the copied home, it was all set to root
 Probably when trying to log in as a specific user it tried to use the files in that user's home directory, but lacked permission, so login failed.
 
 ```bash
-stat /path/to/file`
+stat /path/to/file
 ```
 
 I changed the directory ownership and tried logging in again.
