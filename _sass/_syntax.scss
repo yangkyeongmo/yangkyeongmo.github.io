@@ -1,0 +1,127 @@
+// Rouge syntax colors that track light/dark tokens — practice 12 + 10
+// Quiet palette: default, comment, keyword, string, number.
+
+.highlight {
+  color: var(--syn-fg);
+  background: transparent;
+}
+
+.highlight .c,
+.highlight .ch,
+.highlight .cd,
+.highlight .cm,
+.highlight .cpf,
+.highlight .c1,
+.highlight .cs {
+  color: var(--syn-comment);
+  font-style: italic;
+}
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt,
+.highlight .kv,
+.highlight .kc,
+.highlight .ow,
+.highlight .o {
+  color: var(--syn-keyword);
+  font-weight: 600;
+}
+
+.highlight .s,
+.highlight .sa,
+.highlight .sb,
+.highlight .sc,
+.highlight .dl,
+.highlight .sd,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .s1,
+.highlight .ss {
+  color: var(--syn-string);
+}
+
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il,
+.highlight .mx {
+  color: var(--syn-number);
+}
+
+.highlight .n,
+.highlight .na,
+.highlight .nb,
+.highlight .bp,
+.highlight .nc,
+.highlight .no,
+.highlight .nd,
+.highlight .ni,
+.highlight .ne,
+.highlight .nf,
+.highlight .fm,
+.highlight .nl,
+.highlight .nn,
+.highlight .nx,
+.highlight .py,
+.highlight .nt,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi,
+.highlight .vm {
+  color: var(--syn-name);
+}
+
+.highlight .nc,
+.highlight .nf,
+.highlight .fm,
+.highlight .nn {
+  font-weight: 600;
+}
+
+.highlight .p,
+.highlight .w {
+  color: var(--syn-fg);
+}
+
+.highlight .err {
+  color: var(--syn-fg);
+}
+
+.highlight .gd {
+  color: var(--syn-string);
+}
+
+.highlight .gi {
+  color: var(--syn-keyword);
+}
+
+.highlight .gu,
+.highlight .gh,
+.highlight .gp,
+.highlight .go,
+.highlight .gt,
+.highlight .gr {
+  color: var(--syn-comment);
+}
+
+.highlight table {
+  border: 0;
+  width: 100%;
+}
+
+.highlight table td {
+  border: 0;
+  padding: 0;
+}

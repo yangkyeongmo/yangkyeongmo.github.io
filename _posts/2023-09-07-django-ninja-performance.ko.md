@@ -15,18 +15,18 @@ original_url: /django-ninja-performance.html
 # Profiling with Py-spy
 더 분명하게 보려고, 가벼운 프로파일러인 `py-spy`([GitHub 링크](https://github.com/benfred/py-spy))를 썼습니다. 결과가 눈을 뜨게 했습니다. 아래는 API 호출 10번 정도의 스냅샷입니다. 맨 오른쪽에 응답을 만드는 구간인 `_result_to_response` 함수가 보입니다. 정확한 지연은 안 나왔지만, 이 과정이 실제 검색 쿼리만큼이나 오래 걸리고 있었습니다.
 
-![django-ninja-performance-0.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-0.png)
+![django-ninja-performance-0.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-0.png){: width="3342" height="752" loading="eager" decoding="async"}
 
 조금 더 쪼개 봅시다.
 # Unveiling the Culprit: Field Mismatches
 
 이 스냅샷에서:
 
-![django-ninja-performance-1.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-1.png)
+![django-ninja-performance-1.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-1.png){: width="3326" height="412" loading="lazy" decoding="async"}
 
 파생 스키마 필드를 계산하는 데 쓴 시간 비중이 눈에 띕니다. 크지는 않지만, 검색처럼 필요 없을 때 계산을 건너뛰면 상당한 최적화로 이어질 만큼 자원을 씁니다. 하지만 이게 주된 문제는 아니었습니다.
 
-![django-ninja-performance-2.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-2.png)
+![django-ninja-performance-2.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-2.png){: width="3342" height="376" loading="lazy" decoding="async"}
 
 다음으로 큰 시간 싱크는 응답 자체 생성입니다. 이 일을 하는 코드를 들여다보면, 범인이 보입니다:
 
@@ -94,7 +94,7 @@ class HelloResponse(Schema):
 
 `py-spy`가 만든 콜 스택을 가까이 보면:
 
-![django-ninja-performance-3.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-3.png)
+![django-ninja-performance-3.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-3.png){: width="3326" height="214" loading="lazy" decoding="async"}
 
 하지만 없는 필드를 딕셔너리로 직접 넘기니, `Variable(key).resolve(self._obj)`가 만들던 지연이 완전히 사라졌습니다. `views.py`의 수정된 코드는 이랬습니다:
 
@@ -108,10 +108,10 @@ def hello(request):
 없는 값을 명시적으로 넣어서, `resolve()`가 필요 없게 우회했고, 검색 API의 응답 지연을 30% 줄였습니다. 아래 py-spy 프로파일 비교에서 이를 볼 수 있습니다:
 
 명시적 할당 전 콜 스택:
-![django-ninja-performance-4.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-4.png)
+![django-ninja-performance-4.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-4.png){: width="492" height="277" loading="lazy" decoding="async"}
 
 명시적 할당 후 콜 스택. 콜 스택이 사라졌습니다.
-![django-ninja-performance-5.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-5.png)
+![django-ninja-performance-5.png](/assets/img/2023-09-07-django-ninja-performance/django-ninja-performance-5.png){: width="492" height="277" loading="lazy" decoding="async"}
 ### The Final Fix: Explicit is Better than Implicit
 
 결국 해결은 단순했습니다: 명시적이어야 했습니다. 원래 `dataclass`에 없던 필드에 값을 수동으로 줘서, Django Ninja의 `resolve()` 메서드가 만들던 성능 병목을 없앴습니다.

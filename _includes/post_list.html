@@ -1,4 +1,5 @@
 {%- assign lang = include.lang | default: page.lang | default: "en" -%}
+{%- assign i18n = site.data.i18n[lang] -%}
 {%- if include.category -%}
   {%- assign posts = site.categories[include.category] | where: "lang", lang -%}
 {%- else -%}
@@ -12,15 +13,37 @@
 {%- endif -%}
 
 {%- if posts.size > 0 -%}
-  <ul>
+  {%- if include.group_by_year -%}
+    {%- assign current_year = "" -%}
     {%- for post in posts limit: include.limit -%}
-        <li>
-          <span>{{- post.date | date: site.theme_config.date_format -}}</span>
-          <a href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a>
-        </li>
+      {%- assign y = post.date | date: "%Y" -%}
+      {%- if y != current_year -%}
+        {%- unless current_year == "" -%}
+    </ul>
+        {%- endunless -%}
+    <h2 class="archive-year">{{ y }}</h2>
+    <ul class="post-list">
+        {%- assign current_year = y -%}
+      {%- endif -%}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <time class="meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: i18n.date_format }}</time>
+      </li>
     {%- endfor -%}
-    {%- if include.show_more and limit_exceeded -%}
-      <li><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></li>
+    {%- if current_year != "" -%}
+    </ul>
     {%- endif -%}
-  </ul>
+  {%- else -%}
+    <ul class="post-list">
+      {%- for post in posts limit: include.limit -%}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <time class="meta" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: i18n.date_format }}</time>
+        </li>
+      {%- endfor -%}
+      {%- if include.show_more and limit_exceeded -%}
+        <li><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></li>
+      {%- endif -%}
+    </ul>
+  {%- endif -%}
 {%- endif -%}

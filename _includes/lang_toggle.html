@@ -1,4 +1,5 @@
 {%- assign current_lang = page.lang | default: "en" -%}
+{%- assign i18n = site.data.i18n[current_lang] -%}
 {%- assign en_url = nil -%}
 {%- assign ko_url = nil -%}
 
@@ -26,20 +27,20 @@
   {%- assign ko_url = "/ko/" -%}
 {%- endif -%}
 
-<nav class="lang-toggle" aria-label="Language">
+<nav class="lang-toggle" aria-label="{{ i18n.lang_label }}">
   {%- if current_lang == "en" -%}
-    <span aria-current="page">EN</span>
+    <span lang="en" aria-current="page">English</span>
   {%- elsif en_url -%}
-    <a href="{{ en_url | relative_url }}" hreflang="en" lang="en" data-set-lang="en">EN</a>
+    <a href="{{ en_url | relative_url }}" hreflang="en" lang="en" rel="alternate" data-set-lang="en">English</a>
   {%- else -%}
-    <span>EN</span>
+    <span lang="en">English</span>
   {%- endif -%}
   <span aria-hidden="true"> | </span>
   {%- if current_lang == "ko" -%}
-    <span aria-current="page">한국어</span>
+    <span lang="ko" aria-current="page">한국어</span>
   {%- elsif ko_url -%}
-    <a href="{{ ko_url | relative_url }}" hreflang="ko" lang="ko" data-set-lang="ko">한국어</a>
+    <a href="{{ ko_url | relative_url }}" hreflang="ko" lang="ko" rel="alternate" data-set-lang="ko">한국어</a>
   {%- else -%}
-    <span>한국어</span>
+    <span lang="ko">한국어</span>
   {%- endif -%}
 </nav>

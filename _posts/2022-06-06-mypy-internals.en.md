@@ -50,7 +50,7 @@ The intent isn't clearly stated in the code or docs, but reconstructing the depe
 
 ## SCC?
 
-![SCC example figure](/assets/img/mypy-internals/scc.png "SCC example figure")
+![SCC example figure](/assets/img/mypy-internals/scc.png "SCC example figure"){: width="796" height="385" loading="eager" decoding="async"}
 
 > A strongly connected subgraph, S, of a directed graph, D, such that no vertex of D can be added to S and it still be strongly connected. Informally, a maximal subgraph in which every vertex is reachable from every other vertex. [ref](https://xlinux.nist.gov/dads/HTML/stronglyConnectedCompo.html)
 
@@ -159,7 +159,7 @@ This is the process of taking the file content and making it into an AST node tr
 
 ## AST?
 
-![AST example figure](/assets/img/mypy-internals/ast-example.png)
+![AST example figure](/assets/img/mypy-internals/ast-example.png){: width="796" height="898" loading="lazy" decoding="async"}
 
 > In computer science, an abstract syntax tree (AST), or just syntax tree, is a tree representation of the abstract syntactic structure of text (often source code) written in a formal language. Each node of the tree denotes a construct occurring in the text. [ref](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
 
@@ -203,7 +203,7 @@ Once we get here, it becomes a state where an AST in a form mypy can understand 
 
 In mypy, Semantic analysis, broadly speaking, is the process of filling SymbolTable with SymbolTableNodes. The objects that mainly participate are as in the figure. For convenience most of the relationships were omitted.
 
-![Semantic Analysis object relation](/assets/img/mypy-internals/semantic-analysis.png)
+![Semantic Analysis object relation](/assets/img/mypy-internals/semantic-analysis.png){: width="643" height="642" loading="lazy" decoding="async"}
 
 ## Interpretation
 
@@ -238,7 +238,7 @@ When this process is done, the analysis target's SymbolTable is filled.
 
 The role of mapping expression AST nodes with types. Infers a type for each subexpression AST node. Below is the relationships between objects in the type-checking stage; for convenience most were omitted.
 
-![Type check object relation](/assets/img/mypy-internals/type-check.png)
+![Type check object relation](/assets/img/mypy-internals/type-check.png){: width="540" height="642" loading="lazy" decoding="async"}
 
 ## Interpretation
 

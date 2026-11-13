@@ -39,7 +39,7 @@ wikipedia.org/wiki/Data_structure) – often some kind of [parse tree](https:/
  의미적으로는 이렇고 Python 구현에서는 token generator와 code generator 사이에서 parse tree를 만들어주는 프로그램을 의미함.
  Token generator가 input string을 보고 tokenize를 해주면 token들을 가지고 parser가 AST를 만들어준다. Code generator는 AST를 받아서 byte code를 만듬.
 
-![Image](/assets/img/bcb439be-e82b-468c-bcac-5e1e2cdb2e6f.png)
+![Image](/assets/img/bcb439be-e82b-468c-bcac-5e1e2cdb2e6f.png){: width="796" height="392" loading="eager" decoding="async"}
 
 ## top-down parser
 

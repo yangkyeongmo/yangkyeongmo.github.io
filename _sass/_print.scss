@@ -1,0 +1,67 @@
+@media print {
+  .skip-link,
+  .site-header nav,
+  .lang-toggle,
+  .copy-button,
+  .post-pager,
+  .theme-toggle,
+  .permalink,
+  .toc,
+  .back-to-top {
+    display: none !important;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:not([href*="yanggyeongmo.com"])::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    overflow-wrap: anywhere;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  pre,
+  figure,
+  table,
+  blockquote,
+  img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  p {
+    orphans: 2;
+    widows: 2;
+  }
+
+  .page,
+  .site-header,
+  .site-footer {
+    max-inline-size: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  pre,
+  div.highlighter-rouge {
+    white-space: pre-wrap;
+    overflow: visible;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}

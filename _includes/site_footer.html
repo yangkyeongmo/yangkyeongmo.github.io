@@ -1,0 +1,10 @@
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign i18n = site.data.i18n[lang] -%}
+<footer class="site-footer">
+  <p>
+    <a href="{{ i18n.feed_path | relative_url }}" rel="alternate" type="application/atom+xml">RSS</a>
+    ·
+    <a href="{{ "/about.html" | relative_url }}">{{ i18n.about }}</a>
+  </p>
+  <p class="copyright">© {{ site.author }}</p>
+</footer>

@@ -1,18 +1,15 @@
 ---
 layout: default
 ---
-<header>
-  <div class="home-header">
-    <h1>{{ site.title }}</h1>
-    {%- include lang_toggle.html -%}
-  </div>
-  {%- assign lang = page.lang | default: "en" -%}
-  {%- assign i18n = site.data.i18n[lang] -%}
-  {%- if site.theme_config.show_description -%}
-    <p>{{ i18n.description }}</p>
-  {%- endif -%}
-</header>
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign i18n = site.data.i18n[lang] -%}
+{%- if site.theme_config.show_description -%}
+<p class="lede">{{ i18n.description }}</p>
+<p class="lede-links">
+  <a href="https://github.com/yangkyeongmo" rel="me">GitHub</a>
+  ·
+  <a href="https://www.linkedin.com/in/gyeongmo-yang-8875671a2/" rel="me">LinkedIn</a>
+</p>
+{%- endif -%}
 
-{%- include menu_item.html collection=site.data.menu.entries lang=lang -%}
-
-{{ content }}
+{%- include post_list.html lang=lang -%}

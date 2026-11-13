@@ -47,7 +47,7 @@ mypy가 타입 체크를 하는 과정(중 일부)에 대해 코드를 확인해
 
 ## SCC?
 
-![SCC 예시 그림](/assets/img/mypy-internals/scc.png "SCC 예시 그림")
+![SCC 예시 그림](/assets/img/mypy-internals/scc.png "SCC 예시 그림"){: width="796" height="385" loading="eager" decoding="async"}
 
 > A strongly connected subgraph, S, of a directed graph, D, such that no vertex of D can be added to S and it still be strongly connected. Informally, a maximal subgraph in which every vertex is reachable from every other vertex. [ref](https://xlinux.nist.gov/dads/HTML/stronglyConnectedCompo.html)
 
@@ -156,7 +156,7 @@ scc 전체가 fresh하면 캐시에서 정보를 가져오고(=”처리”), �
 
 ## AST?
 
-![AST 예시 그림](/assets/img/mypy-internals/ast-example.png)
+![AST 예시 그림](/assets/img/mypy-internals/ast-example.png){: width="796" height="898" loading="lazy" decoding="async"}
 
 > In computer science, an abstract syntax tree (AST), or just syntax tree, is a tree representation of the abstract syntactic structure of text (often source code) written in a formal language. Each node of the tree denotes a construct occurring in the text. [ref](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
 
@@ -200,7 +200,7 @@ def visit_Return(self, n: ast3.Return) -> ReturnStmt:
 
 mypy에서 Semantic analysis는 크게 보자면 SymbolTable에 SymbolTableNode을 채워넣는 과정이다. 주요하게 참여하는 객체들은 그림과 같다. 편의상 관계의 대부분이 생략되었음.
 
-![Semantic Analysis object relation](/assets/img/mypy-internals/semantic-analysis.png)
+![Semantic Analysis object relation](/assets/img/mypy-internals/semantic-analysis.png){: width="643" height="642" loading="lazy" decoding="async"}
 
 ## 해석
 
@@ -235,7 +235,7 @@ SemanticAnalyzer가 State의 tree를 visit 하면서 분석 과정이 시작된�
 
 expression AST 노드를 타입과 매핑하는 역할. 각 subexpression AST 노드에 대해서 type을 추론한다. 아래는 타입 체크 단계에서 객체간 관계로 편의상 대부분 생략되었음.
 
-![Type check object relation](/assets/img/mypy-internals/type-check.png)
+![Type check object relation](/assets/img/mypy-internals/type-check.png){: width="540" height="642" loading="lazy" decoding="async"}
 
 ## 해석
 

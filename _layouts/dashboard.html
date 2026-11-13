@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: "en" }}">
   {%- include dashboard-head.html -%}
-  <body a="{{ site.theme_config.appearance | default: "auto" }}">
-    <main class="page-content" aria-label="Content">
-      <div class="w">
-        {{ content }}
-      </div>
+  <body>
+    {%- assign lang = page.lang | default: "en" -%}
+    {%- assign i18n = site.data.i18n[lang] -%}
+    <a class="skip-link" href="#main">{{ i18n.skip_to_content }}</a>
+    {%- include site_header.html -%}
+    <main id="main" class="page page--wide" tabindex="-1" aria-label="{{ i18n.content_label }}">
+      {{ content }}
     </main>
+    {%- include site_footer.html -%}
 
     {%-if site.goat_counter and jekyll.environment == "production"-%}
       {%-include goat_counter.html-%}

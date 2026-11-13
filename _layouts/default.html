@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: "en" }}">
   {%- include head.html -%}
-  <body a="{{ site.theme_config.appearance | default: "auto" }}"{% if page.layout == "home" %} data-home="{{ page.lang | default: "en" }}"{% endif %}>
-    <main class="page-content" aria-label="Content">
-      <div class="w">
-        {{ content }}
-      </div>
+  <body{% if page.layout == "home" %} data-home="{{ page.lang | default: "en" }}"{% endif %}>
+    {%- assign lang = page.lang | default: "en" -%}
+    {%- assign i18n = site.data.i18n[lang] -%}
+    <a class="skip-link" href="#main">{{ i18n.skip_to_content }}</a>
+    {%- include site_header.html -%}
+    <main id="main" class="page" tabindex="-1" aria-label="{{ i18n.content_label }}">
+      {{ content }}
     </main>
+    {%- include site_footer.html -%}
 
     {%-if site.goat_counter and jekyll.environment == "production"-%}
       {%-include goat_counter.html-%}
@@ -18,5 +21,8 @@
       {% endfor %}
     {% endif %}
     <script type="text/javascript" src="{{ "/assets/js/lang-preference.js" | relative_url }}"></script>
+    {%- if page.layout == "post" -%}
+    <script type="text/javascript" src="{{ "/assets/js/article-enhance.js" | relative_url }}"></script>
+    {%- endif -%}
   </body>
 </html>

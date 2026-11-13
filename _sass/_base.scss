@@ -1,0 +1,133 @@
+// Base type, measure, and element defaults — practices 1–4, 6, 8, 15, 21, 22, 25
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  scroll-padding-block-start: var(--s2);
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-sans);
+  // Quoted so Ruby Sass (GitHub Pages) does not try to add rem + vw
+  font-size: #{"clamp(1.0625rem, 1rem + 0.35vw, 1.25rem)"};
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--bg);
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+  text-align: start;
+}
+
+article,
+.post-content {
+  max-inline-size: var(--measure);
+  line-height: 1.6;
+  text-align: start;
+}
+
+h1,
+.post-title,
+.page-title {
+  font-size: var(--s3);
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+h2 {
+  font-size: var(--s2);
+  font-weight: 650;
+  line-height: 1.25;
+  text-wrap: balance;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+h3 {
+  font-size: var(--s1);
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: balance;
+  color: var(--text);
+}
+
+small,
+.meta {
+  font-size: var(--s-1);
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+h1,
+h2,
+h3,
+h4,
+.post-title,
+.page-title {
+  text-wrap: balance;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: from-font;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+img,
+video,
+iframe {
+  max-inline-size: 100%;
+  height: auto;
+}
+
+hr {
+  border: 0;
+  border-block-start: 1px solid var(--rule);
+  margin-block: var(--s2);
+}
+
+:lang(en) {
+  font-family: system-ui, "Segoe UI", Roboto,
+               "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR",
+               sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+:lang(ko) {
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR",
+               system-ui, "Segoe UI", Roboto,
+               sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+:lang(ko) code,
+:lang(ko) pre {
+  font-family: var(--font-mono);
+}
+
+:lang(en) .post-content p {
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+}

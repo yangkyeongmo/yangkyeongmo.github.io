@@ -50,7 +50,7 @@ mypy는 순환 참조를 해결하기 위해서 Strongly Connected Component를 
 
 ## Strongly Connected Component
 
-![Strongly Connected Component](/assets/img/2023-07-18-mypy-1-pre-optimization/scc.png)
+![Strongly Connected Component](/assets/img/2023-07-18-mypy-1-pre-optimization/scc.png){: width="440" height="208" loading="eager" decoding="async"}
 
 Strongly Connected Component, 혹은 SCC는 directed graph에서 순환 관계가 발생하는 노드들을 하나로 묶은 것입니다.
 구체적으로는, 한 노드에서 다시 자기 자신으로 돌아올 수 있다면 SCC의 구성 요소가 될 수 있습니다.
