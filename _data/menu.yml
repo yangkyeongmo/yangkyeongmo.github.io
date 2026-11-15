@@ -16,6 +16,11 @@ entries:
           en: linkedin
           ko: linkedin
         url: https://www.linkedin.com/in/gyeongmo-yang-8875671a2/
+      # Keep in sync with site.social.x_username in _config.yml
+      - title:
+          en: x
+          ko: x
+        url: https://x.com/REPLACE_WITH_YOUR_X_HANDLE
 
   - title:
       en: highlights

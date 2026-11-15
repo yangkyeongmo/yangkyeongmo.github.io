@@ -24,5 +24,8 @@
     {%- if page.layout == "post" -%}
     <script type="text/javascript" src="{{ "/assets/js/article-enhance.js" | relative_url }}"></script>
     {%- endif -%}
+    {%- if content contains "twitter-tweet" -%}
+    <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+    {%- endif -%}
   </body>
 </html>
