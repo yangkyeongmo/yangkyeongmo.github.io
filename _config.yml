@@ -13,14 +13,11 @@ social:
   links:
     - https://github.com/yangkyeongmo
     - https://www.linkedin.com/in/gyeongmo-yang-8875671a2/
-    - https://x.com/REPLACE_WITH_YOUR_X_HANDLE
-  # PLACEHOLDER: no X/Twitter handle was found in this repo, GitHub
-  # (twitter_username is null), the live blog, or yanggyeongmo.com.
-  # Replace REPLACE_WITH_YOUR_X_HANDLE (no @) here, in social.links above,
-  # and in _data/menu.yml. Individual posts can embed a tweet by pasting
-  # the official <blockquote class="twitter-tweet"> snippet; widgets.js
-  # loads once from the default layout when that class is present.
-  x_username: REPLACE_WITH_YOUR_X_HANDLE
+    - https://x.com/l48Jt2tjLqCjrQK
+  # Display name on X is gmyang. Individual posts can embed a tweet by
+  # pasting the official <blockquote class="twitter-tweet"> snippet;
+  # widgets.js loads once from the default layout when that class is present.
+  x_username: l48Jt2tjLqCjrQK
 locale: en_US
 timezone: Asia/Seoul
 
